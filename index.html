@@ -4,30 +4,89 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
+    <!--
+    <script src="js/vendor/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="css/vendor/pace/pace.min.css">
+    <script type="text/javascript">
+    Pace.on('done', function() {
+      $('#grc-body').removeClass("grc-stop-scrolling");
+      $('#grc-app-loading').fadeOut(600);
+    });
+    </script>
+    -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>General Relativity</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
   </head>
-  <body>
+  <!-- <body id="grc-body" class="grc-stop-scrolling"> -->
+  <body id="grc-body">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!--
+    <div id="grc-app-loading">
+      <h1 class="grc-app-loading-heading">Loading</h1>
+    </div>
+    -->
     <div id="grc-app">
 
+      <section class="grc-section grc-section-1">
 
-    </div>
+
+
+
+        <div class="grc-section-1-bg"></div>
+        <div class="grc-section-1-text">Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
+        <div class="grc-section-1-book-cover-container">
+          <div class="grc-section-1-book-cover-shadow"></div>
+          <div class="grc-section-1-book-cover"></div>
+        </div>
+
+
+
+      </section>
+      <section class="grc-section grc-section-2">
+        <p>Text</p>
+      </section>
+      <section class="grc-section grc-section-3">
+        <p>Text</p>
+      </section>
+      <section class="grc-section grc-section-4">
+        <p>Text</p>
+      </section>
+
+    </div><!-- End General Relativity Comic App -->
+
+    <!--
+    future TODO:
+    - remove dev version of scrollmagic
+    - replace dev version of modernizr
+    - use only gsap necessary
+    - use min version of main.js
+    - site title???
+     -->
+
+    <!--
+    now TODO:
+    - setup platform detection
+    - setup pace.js
+    - setup peel
+    -->
     <script src="js/vendor/jquery/jquery-2.1.3.min.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     <script src="js/vendor/modernizr/modernizr-dev.min.js"></script>
     <script src="js/vendor/gsap/TweenMax.min.js"></script>
-    <script src="js/vendor/gsap/TweenLite.min.js"></script>
+    <!-- <script src="js/vendor/gsap/TweenLite.min.js"></script> -->
     <script src="js/vendor/gsap/TimelineMax.min.js"></script>
-    <script src="js/vendor/gsap/TimelineLite.min.js"></script>
+    <!-- <script src="js/vendor/gsap/TimelineLite.min.js"></script> -->
     <script src="js/vendor/scrollmagic/jquery.scrollmagic.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="js/vendor/scrollmagic/jquery.scrollmagic.debug.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

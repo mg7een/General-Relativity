@@ -1,1 +1,152 @@
+/**
+ * CONTENTS
+ *
+ * SETUP
+ * XX.........................................@XX | Description.
+ * YY.........................................@YY | Description.
+ *
+ * CUSTOM CSS
+ * Loading Splash.............................@loading | Loading splash.
+ * Base.......................................@base | Base CSS.
+ *
+ */
+/**
+ * Use @tag to jump to sections
+ */
+/* ==========================================================================
+   Setup
+   ========================================================================== */
+/* Variables | @variables
+   ========================================================================== */
+/* Project Breakpoints */
+/* Mixins | @mixins
+   ========================================================================== */
+/* Keyframes Mixin */
+/* ==========================================================================
+   Custom CSS
+   ========================================================================== */
+/* Loading Splash | @loading
+   ========================================================================== */
+#grc-app-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: brown;
+  z-index: 1000; }
 
+.grc-app-loading-heading {
+  width: 100%;
+  text-align: center;
+  color: white; }
+
+/* Base | @base
+   ========================================================================== */
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+#grc-app {
+  height: 100%; }
+
+/**
+ * helper class for temporarily removing scroll
+ */
+.grc-stop-scrolling {
+  height: 100%;
+  overflow: hidden; }
+
+.grc-section {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+  .grc-section p {
+    margin: 0;
+    padding: 0;
+    font-size: 3em; }
+  .grc-section-1 {
+    position: relative;
+    background-color: orange;
+    overflow: hidden; }
+  .grc-section-2 {
+    background-color: red; }
+  .grc-section-3 {
+    background-color: blue; }
+  .grc-section-4 {
+    background-color: purple; }
+
+/* Section 1 | @s1
+   ========================================================================== */
+.grc-section-1-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/test-cover.png);
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.grc-section-1-book-cover-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 278px;
+  height: 375px;
+  margin: auto;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
+  -ms-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
+  -moz-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
+  -o-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
+  transform: rotate(-7deg) translateX(-30px) translateY(-60px); }
+
+.grc-section-1-book-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/giraffe.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%; }
+
+.grc-section-1-book-cover-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.25);
+  backface-visibility: hidden;
+  -webkit-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
+  -ms-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 3%;
+  -ms-border-radius: 3%;
+  -moz-border-radius: 3%;
+  -o-border-radius: 3%;
+  border-radius: 3%;
+  -webkit-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%; }

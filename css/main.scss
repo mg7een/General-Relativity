@@ -1,3 +1,238 @@
-body {
-  // background-color: orange;
+/**
+ * CONTENTS
+ *
+ * SETUP
+ * XX.........................................@XX | Description.
+ * YY.........................................@YY | Description.
+ *
+ * CUSTOM CSS
+ * Loading Splash.............................@loading | Loading splash.
+ * Base.......................................@base | Base CSS.
+ *
+ */
+
+/**
+ * Use @tag to jump to sections
+ */
+
+/* ==========================================================================
+   Setup
+   ========================================================================== */
+
+/* Variables | @variables
+   ========================================================================== */
+
+/* Project Breakpoints */
+$tablet: 768;
+$desktop: 992;
+$desktop-lg: 1200;
+$desktop-xl: 1600;
+
+/* Mixins | @mixins
+   ========================================================================== */
+
+@mixin placeholder-content {
+  &::-webkit-input-placeholder {
+     @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+     @content;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+     @content;
+  }
+  &:-ms-input-placeholder {
+     @content;
+  }
+}
+
+@mixin placeholder {
+  @include placeholder-content {
+    @content;
+  }
+}
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin breakpoint($foo) {
+  @media only screen and (min-width: $foo + px) { @content; }
+}
+
+@mixin tablet {
+  @include breakpoint($tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include breakpoint($desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @include breakpoint($desktop-lg) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @include breakpoint($desktop-xl) {
+    @content;
+  }
+}
+
+/* Keyframes Mixin */
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+/* ==========================================================================
+   Custom CSS
+   ========================================================================== */
+
+/* Loading Splash | @loading
+   ========================================================================== */
+
+#grc-app-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: brown;
+  z-index: 1000;
+}
+
+.grc-app-loading-heading {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+/* Base | @base
+   ========================================================================== */
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#grc-app {
+  height: 100%;
+}
+
+/**
+ * helper class for temporarily removing scroll
+ */
+.grc-stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.grc-section {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
+  }
+  &-1 {
+    position: relative;
+    background-color: orange;
+    overflow: hidden;
+  }
+  &-2 {
+    background-color: red;
+  }
+  &-3 {
+    background-color: blue;
+  }
+  &-4 {
+    background-color: purple;
+  }
+}
+
+/* Section 1 | @s1
+   ========================================================================== */
+
+.grc-section-1-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/test-cover.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  // background-attachment: fixed;
+  // @include vendor-prefix(background-size, cover);
+}
+
+.grc-section-1-book-cover-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 278px;
+  height: 375px;
+  margin: auto;
+
+  @include vendor-prefix(transform-origin, 50% 50%);
+  @include vendor-prefix(transform, (rotate(-7deg) translateX(-30px) translateY(-60px)));
+}
+
+.grc-section-1-book-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/giraffe.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  // backface-visibility: hidden;
+
+  @include vendor-prefix(transform-origin, 0% 0%);
+}
+
+.grc-section-1-book-cover-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  background-color: rgba(0,0,0,0.25);
+
+  backface-visibility: hidden;
+
+  @include vendor-prefix(box-shadow, 0px 0px 4px 12px rgba(0,0,0,0.25));
+  @include vendor-prefix(border-radius, 3%);
+  @include vendor-prefix(transform-origin, 0% 0%);
 }
