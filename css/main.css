@@ -86,7 +86,7 @@ html, body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../img/test-cover.png);
+  background-image: url(../img/bg-hole.png);
   background-repeat: no-repeat;
   background-position: center center; }
 
@@ -104,19 +104,19 @@ html, body {
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
-  -ms-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
-  -moz-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
-  -o-transform: rotate(-7deg) translateX(-30px) translateY(-60px);
-  transform: rotate(-7deg) translateX(-30px) translateY(-60px); }
+  -webkit-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
+  -ms-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
+  -moz-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
+  -o-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
+  transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px); }
 
-.grc-section-1-book-cover {
+.grc-section-1-book-cover,
+.grc-section-1-book-cover-back {
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../img/giraffe.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-transform-origin: 0% 0%;
@@ -125,28 +125,43 @@ html, body {
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%; }
 
-.grc-section-1-book-cover-shadow {
+.grc-section-1-book-cover {
+  backface-visibility: hidden;
+  background-image: url(../img/cover.png); }
+
+.grc-section-1-book-cover-back {
+  background-image: url(../img/stars.png); }
+
+.grc-section-1-book-cover-top-shadow {
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  height: 90%;
+  height: 99%;
   width: 90%;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.25);
   backface-visibility: hidden;
-  -webkit-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
-  -ms-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
-  -o-box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 4px 12px rgba(0, 0, 0, 0.25);
-  -webkit-border-radius: 3%;
-  -ms-border-radius: 3%;
-  -moz-border-radius: 3%;
-  -o-border-radius: 3%;
-  border-radius: 3%;
+  -webkit-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -ms-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
   -webkit-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%; }
+
+.grc-section-1-book-cover-top-shadow {
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 100%);
+  /* Chrome10+,Safari5.1+ */ }
