@@ -150,6 +150,7 @@ html, body {
 }
 
 .grc-section {
+  position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -161,17 +162,27 @@ html, body {
   }
   &-1 {
     position: relative;
-    background-color: orange;
     overflow: hidden;
   }
   &-2 {
     background-color: red;
+    overflow: hidden;
   }
   &-3 {
     background-color: blue;
   }
   &-4 {
     background-color: purple;
+    overflow: hidden;
+  }
+  &-5 {
+    background-color: green;
+  }
+  &-6 {
+    background-color: brown;
+  }
+  &-7 {
+    background-color: #111;
   }
 }
 
@@ -184,11 +195,11 @@ html, body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../img/bg-hole.png);
   background-repeat: no-repeat;
   background-position: center center;
   // background-attachment: fixed;
   // @include vendor-prefix(background-size, cover);
+  background-image: url(../img/bg-hole.png);
 }
 
 .grc-section-1-book-cover-container {
@@ -246,10 +257,141 @@ html, body {
   @include vendor-prefix(transform-origin, 0% 0%);
 }
 
-
 .grc-section-1-book-cover-top-shadow {
   height: 100%;
   width: 100%;
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(black, 0.5)), color-stop(100%, rgba(black, 0.1))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(left, rgba(black, 0.5) 0%, rgba(black, 0.1) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+/* Section 2 | @s2
+   ========================================================================== */
+
+.grc-section-2-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  // background-attachment: fixed;
+  // @include vendor-prefix(background-size, cover);
+  background-image: url(../img/giraffe.jpg);
+}
+
+.grc-section-2-character {
+  position: absolute;
+  top: 23%;
+  left: -20%;
+  display: block;
+}
+
+/* Section 3 | @s3
+   ========================================================================== */
+
+/* Animation Keyframes */
+
+@include keyframes(scene2MoveBg) {
+  from { background-position: 0 0; }
+  to { background-position: 0% -100%; }
+}
+
+.grc-section-3-panel-right {
+  position: absolute;
+  right: 20%;
+  height: 500px;
+  width: 400px;
+  background-repeat: repeat-y;
+  background-image: url(../img/s3-panel-right-bg.jpg);
+  &.animated {
+    @include vendor-prefix(animation, scene2MoveBg 4s linear infinite);
+  }
+}
+
+/* Section 4 | @s4
+   ========================================================================== */
+
+.grc-section-4-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  // background-attachment: fixed;
+  // @include vendor-prefix(background-size, cover);
+  background-image: url(../img/s4-bg.jpg);
+}
+
+/* Section 5 | @s5
+   ========================================================================== */
+
+.grc-section-5-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  // background-attachment: fixed;
+  @include vendor-prefix(background-size, 80%);
+  background-image: url(../img/s5-bg.jpg);
+}
+
+.grc-section-5-text-warp {
+  position: relative;
+  max-width: 200px;
+}
+
+/* Section 6 | @s6
+   ========================================================================== */
+
+.grc-section-6-roof-line-container {
+  position: relative;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 60px;
+  overflow: hidden;
+}
+
+.grc-section-6-roof-line {
+  position: absolute;
+  right: 0;
+  max-width: 100%;
+  @include vendor-prefix(transform, translateX(-90%));
+  @include vendor-prefix(transition, transform 1s ease-out);
+  &.animated {
+    @include vendor-prefix(transform, translateX(0%));
+  }
+}
+
+/* Section 7 | @s7
+   ========================================================================== */
+
+.grc-section-7-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // z-index: -1;
+}
+
+.grc-section-7-cosmos {
+  min-height: 100%;
+  max-height: 100%;
+}
+
+#s7-svg {
+  position: relative;
+  left: 25%;
+  z-index: 999;
 }

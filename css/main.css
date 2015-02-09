@@ -59,6 +59,7 @@ html, body {
   overflow: hidden; }
 
 .grc-section {
+  position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -69,14 +70,21 @@ html, body {
     font-size: 3em; }
   .grc-section-1 {
     position: relative;
-    background-color: orange;
     overflow: hidden; }
   .grc-section-2 {
-    background-color: red; }
+    background-color: red;
+    overflow: hidden; }
   .grc-section-3 {
     background-color: blue; }
   .grc-section-4 {
-    background-color: purple; }
+    background-color: purple;
+    overflow: hidden; }
+  .grc-section-5 {
+    background-color: green; }
+  .grc-section-6 {
+    background-color: brown; }
+  .grc-section-7 {
+    background-color: #111; }
 
 /* Section 1 | @s1
    ========================================================================== */
@@ -86,9 +94,9 @@ html, body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../img/bg-hole.png);
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center;
+  background-image: url(../img/bg-hole.png); }
 
 .grc-section-1-book-cover-container {
   position: absolute;
@@ -165,3 +173,144 @@ html, body {
   /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 100%);
   /* Chrome10+,Safari5.1+ */ }
+
+/* Section 2 | @s2
+   ========================================================================== */
+.grc-section-2-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/giraffe.jpg); }
+
+.grc-section-2-character {
+  position: absolute;
+  top: 23%;
+  left: -20%;
+  display: block; }
+
+/* Section 3 | @s3
+   ========================================================================== */
+/* Animation Keyframes */
+@-webkit-keyframes scene2MoveBg {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 0% -100%; } }
+@-moz-keyframes scene2MoveBg {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 0% -100%; } }
+@-ms-keyframes scene2MoveBg {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 0% -100%; } }
+@keyframes scene2MoveBg {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 0% -100%; } }
+.grc-section-3-panel-right {
+  position: absolute;
+  right: 20%;
+  height: 500px;
+  width: 400px;
+  background-repeat: repeat-y;
+  background-image: url(../img/s3-panel-right-bg.jpg); }
+  .grc-section-3-panel-right.animated {
+    -webkit-animation: scene2MoveBg 4s linear infinite;
+    -ms-animation: scene2MoveBg 4s linear infinite;
+    -moz-animation: scene2MoveBg 4s linear infinite;
+    -o-animation: scene2MoveBg 4s linear infinite;
+    animation: scene2MoveBg 4s linear infinite; }
+
+/* Section 4 | @s4
+   ========================================================================== */
+.grc-section-4-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/s4-bg.jpg); }
+
+/* Section 5 | @s5
+   ========================================================================== */
+.grc-section-5-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  -webkit-background-size: 80%;
+  -ms-background-size: 80%;
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  background-size: 80%;
+  background-image: url(../img/s5-bg.jpg); }
+
+.grc-section-5-text-warp {
+  position: relative;
+  max-width: 200px; }
+
+/* Section 6 | @s6
+   ========================================================================== */
+.grc-section-6-roof-line-container {
+  position: relative;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 60px;
+  overflow: hidden; }
+
+.grc-section-6-roof-line {
+  position: absolute;
+  right: 0;
+  max-width: 100%;
+  -webkit-transform: translateX(-90%);
+  -ms-transform: translateX(-90%);
+  -moz-transform: translateX(-90%);
+  -o-transform: translateX(-90%);
+  transform: translateX(-90%);
+  -webkit-transition: transform 1s ease-out;
+  -ms-transition: transform 1s ease-out;
+  -moz-transition: transform 1s ease-out;
+  -o-transition: transform 1s ease-out;
+  transition: transform 1s ease-out; }
+  .grc-section-6-roof-line.animated {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%); }
+
+/* Section 7 | @s7
+   ========================================================================== */
+.grc-section-7-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.grc-section-7-cosmos {
+  min-height: 100%;
+  max-height: 100%; }
+
+#s7-svg {
+  position: relative;
+  left: 25%;
+  z-index: 999; }
