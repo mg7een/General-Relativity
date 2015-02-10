@@ -38,17 +38,26 @@ var controller = new ScrollMagic({
 /* Scene 1 | @s1
    ========================================================================== */
 
+var scene1_bgAnimation = new TimelineMax()
+  .add([
+    TweenMax.to('.grc-section-1-scale-wrapper', 20, {
+      y: '-10%'
+    }),
+    TweenMax.to('.grc-section-2-bg', 10, {
+      backgroundColor: '#001d23'
+    }),
+    TweenMax.to('.grc-section-2-bg-stars', 5, {
+      opacity: 1
+    })
+  ]);
+
 var scene1_animation = new TimelineMax()
   .add([
     TweenMax.to('.grc-section-1-book-cover', 0.5, {
-      rotationY: '90'
+      rotationY: '-90'
     }),
     TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
-      rotationY: '90'
-    }),
-    TweenMax.to('.grc-section-1-book-cover-top-shadow', 0.5, {
-      rotationY: '90',
-      opacity: '0.5'
+      rotationY: '-90'
     })
   ])
   .add([
@@ -58,41 +67,29 @@ var scene1_animation = new TimelineMax()
   ])
   .add([
     TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
-      rotationY: '180'
-    }),
-    TweenMax.to('.grc-section-1-book-cover-shadow', 0.5, {
-      width: '0%'
+      rotationY: '-180'
     })
   ])
   .add([
-    TweenMax.to('.grc-section-1-book-cover-container', 1, {
-      scale: '5',
-      x: '-62px'
-    }),
-    TweenMax.to('.grc-section-1-bg', 1, {
-      scale: '5',
-      x: '200px'
-    }),
-    TweenMax.to('.grc-section-1-book-cover-container', 1, {
-      delay: 1,
-      opacity: 0
-    }),
-    TweenMax.to('.grc-section-1-bg', 1, {
-      delay: 1,
+    TweenMax.to('.grc-section-1-scale-wrapper', 0.5, {
+      scale: 5,
+      x: '20%',
       opacity: 0
     })
   ])
+
+  // Scene 2 elements
   .add([
-    TweenMax.to('.grc-section-2-character', 3, {
-      left: '120%'
+    TweenMax.to('.grc-section-2-character', 5, {
+      left: '100%'
     })
   ]);
 
 var scene1 = new ScrollScene({
-  duration: 1000
+  duration: 3000
 })
   .setPin(".grc-section-1")
-  .setTween([scene1_animation]);
+  .setTween([scene1_animation, scene1_bgAnimation]);
 
 /* Scene 2 | @s2
    ========================================================================== */
@@ -102,15 +99,6 @@ TweenMax.set('.grc-section-2', {
   top: '0',
   'z-index': '-1'
 });
-
-var scene2_animation = new TimelineMax()
-  .add([
-    TweenMax.to('.grc-section-2', 1, {
-      // position: 'absolute',
-      // top: '',
-      // 'z-index': ''
-    })
-  ]);
 
 var scene2 = new ScrollScene({
   duration: 1000,

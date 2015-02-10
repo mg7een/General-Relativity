@@ -72,19 +72,11 @@ html, body {
     position: relative;
     overflow: hidden; }
   .grc-section-2 {
-    background-color: red;
     overflow: hidden; }
   .grc-section-3 {
-    background-color: blue; }
+    background-color: white; }
   .grc-section-4 {
-    background-color: purple;
     overflow: hidden; }
-  .grc-section-5 {
-    background-color: green; }
-  .grc-section-6 {
-    background-color: brown; }
-  .grc-section-7 {
-    background-color: #111; }
 
 /* Section 1 | @s1
    ========================================================================== */
@@ -95,28 +87,36 @@ html, body {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url(../img/bg-hole.png); }
+  background-position: center bottom;
+  background-image: url(../img/s1-bg.png); }
+
+.grc-section-1-scale-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
 
 .grc-section-1-book-cover-container {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
-  width: 278px;
-  height: 375px;
+  bottom: 70px;
+  width: 376px;
+  height: 531px;
   margin: auto;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
-  -ms-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
-  -moz-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
-  -o-transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px);
-  transform: rotate(-7deg) scale(1.01) translateX(-46px) translateY(-6px); }
+  -webkit-transform: rotate(-7deg) scale(1.01) perspective(2000px) translateX(-70px) translateY(0px);
+  -ms-transform: rotate(-7deg) scale(1.01) perspective(2000px) translateX(-70px) translateY(0px);
+  -moz-transform: rotate(-7deg) scale(1.01) perspective(2000px) translateX(-70px) translateY(0px);
+  -o-transform: rotate(-7deg) scale(1.01) perspective(2000px) translateX(-70px) translateY(0px);
+  transform: rotate(-7deg) scale(1.01) perspective(2000px) translateX(-70px) translateY(0px); }
 
 .grc-section-1-book-cover,
 .grc-section-1-book-cover-back {
@@ -135,36 +135,10 @@ html, body {
 
 .grc-section-1-book-cover {
   backface-visibility: hidden;
-  background-image: url(../img/cover.png); }
+  background-image: url(../img/s1-cover.png); }
 
 .grc-section-1-book-cover-back {
-  background-image: url(../img/stars.png); }
-
-.grc-section-1-book-cover-top-shadow {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: 99%;
-  width: 90%;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.25);
-  backface-visibility: hidden;
-  -webkit-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
-  -ms-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
-  -o-box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.25);
-  -webkit-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -o-border-radius: 1px;
-  border-radius: 1px;
-  -webkit-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%; }
+  background-image: url(../img/s1-cover.png); }
 
 .grc-section-1-book-cover-top-shadow {
   height: 100%;
@@ -176,7 +150,84 @@ html, body {
 
 /* Section 2 | @s2
    ========================================================================== */
-.grc-section-2-bg {
+@-webkit-keyframes scene2Bouncy {
+  0% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -o-transform: translateY(40px);
+    transform: translateY(40px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+@-moz-keyframes scene2Bouncy {
+  0% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -o-transform: translateY(40px);
+    transform: translateY(40px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+@-ms-keyframes scene2Bouncy {
+  0% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -o-transform: translateY(40px);
+    transform: translateY(40px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+@keyframes scene2Bouncy {
+  0% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); }
+  50% {
+    -webkit-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -o-transform: translateY(40px);
+    transform: translateY(40px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+.grc-section-2-bg,
+.grc-section-2-bg-stars {
   position: absolute;
   top: 0;
   left: 0;
@@ -184,33 +235,43 @@ html, body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url(../img/giraffe.jpg); }
+  background-color: #2d3343; }
+
+.grc-section-2-bg-stars {
+  opacity: 0;
+  background-color: transparent;
+  background-image: url(../img/s2-stars.png); }
 
 .grc-section-2-character {
   position: absolute;
   top: 23%;
-  left: -20%;
-  display: block; }
+  left: -30%;
+  display: block;
+  -webkit-animation: scene2Bouncy 6s ease-in-out infinite;
+  -ms-animation: scene2Bouncy 6s ease-in-out infinite;
+  -moz-animation: scene2Bouncy 6s ease-in-out infinite;
+  -o-animation: scene2Bouncy 6s ease-in-out infinite;
+  animation: scene2Bouncy 6s ease-in-out infinite; }
 
 /* Section 3 | @s3
    ========================================================================== */
 /* Animation Keyframes */
-@-webkit-keyframes scene2MoveBg {
+@-webkit-keyframes scene3MoveBg {
   from {
     background-position: 0 0; }
   to {
     background-position: 0% -100%; } }
-@-moz-keyframes scene2MoveBg {
+@-moz-keyframes scene3MoveBg {
   from {
     background-position: 0 0; }
   to {
     background-position: 0% -100%; } }
-@-ms-keyframes scene2MoveBg {
+@-ms-keyframes scene3MoveBg {
   from {
     background-position: 0 0; }
   to {
     background-position: 0% -100%; } }
-@keyframes scene2MoveBg {
+@keyframes scene3MoveBg {
   from {
     background-position: 0 0; }
   to {
@@ -223,11 +284,11 @@ html, body {
   background-repeat: repeat-y;
   background-image: url(../img/s3-panel-right-bg.jpg); }
   .grc-section-3-panel-right.animated {
-    -webkit-animation: scene2MoveBg 4s linear infinite;
-    -ms-animation: scene2MoveBg 4s linear infinite;
-    -moz-animation: scene2MoveBg 4s linear infinite;
-    -o-animation: scene2MoveBg 4s linear infinite;
-    animation: scene2MoveBg 4s linear infinite; }
+    -webkit-animation: scene3MoveBg 4s linear infinite;
+    -ms-animation: scene3MoveBg 4s linear infinite;
+    -moz-animation: scene3MoveBg 4s linear infinite;
+    -o-animation: scene3MoveBg 4s linear infinite;
+    animation: scene3MoveBg 4s linear infinite; }
 
 /* Section 4 | @s4
    ========================================================================== */

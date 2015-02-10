@@ -165,24 +165,23 @@ html, body {
     overflow: hidden;
   }
   &-2 {
-    background-color: red;
     overflow: hidden;
   }
   &-3 {
-    background-color: blue;
+    background-color: white;
   }
   &-4 {
-    background-color: purple;
+    // background-color: purple;
     overflow: hidden;
   }
   &-5 {
-    background-color: green;
+    // background-color: green;
   }
   &-6 {
-    background-color: brown;
+    // background-color: brown;
   }
   &-7 {
-    background-color: #111;
+    // background-color: #111;
   }
 }
 
@@ -196,27 +195,37 @@ html, body {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center bottom;
   // background-attachment: fixed;
   // @include vendor-prefix(background-size, cover);
-  background-image: url(../img/bg-hole.png);
+  background-image: url(../img/s1-bg.png);
+}
+
+.grc-section-1-scale-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .grc-section-1-book-cover-container {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
-  width: 278px;
-  height: 375px;
+  bottom: 70px;
+  width: 376px;
+  height: 531px;
   margin: auto;
 
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   @include vendor-prefix(transform-origin, 50% 50%);
   @include vendor-prefix(transform, ( rotate(-7deg)
                                       scale(1.01)
-                                      translateX(-46px)
-                                      translateY(-6px) ));
+                                      perspective(2000px)
+                                      translateX(-70px)
+                                      translateY(0px) ));
 }
 
 .grc-section-1-book-cover,
@@ -233,29 +242,14 @@ html, body {
 
 .grc-section-1-book-cover {
   backface-visibility: hidden;
-  background-image: url(../img/cover.png);
+  background-image: url(../img/s1-cover.png);
 }
 
 .grc-section-1-book-cover-back {
-  background-image: url(../img/stars.png);
+  background-image: url(../img/s1-cover.png);
 }
 
-.grc-section-1-book-cover-top-shadow {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: 99%;
-  width: 90%;
-  margin: auto;
-  background-color: rgba(0,0,0,0.25);
 
-  backface-visibility: hidden;
-
-  @include vendor-prefix(box-shadow, 0px 0px 2px 4px rgba(0,0,0,0.25));
-  @include vendor-prefix(border-radius, 1px);
-  @include vendor-prefix(transform-origin, 0% 0%);
-}
 
 .grc-section-1-book-cover-top-shadow {
   height: 100%;
@@ -267,7 +261,14 @@ html, body {
 /* Section 2 | @s2
    ========================================================================== */
 
-.grc-section-2-bg {
+@include keyframes(scene2Bouncy) {
+  0% { @include vendor-prefix(transform, translateY(0px)); }
+  50% { @include vendor-prefix(transform, translateY(40px)); }
+  100% { @include vendor-prefix(transform, translateY(0px)); }
+}
+
+.grc-section-2-bg,
+.grc-section-2-bg-stars {
   position: absolute;
   top: 0;
   left: 0;
@@ -275,16 +276,21 @@ html, body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  // background-attachment: fixed;
-  // @include vendor-prefix(background-size, cover);
-  background-image: url(../img/giraffe.jpg);
+  background-color: #2d3343;
+}
+
+.grc-section-2-bg-stars {
+  opacity: 0;
+  background-color: transparent;
+  background-image: url(../img/s2-stars.png);
 }
 
 .grc-section-2-character {
   position: absolute;
   top: 23%;
-  left: -20%;
+  left: -30%;
   display: block;
+  @include vendor-prefix(animation, scene2Bouncy 6s ease-in-out infinite);
 }
 
 /* Section 3 | @s3
@@ -292,7 +298,7 @@ html, body {
 
 /* Animation Keyframes */
 
-@include keyframes(scene2MoveBg) {
+@include keyframes(scene3MoveBg) {
   from { background-position: 0 0; }
   to { background-position: 0% -100%; }
 }
@@ -305,7 +311,7 @@ html, body {
   background-repeat: repeat-y;
   background-image: url(../img/s3-panel-right-bg.jpg);
   &.animated {
-    @include vendor-prefix(animation, scene2MoveBg 4s linear infinite);
+    @include vendor-prefix(animation, scene3MoveBg 4s linear infinite);
   }
 }
 
