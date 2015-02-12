@@ -38,6 +38,7 @@ window.mobilecheck = function() {
 /* Init ScrollMagic | @sm-init
    ========================================================================== */
 
+// only init if not mobile/tablet
 if (window.mobilecheck() === false) {
 
 // init controller
