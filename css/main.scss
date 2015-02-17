@@ -104,29 +104,27 @@ $desktop-xl: 1600;
   }
 }
 
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media all and (orientation:landscape) {
+    @content;
+  }
+}
 
 /* ==========================================================================
    Custom CSS
    ========================================================================== */
-
-/* Loading Splash | @loading
-   ========================================================================== */
-
-#grc-app-loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: brown;
-  z-index: 1000;
-}
-
-.grc-app-loading-heading {
-  width: 100%;
-  text-align: center;
-  color: white;
-}
 
 /* Base | @base
    ========================================================================== */
@@ -135,6 +133,10 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-size: 16px;
 }
 
 #grc-app {
@@ -155,34 +157,207 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: 3em;
+  &-loader {
+    background-color: #1f222d;
   }
   &-1 {
     position: relative;
     overflow: hidden;
+    background-color: #2d3343;
   }
   &-2 {
     overflow: hidden;
   }
   &-3 {
+    height: auto;
+    padding: 5% 0;
+    text-align: center;
     background-color: white;
+    @include desktop {
+      min-height: 100%;
+    }
   }
   &-4 {
     // background-color: purple;
     overflow: hidden;
   }
   &-5 {
-    // background-color: green;
+    background-color: #9fcfda;
+    overflow: hidden;
   }
   &-6 {
-    // background-color: brown;
+    height: auto;
+    background-color: #888a8c;
+    // @include desktop {
+    //   min-height: 100%;
+    // }
   }
   &-7 {
+    overflow: hidden;
     // background-color: #111;
   }
+  &-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    // margin: auto;
+    text-align: center;
+    display: table;
+  }
+  &-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+  }
+  &-content {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 0.75em;
+    @include tablet {
+      font-size: 1em;
+    }
+  }
+}
+
+/* Section Loader | @loader
+   ========================================================================== */
+
+.grc-section-loader {
+
+}
+
+$logo-width: 100px;
+$logo-height: 39px;
+
+.grc-section-loader-logo {
+  width: $logo-width;
+  height: $logo-height;
+  margin: auto;
+  margin-bottom: 12%;
+  clear: both;
+  display: block;
+  @include landscape {
+    margin-bottom: 30px;
+  }
+  @include tablet {
+    width: $logo-width * 2;
+    height: $logo-height * 2;
+  }
+  @include desktop {
+    width: $logo-width * 2;
+    height: $logo-height * 2;
+    margin-bottom: 5%;
+  }
+}
+
+$title-width: 200px;
+$title-height: 92.75px;
+
+.grc-section-loader-title-text {
+  position: relative;
+  width: $title-width;
+  height: $title-height;
+  margin: auto;
+  margin-bottom: 12%;
+  clear: both;
+  display: block;
+  z-index: 10;
+  @include landscape {
+    margin-bottom: 10px;
+  }
+  @include tablet {
+    width: $title-width * 2;
+    height: $title-height * 2;
+  }
+  @include desktop {
+    width: $title-width * 1.75;
+    height: $title-height * 1.75;
+    margin-bottom: 5%;
+  }
+}
+
+.grc-section-loader-text {
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+  z-index: 10;
+  @include tablet {
+    font-size: 2em;
+  }
+  @include desktop {
+    font-size: 1.75em;
+  }
+}
+
+$arrow-width: 58px;
+$arrow-height: 217px;
+
+.grc-section-loader-scrolldown {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  &-text {
+    position: relative;
+    margin-bottom: 10px;
+    display: block;
+    clear: both;
+    color: white;
+    font-size: 0.75em;
+    @include tablet {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+  }
+  &-arrow {
+    width: $arrow-width/6;
+    height: $arrow-height/8;
+    @include tablet {
+      width: $arrow-width/4;
+    height: $arrow-height/4;
+    }
+  }
+}
+
+$ein-width: 400px;
+$ein-height: 388px;
+
+.grc-section-loader-einstein {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: auto;
+  width: $ein-width/1.5;
+  height: $ein-height/1.5;
+  @include tablet {
+    width: $ein-width * 1.5;
+    height: $ein-height * 1.5;
+  }
+  @include desktop {
+    width: $ein-width * 1.25;
+    height: $ein-height * 1.25;
+  }
+}
+
+/* Animation props */
+.grc-section-loader-text,
+.grc-section-loader-scrolldown {
+  display: none;
 }
 
 /* Section 1 | @s1
@@ -197,8 +372,15 @@ html, body {
   background-repeat: no-repeat;
   background-position: center bottom;
   // background-attachment: fixed;
-  // @include vendor-prefix(background-size, cover);
-  background-image: url(../img/s1-bg.png);
+  background-image: url(../img/s1-bg-mobile.png);
+  @include vendor-prefix(background-size, cover);
+  @include retina {
+    background-image: url(../img/s1-bg-mobile@2x.png);
+  }
+  @include tablet {
+    background-image: url(../img/s1-bg.png);
+    @include vendor-prefix(background-size, initial);
+  }
 }
 
 .grc-section-1-scale-wrapper {
@@ -210,22 +392,32 @@ html, body {
 }
 
 .grc-section-1-book-cover-container {
+  display: none;
   position: absolute;
-  left: 0;
+  left: -18%;
   right: 0;
-  bottom: 70px;
-  width: 376px;
-  height: 531px;
+  bottom: 4%;
+  width: 50%;
+  height: 50%;
   margin: auto;
 
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   @include vendor-prefix(transform-origin, 50% 50%);
-  @include vendor-prefix(transform, ( rotate(-7deg)
-                                      scale(1.01)
-                                      perspective(2000px)
-                                      translateX(-70px)
-                                      translateY(0px) ));
+  @include vendor-prefix(transform, ( rotate(-8deg)
+                                    scale(1.01) ));
+  @include tablet {
+    display: block;
+    left: 0;
+    bottom: 70px;
+    width: 376px;
+    height: 531px;
+    @include vendor-prefix(transform, ( rotate(-7deg)
+                                    scale(1.01)
+                                    perspective(2000px)
+                                    translateX(-70px)
+                                    translateY(0px) ));
+  }
 }
 
 .grc-section-1-book-cover,
@@ -237,6 +429,7 @@ html, body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  @include vendor-prefix(background-size, contain);
   @include vendor-prefix(transform-origin, 0% 0%);
 }
 
@@ -246,16 +439,25 @@ html, body {
 }
 
 .grc-section-1-book-cover-back {
-  background-image: url(../img/s1-cover.png);
+  background-image: url(../img/s1-cover-back.png);
 }
 
-
-
-.grc-section-1-book-cover-top-shadow {
-  height: 100%;
-  width: 100%;
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(black, 0.5)), color-stop(100%, rgba(black, 0.1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, rgba(black, 0.5) 0%, rgba(black, 0.1) 100%); /* Chrome10+,Safari5.1+ */
+.grc-section-1-text {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: auto 10%;
+  font-size: 0.75em;
+  color: white;
+  @include tablet {
+    top: 10%;
+    font-size: 1.25em;
+  }
+  @include desktop {
+    margin: auto 25%;
+    font-size: 1em;
+  }
 }
 
 /* Section 2 | @s2
@@ -280,17 +482,47 @@ html, body {
 }
 
 .grc-section-2-bg-stars {
-  opacity: 0;
   background-color: transparent;
-  background-image: url(../img/s2-stars.png);
+  background-image: url(../img/s2-stars-mobile.png);
+  @include retina {
+    background-image: url(../img/s2-stars-mobile@2x.png);
+  }
+  @include tablet {
+    background-image: url(../img/s2-stars.png);
+  }
 }
 
 .grc-section-2-character {
   position: absolute;
   top: 23%;
-  left: -30%;
+  left: 0%;
+  right: 0%;
+  max-width: 180px;
+  margin: auto;
   display: block;
   @include vendor-prefix(animation, scene2Bouncy 6s ease-in-out infinite);
+  @include tablet {
+    max-width: 100%;
+  }
+}
+
+.grc-section-2-text {
+  top: auto;
+  bottom: 40px;
+  width: 280px;
+  margin: auto;
+  &-box {
+  }
+  &-content {
+    padding: 20px;
+    text-align: left;
+  }
+  @include tablet {
+    width: 600px;
+    &-content {
+      padding: 30px 50px;
+    }
+  }
 }
 
 /* Section 3 | @s3
@@ -303,15 +535,164 @@ html, body {
   to { background-position: 0% -100%; }
 }
 
+$s3-panel-left-height: 1067px;
+$s3-panel-left-width: 800px;
+
+.grc-section-3-panel-left {
+  position: relative;
+  width: $s3-panel-left-width/3;
+  height: $s3-panel-left-height/3;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  &-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  &-vehicles {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    max-width: 100%;
+  }
+  &-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  &-text {
+    top: 30px;
+    left: -6%;
+    height: 60px;
+    width: 140px;
+    &-box {
+    }
+    &-content {
+      padding: 10px;
+      text-align: left;
+    }
+    @include tablet {
+      top: 40px;
+      width: 180px;
+      &-content {
+        padding: 20px;
+      }
+    }
+    @include desktop {
+      left: 0;
+    }
+  }
+  &-bubble {
+    width: 120px;
+    top: 60%;
+    left: auto;
+    right: 0;
+    &-box {
+
+    }
+    &-content {
+      padding: 20px;
+      margin-left: 220px;
+    }
+    @include tablet {
+      width: 160px;
+      &-content {
+
+      }
+    }
+  }
+  @include tablet {
+    width: $s3-panel-left-width/1.5;
+    height: $s3-panel-left-height/1.5;
+  }
+  @include desktop {
+    margin: inherit;
+    margin-left: -30%;
+    display: inline-block;
+  }
+}
+
+$s3-panel-right-height: 956px;
+$s3-panel-right-width: 800px;
+
 .grc-section-3-panel-right {
-  position: absolute;
-  right: 20%;
-  height: 500px;
-  width: 400px;
-  background-repeat: repeat-y;
-  background-image: url(../img/s3-panel-right-bg.jpg);
-  &.animated {
-    @include vendor-prefix(animation, scene3MoveBg 4s linear infinite);
+  position: relative;
+  width: $s3-panel-right-width/3;
+  height: $s3-panel-right-height/3;
+  max-width: 100%;
+  margin-left: 5%;
+  margin-bottom: 30px;
+  &-bg-repeat {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-image: url(../img/s3-panel-right-bg-repeat.jpg);
+    @include vendor-prefix(transform, scale(0.95));
+    &.animated {
+      @include vendor-prefix(animation, scene3MoveBg 4s linear infinite);
+    }
+  }
+  &-bg {
+    height: 100%;
+    width: 100%;
+  }
+  &-text {
+    width: 180px;
+    &-box {
+    }
+    &-content {
+    }
+  }
+  &-bubble {
+    width: 200px;
+    top: auto;
+    bottom: 5%;
+    left: auto;
+    right: -10%;
+    &-box {
+
+    }
+    &-content {
+      padding: 30px;
+    }
+  }
+  @include tablet {
+    width: $s3-panel-right-width/1.5;
+    height: $s3-panel-right-height/1.5;
+    margin-left: 10%;
+    &-bubble {
+      width: 240px;
+      bottom: 45%;
+      right: -25%;
+      &-content {
+        padding: 40px;
+      }
+    }
+  }
+  @include desktop {
+    margin: inherit;
+    display: inline-block;
+    position: absolute;
+    width: $s3-panel-right-width/2;
+    height: $s3-panel-right-height/2;
+    &-bg-repeat {
+      display: block;
+    }
+    &-bg {
+      position: relative;
+    }
   }
 }
 
@@ -327,30 +708,150 @@ html, body {
   background-repeat: no-repeat;
   background-position: center center;
   // background-attachment: fixed;
-  // @include vendor-prefix(background-size, cover);
-  background-image: url(../img/s4-bg.jpg);
+  @include vendor-prefix(background-size, cover);
+  background-image: url(../img/s4-bg@2x.jpg);
+}
+
+$s4-char-width: 518px;
+$s4-char-height: 420px;
+
+.grc-section-4-char {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: auto;
+  max-width: 100%;
+  margin: auto;
+  @include tablet {
+    top: 20%;
+    width: $s4-char-width * 1.5;
+    height: $s4-char-height * 1.5;
+  }
+  @include desktop {
+    top: 10%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.grc-section-4-text {
+  position: relative;
+  font-size: 0.75em;
+  color: white;
+  margin: 5% 10% 0;
+  &-orange {
+    color: #fb7c00;
+  }
+  &-blue {
+    color: #1461db;
+  }
+  @include tablet {
+    font-size: 1em;
+  }
+}
+
+.grc-section-4-bubble {
+  width: 200px;
+  top: auto;
+  bottom: 30%;
+  left: 40%;
+  right: auto;
+  margin: 0 auto;
+  &-content {
+    padding: 20px 40px;
+  }
+  @include tablet {
+    width: 240px;
+    left: 50%;
+  }
 }
 
 /* Section 5 | @s5
    ========================================================================== */
 
-.grc-section-5-bg {
+$b1-height: 308px;
+$b1-width: 716px;
+
+.grc-section-5-building-1 {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: white;
-  // background-attachment: fixed;
-  @include vendor-prefix(background-size, 80%);
-  background-image: url(../img/s5-bg.jpg);
+  width: $b1-width/4;
+  height: $b1-height/4;
+  @include tablet {
+    width: $b1-width/2;
+    height: $b1-height/2;
+  }
+  @include desktop {
+    width: $b1-width/1.5;
+    height: $b1-height/1.5;
+  }
 }
 
+$b2-height: 481px;
+$b2-width: 252px;
+
+.grc-section-5-building-2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: $b2-width/4;
+  height: $b2-height/4;
+  @include tablet {
+    width: $b2-width/2;
+    height: $b2-height/2;
+  }
+  @include desktop {
+    width: $b2-width/1.5;
+    height: $b2-height/1.5;
+  }
+}
+
+$s5-char-width: 496px;
+$s5-char-height: 702px;
+
 .grc-section-5-text-warp {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: $s5-char-height/3;
+  margin: auto;
   max-width: 200px;
+  @include tablet {
+    bottom: $s5-char-height/1.75;
+  }
+}
+
+.grc-section-5-char {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: $s5-char-width/3;
+  height: $s5-char-height/3;
+  margin: auto;
+  @include tablet {
+    width: $s5-char-width/1.25;
+    height: $s5-char-height/1.25;
+    @include vendor-prefix(transform, translateX(-100px));
+  }
+}
+
+.grc-section-5-text {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  &-content {
+    padding: 20px;
+  }
+  @include tablet {
+    width: 600px;
+    margin-top: 20%;
+  }
+  @include desktop {
+    top: auto;
+    bottom: 20px;
+  }
 }
 
 /* Section 6 | @s6
@@ -358,24 +859,78 @@ html, body {
 
 .grc-section-6-roof-line-container {
   position: relative;
-  top: 25%;
-  left: 0;
+  top: 258px;
+  left: 22px;
   right: 0;
   margin: auto;
-  width: 80%;
+  width: 75%;
   height: 60px;
   overflow: hidden;
+  display: none;
 }
 
 .grc-section-6-roof-line {
   position: absolute;
   right: 0;
   max-width: 100%;
-  @include vendor-prefix(transform, translateX(-90%));
+  @include vendor-prefix(transform, translateX(0%));
   @include vendor-prefix(transition, transform 1s ease-out);
   &.animated {
-    @include vendor-prefix(transform, translateX(0%));
+    @include vendor-prefix(transform, translateX(-90%));
   }
+}
+
+$s6-graph-width: 2000px;
+$s6-graph-height: 1667px;
+
+.grc-section-6-graph-mobile-1,
+.grc-section-6-graph-mobile-2 {
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+.grc-section-6-graph-mobile-1 {
+  padding-bottom: 60px;
+}
+
+.grc-section-6-graph-mobile-2 {
+  padding-bottom: 60px;
+}
+
+.grc-section-6-graph-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 809px;
+  height: 672px;
+}
+
+.grc-section-6-graph {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.grc-section-6-graph-animation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 809px;
+  height: 672px;
+  background-image: url('../img/s6-graph-animation-spritesheet.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  display: none;
+  opacity: 0;
 }
 
 /* Section 7 | @s7
