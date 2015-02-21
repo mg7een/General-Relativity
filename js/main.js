@@ -259,7 +259,7 @@ var scene5 = new ScrollScene();
  */
 
 $('.grc-section-6-graph-mobile-1, .grc-section-6-graph-mobile-2').hide();
-$('.grc-section-6-roof-line-container, .grc-section-6-graph, .grc-section-6-graph-animation').show();
+$('.grc-section-6-roof-line-container, .grc-section-6-graph, .grc-section-6-graph-animation, .grc-section-6-graph-container').show();
 
 $('.grc-section-6').css({
   'height': 'inherit'
@@ -330,27 +330,115 @@ var scene7_animation = new TimelineMax()
       x: '-' + (_cosmosWidth - windowWidth)
     }),
     TweenMax.to(_s7Svg, 1, {
-      x: '-100%'
+      x: '20%'
     })
   ]);
+
+
+function wrapImage($el) {
+  w = $el.width();
+  h = $el.height();
+  $el.wrap("<div class=\"s7-reveal-wrapper\" style=\"width:" + w + "px; height:" + h + "px;\">");
+}
+
+wrapImage( $('.grc-section-7-equation-1') );
 
 /* SVG */
 
 function pathPrepare ($el) {
-  // var lineLength = $el[0].getTotalLength();
-  // $el.css("stroke-dasharray", lineLength);
-  // $el.css("stroke-dashoffset", lineLength);
+  var lineLength = $el[0].getTotalLength();
+  $el.css("stroke-dasharray", lineLength);
+  $el.css("stroke-dashoffset", lineLength);
 }
 
-var $word = $("path#word");
-var $dot = $("path#dot");
-pathPrepare($word);
-pathPrepare($dot);
+// var $word = $("path#word");
+// var $dot = $("path#dot");
+// pathPrepare($word);
+// pathPrepare($dot);
+
+var $s7Path1 = $('#s7-svg-path-1');
+var $s7Path2 = $('#s7-svg-path-2');
+var $s7Path3 = $('#s7-svg-path-3');
+var $s7Path4 = $('#s7-svg-path-4');
+var $s7Path5 = $('#s7-svg-path-5');
+var $s7Path6 = $('#s7-svg-path-6');
+var $s7Path7 = $('#s7-svg-path-7');
+var $s7Path8 = $('#s7-svg-path-8');
+var $s7Path9 = $('#s7-svg-path-9');
+var $s7Path10 = $('#s7-svg-path-10');
+var $s7Path11 = $('#s7-svg-path-11');
+var $s7Path12 = $('#s7-svg-path-12');
+var $s7Path13 = $('#s7-svg-path-13');
+var $s7Path14 = $('#s7-svg-path-14');
+var $s7Path15 = $('#s7-svg-path-15');
+var $s7Path16 = $('#s7-svg-path-16');
+var $s7Path17 = $('#s7-svg-path-17');
+var $s7Path18 = $('#s7-svg-path-18');
+var $s7Path19 = $('#s7-svg-path-19');
+var $s7Path20 = $('#s7-svg-path-20');
+var $s7Path21 = $('#s7-svg-path-21');
+var $s7Path22 = $('#s7-svg-path-22');
+var $s7Path23 = $('#s7-svg-path-23');
+var $s7Path24 = $('#s7-svg-path-24');
+
+pathPrepare($s7Path1);
+pathPrepare($s7Path2);
+pathPrepare($s7Path3);
+pathPrepare($s7Path4);
+pathPrepare($s7Path5);
+pathPrepare($s7Path6);
+pathPrepare($s7Path7);
+pathPrepare($s7Path8);
+pathPrepare($s7Path9);
+pathPrepare($s7Path10);
+pathPrepare($s7Path11);
+pathPrepare($s7Path12);
+pathPrepare($s7Path13);
+pathPrepare($s7Path14);
+pathPrepare($s7Path15);
+pathPrepare($s7Path16);
+pathPrepare($s7Path17);
+pathPrepare($s7Path18);
+pathPrepare($s7Path19);
+pathPrepare($s7Path20);
+pathPrepare($s7Path21);
+pathPrepare($s7Path22);
+pathPrepare($s7Path23);
+pathPrepare($s7Path24);
+
+// for (var i = 0; i < 25; i++) {
+//   console.log(i);
+//   pathPrepare();
+// }
 
 var scene7_svgtween = new TimelineMax()
-  .add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
-  .add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
-  .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);     // change color during the whole thing
+  // .add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  // .add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path1, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path2, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path3, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path4, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path5, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path6, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path7, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path8, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path9, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path10, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path11, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path12, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path13, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path14, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path15, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path16, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path17, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path18, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path19, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path20, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path21, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path22, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path23, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path24, 2, {strokeDashoffset: 0, ease:Linear.easeNone}));
+  // .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);
 
 var scene7 = new ScrollScene({
   duration: 2000,

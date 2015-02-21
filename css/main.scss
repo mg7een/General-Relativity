@@ -122,6 +122,35 @@ $desktop-xl: 1600;
   }
 }
 
+/* Fonts | @fonts
+   ========================================================================== */
+
+.bentonsanscondensedbold {
+  font-family: "Benton Sans Cond";
+  font-style: normal;
+  font-weight: bold;
+}
+
+$font-benton: "Benton Sans Cond", 'Helvetica Neue', Helvetica, Arial;
+
+/* first for IE 4–8 */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.eot");
+}
+
+/* then for WOFF-capable browsers */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.woff") format("woff");
+}
+
+$font-wild: 'CCWildWordsBoldItalic', 'Helvetica Neue', Helvetica, Arial;
+
+$text-mobile: normal 0.75em/120% $font-wild;
+$text-tablet: normal 1em/120% $font-wild;
+$text-desktop: normal 1em/120% $font-wild;
+
 /* ==========================================================================
    Custom CSS
    ========================================================================== */
@@ -188,13 +217,15 @@ body {
   &-6 {
     height: auto;
     background-color: #888a8c;
+    overflow: hidden;
     // @include desktop {
     //   min-height: 100%;
     // }
   }
   &-7 {
     overflow: hidden;
-    // background-color: #111;
+    background-color: #091525;
+    height: auto;
   }
   &-text {
     position: absolute;
@@ -293,6 +324,7 @@ $title-height: 92.75px;
   font-size: 1em;
   text-align: center;
   z-index: 10;
+  font-family: $font-benton;
   @include tablet {
     font-size: 2em;
   }
@@ -317,6 +349,8 @@ $arrow-height: 217px;
     clear: both;
     color: white;
     font-size: 0.75em;
+    font-family: $font-benton;
+    font-weight: bold;
     @include tablet {
       margin-bottom: 20px;
       font-size: 1.5em;
@@ -449,6 +483,8 @@ $ein-height: 388px;
   right: 0;
   margin: auto 10%;
   font-size: 0.75em;
+  font-family: $font-wild;
+  line-height: 120%;
   color: white;
   @include tablet {
     top: 10%;
@@ -511,6 +547,8 @@ $ein-height: 388px;
   bottom: 40px;
   width: 280px;
   margin: auto;
+  font-family: $font-wild;
+  line-height: 90%;
   &-box {
   }
   &-content {
@@ -519,6 +557,7 @@ $ein-height: 388px;
   }
   @include tablet {
     width: 600px;
+    line-height: 120%;
     &-content {
       padding: 30px 50px;
     }
@@ -572,7 +611,8 @@ $s3-panel-left-width: 800px;
     top: 30px;
     left: -6%;
     height: 60px;
-    width: 140px;
+    width: 180px;
+    font-family: $font-wild;
     &-box {
     }
     &-content {
@@ -581,7 +621,7 @@ $s3-panel-left-width: 800px;
     }
     @include tablet {
       top: 40px;
-      width: 180px;
+      width: 260px;
       &-content {
         padding: 20px;
       }
@@ -591,8 +631,8 @@ $s3-panel-left-width: 800px;
     }
   }
   &-bubble {
-    width: 120px;
-    top: 60%;
+    width: 160px;
+    top: 70%;
     left: auto;
     right: 0;
     &-box {
@@ -601,11 +641,12 @@ $s3-panel-left-width: 800px;
     &-content {
       padding: 20px;
       margin-left: 220px;
+      font-family: $font-wild;
     }
     @include tablet {
-      width: 160px;
+      width: 240px;
       &-content {
-
+        padding: 30px;
       }
     }
   }
@@ -628,7 +669,9 @@ $s3-panel-right-width: 800px;
   width: $s3-panel-right-width/3;
   height: $s3-panel-right-height/3;
   max-width: 100%;
-  margin-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
   margin-bottom: 30px;
   &-bg-repeat {
     display: none;
@@ -656,16 +699,15 @@ $s3-panel-right-width: 800px;
     }
   }
   &-bubble {
-    width: 200px;
-    top: auto;
-    bottom: 5%;
+    width: 240px;
+    top: -160px;
     left: auto;
-    right: -10%;
+    font-family: $font-wild;
     &-box {
 
     }
     &-content {
-      padding: 30px;
+      padding: 40px;
     }
   }
   @include tablet {
@@ -673,15 +715,15 @@ $s3-panel-right-width: 800px;
     height: $s3-panel-right-height/1.5;
     margin-left: 10%;
     &-bubble {
-      width: 240px;
-      bottom: 45%;
-      right: -25%;
+      width: 300px;
       &-content {
-        padding: 40px;
+        // padding: 40px;
       }
     }
   }
   @include desktop {
+    position: relative;
+    top: 200px;
     margin: inherit;
     display: inline-block;
     position: absolute;
@@ -692,6 +734,11 @@ $s3-panel-right-width: 800px;
     }
     &-bg {
       position: relative;
+    }
+    &-bubble {
+      width: 320px;
+      top: -120px;
+      right: -15%;
     }
   }
 }
@@ -739,6 +786,8 @@ $s4-char-height: 420px;
   font-size: 0.75em;
   color: white;
   margin: 5% 10% 0;
+  font-family: $font-wild;
+  line-height: 120%;
   &-orange {
     color: #fb7c00;
   }
@@ -757,12 +806,15 @@ $s4-char-height: 420px;
   left: 40%;
   right: auto;
   margin: 0 auto;
+  font-family: $font-wild;
+  line-height: 90%;
   &-content {
     padding: 20px 40px;
   }
   @include tablet {
     width: 240px;
     left: 50%;
+    line-height: 120%;
   }
 }
 
@@ -841,16 +893,19 @@ $s5-char-height: 702px;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
+  font: $text-mobile;
   &-content {
     padding: 20px;
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
+    font: $text-tablet;
   }
   @include desktop {
     top: auto;
     bottom: 20px;
+    font: $text-desktop;
   }
 }
 
@@ -867,6 +922,7 @@ $s5-char-height: 702px;
   height: 60px;
   overflow: hidden;
   display: none;
+  @include vendor-prefix(transform, translateX(-140px));
 }
 
 .grc-section-6-roof-line {
@@ -898,6 +954,46 @@ $s6-graph-height: 1667px;
   padding-bottom: 60px;
 }
 
+.grc-section-6-text-1,
+.grc-section-6-text-2,
+.grc-section-6-text-3 {
+  max-width: 600px;
+  color: white;
+  margin: 0 10%;
+  font: $text-mobile;
+  @include tablet {
+    font: $text-tablet;
+  }
+  @include desktop {
+    position: absolute;
+    top: 10%;
+    font: $text-desktop;
+  }
+}
+
+.grc-section-6-text-1 {
+  padding-top: 80px;
+  span {
+    color: black;
+  }
+}
+
+.grc-section-6-text-2 {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  span {
+    color: #00a99d;
+  }
+  @include desktop {
+    left: 30%;
+    padding-top: 0;
+  }
+}
+
+.grc-section-6-text-3 {
+  padding-bottom: 80px;
+}
+
 .grc-section-6-graph-container {
   position: absolute;
   top: 0;
@@ -907,6 +1003,7 @@ $s6-graph-height: 1667px;
   margin: auto;
   width: 809px;
   height: 672px;
+  display: none;
 }
 
 .grc-section-6-graph {
@@ -916,6 +1013,7 @@ $s6-graph-height: 1667px;
   left: 0;
   right: 0;
   display: none;
+  @include vendor-prefix(transform, translateX(-140px));
 }
 
 .grc-section-6-graph-animation {
@@ -931,28 +1029,369 @@ $s6-graph-height: 1667px;
   background-position: 0px 0px;
   display: none;
   opacity: 0;
+  @include vendor-prefix(transform, translateX(-140px));
+}
+
+.grc-section-6-bubble {
+  position: inherit;
+  padding-bottom: 80px;
+  margin: 0 10%;
+  &-box {
+    display: none;
+  }
+  &-content {
+    font: $text-mobile;
+    color: white;
+  }
+  @include tablet {
+    &-content {
+      font: $text-tablet;
+    }
+  }
+  @include desktop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 320px;
+    height: 320px;
+    @include vendor-prefix(transform, translateX(400px));
+    // END IMAGE BUBBLE CSS
+
+    &-box {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      // END IMAGE BUBBLE CSS
+
+      display: block;
+    }
+    &-content {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 80%;
+      height: 100%;
+      // END IMAGE BUBBLE CSS
+
+      font: $text-desktop;
+      color: black;
+    }
+  }
+}
+
+$s6-char-width: 387px;
+$s6-char-height: 600px;
+
+.grc-section-6-char {
+  position: absolute;
+  bottom: 210px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: $s6-char-width / 5;
+  height: $s6-char-height / 5;
+  @include vendor-prefix( transform, translateX(185%) );
+  @include tablet {
+    width: $s6-char-width / 2;
+    height: $s6-char-height / 2;
+  }
+  @include desktop {
+    width: auto;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    @include vendor-prefix( transform, translateX(270px) translateY(240px) );
+  }
 }
 
 /* Section 7 | @s7
    ========================================================================== */
 
-.grc-section-7-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  // z-index: -1;
+// .grc-section-7-bg {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+// }
+
+// .grc-section-7-cosmos {
+//   min-height: 100%;
+//   max-height: 100%;
+// }
+
+.grc-section-7 {
+  padding-top: 80px;
+  &-chair {
+    display: block;
+    margin: 0 auto;
+    width: (412px/2);
+    height: (437px/2);
+  }
+  &-equation-container,
+  &-cosmos-container {
+    position: relative;
+    min-height: 660px;
+    padding-top: 40px;
+  }
+  &-equation-1,
+  &-equation-2,
+  &-equation-3,
+  &-equation-4,
+  &-equation-5,
+  &-char,
+  &-blackhole,
+  &-jupiter,
+  &-planet,
+  &-comet,
+  &-stars {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  &-equation-1,
+  &-equation-2,
+  &-equation-3,
+  &-equation-4,
+  &-equation-5 {
+    clip-path: url(#s7-equation-clip);
+  }
+  &-equation-1 {
+    top: 40%;
+    left: auto;
+    right: 2%;
+    width: (894px/3);
+    height: (84px/3);
+  }
+  &-equation-2 {
+    top: 30%;
+    left: auto;
+    right: 15%;
+    width: (475px/3);
+    height: (106px/3);
+  }
+  &-equation-3 {
+    top: 20%;
+    left: 5%;
+    right: auto;
+    width: (455px/3);
+    height: (77px/3);
+  }
+  &-equation-4 {
+    top: 10%;
+    width: (177px/3);
+    height: (87px/3);
+  }
+  &-equation-5 {
+    left: 30%;
+    width: (254px/3);
+    height: (49px/3);
+  }
+  &-char {
+    bottom: 0;
+    width: (386px/3);
+    height: (750px/3);
+  }
+  &-blackhole {
+    top: 15%;
+    right: auto;
+    left: 5%;
+    width: (500px/4);
+    height: (934px/4);
+  }
+  &-jupiter {
+    top: 15%;
+    width: (145px/4);
+    height: (228px/4);
+  }
+  &-planet {
+    left: auto;
+    right: 15%;
+    width: (194px/4);
+    height: (174px/4);
+  }
+  &-comet {
+    bottom: 45%;
+    left: auto;
+    width: (526px/4);
+    height: (401px/4);
+  }
+  &-stars {
+    width: (1858px/4);
+    height: (1083px/4);
+  }
+  @include tablet {
+    &-chair {
+      width: (412px/1.75);
+      height: (437px/1.75);
+    }
+    &-equation-container,
+    &-cosmos-container {
+      min-height: 860px;
+    }
+    &-equation-1 {
+      width: (894px/1.75);
+      height: (84px/1.75);
+    }
+    &-equation-2 {
+      top: 30%;
+      left: auto;
+      right: 15%;
+      width: (475px/1.75);
+      height: (106px/1.75);
+    }
+    &-equation-3 {
+      top: 20%;
+      left: 5%;
+      right: auto;
+      width: (455px/1.75);
+      height: (77px/1.75);
+    }
+    &-equation-4 {
+      top: 10%;
+      width: (177px/1.75);
+      height: (87px/1.75);
+    }
+    &-equation-5 {
+      left: 30%;
+      width: (254px/1.75);
+      height: (49px/1.75);
+    }
+    &-char {
+      bottom: 0;
+      width: (386px/1.75);
+      height: (750px/1.75);
+    }
+    &-blackhole {
+      top: 15%;
+      right: auto;
+      left: 5%;
+      width: (500px/3);
+      height: (934px/3);
+    }
+    &-jupiter {
+      top: 15%;
+      width: (145px/3);
+      height: (228px/3);
+    }
+    &-planet {
+      left: auto;
+      right: 15%;
+      width: (194px/3);
+      height: (174px/3);
+    }
+    &-comet {
+      bottom: 45%;
+      left: auto;
+      width: (526px/3);
+      height: (401px/3);
+    }
+    &-stars {
+      width: (1858px/3);
+      height: (1083px/3);
+    }
+  }
+  @include desktop {
+    padding-top: 0;
+    &-chair {
+      position: absolute;
+      bottom: 0;
+      left: 15%;
+      margin: 0;
+    }
+    &-equation-container,
+    &-cosmos-container {
+      min-height: auto;
+      padding-top: 0;
+    }
+    &-equation-container {
+      position: absolute;
+      left: 30%;
+      width: 60%;
+      max-width: 600px;
+    }
+    &-equation-1 {
+      top: auto;
+      bottom: 45%;
+      left: auto;
+      right: 2%;
+      z-index: 10;
+    }
+    &-equation-2 {
+      top: auto;
+      bottom: 35%;
+      right: auto;
+      left: 15%;
+      z-index: 10;
+    }
+    &-equation-3 {
+      top: auto;
+      bottom: 25%;
+      left: auto;
+      right: 5%;
+      z-index: 10;
+    }
+    &-equation-4 {
+      top: auto;
+      bottom: 15%;
+      left: 15%;
+      right: auto;
+      z-index: 10;
+    }
+    &-equation-5 {
+      bottom: 10%;
+      top: auto;
+      right: 0;
+      left: auto;
+      z-index: 10;
+    }
+    &-char {
+      bottom: 0;
+      width: (386px/1.25);
+      height: (750px/1.25);
+    }
+    &-blackhole {
+      width: (500px/1.5);
+      height: (934px/1.5);
+    }
+    &-jupiter {
+      top: 15%;
+      width: (145px/1.5);
+      height: (228px/1.5);
+    }
+    &-planet {
+      left: auto;
+      right: 15%;
+      width: (194px/1.5);
+      height: (174px/1.5);
+    }
+    &-comet {
+      bottom: 45%;
+      left: auto;
+      width: (526px/1.5);
+      height: (401px/1.5);
+    }
+    &-stars {
+      width: (1858px/1.5);
+      height: (1083px/1.5);
+    }
+  }
 }
 
-.grc-section-7-cosmos {
-  min-height: 100%;
-  max-height: 100%;
-}
+/* SVG Animations */
 
 #s7-svg {
-  position: relative;
+  position: absolute;
+  top: 15%;
   left: 25%;
   z-index: 999;
 }
