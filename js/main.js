@@ -320,28 +320,19 @@ scene6.on('leave', function(ev) {
 /* Scene 7 | @s7
    ========================================================================== */
 
-var _cosmos = $('.grc-section-7-cosmos');
-var _s7Svg = $('#s7-svg');
-var _cosmosWidth = 2703; // hardcoded width of cosmos img
+$('.grc-section-7-main-equation').hide();
+$('#s7-svg').show();
+$('.grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5').css({
+  width: '0%',
+  overflow: 'hidden'
+});
 
-var scene7_animation = new TimelineMax()
-  .add([
-    TweenMax.to(_cosmos, 1, {
-      x: '-' + (_cosmosWidth - windowWidth)
-    }),
-    TweenMax.to(_s7Svg, 1, {
-      x: '20%'
-    })
-  ]);
-
-
-function wrapImage($el) {
-  w = $el.width();
-  h = $el.height();
-  $el.wrap("<div class=\"s7-reveal-wrapper\" style=\"width:" + w + "px; height:" + h + "px;\">");
-}
-
-wrapImage( $('.grc-section-7-equation-1') );
+TweenMax.set('.grc-section-7-text-2', {
+  opacity: 0
+});
+TweenMax.set('.grc-section-7-text-3', {
+  opacity: 0
+});
 
 /* SVG */
 
@@ -411,9 +402,74 @@ pathPrepare($s7Path24);
 //   pathPrepare();
 // }
 
-var scene7_svgtween = new TimelineMax()
-  // .add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  // .add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))
+var _s7Text1              = $('.grc-section-7-text-1');
+var _s7Chair              = $('.grc-section-7-chair');
+var _s7Text2              = $('.grc-section-7-text-2');
+var _s7Text3              = $('.grc-section-7-text-3');
+var _s7EquationContainer  = $('.grc-section-7-equation-container');
+var _s7Equation1          = $('.grc-section-7-equation-1');
+var _s7Equation2          = $('.grc-section-7-equation-2');
+var _s7Equation3          = $('.grc-section-7-equation-3');
+var _s7Equation4          = $('.grc-section-7-equation-4');
+var _s7Equation5          = $('.grc-section-7-equation-5');
+var _s7Char               = $('.grc-section-7-char');
+var _s7CosmosContainer    = $('.grc-section-7-cosmos-container');
+var _s7Svg                = $('#s7-svg');
+var _s7Blackhole          = $('.grc-section-7-blackhole');
+var _s7Jupiter            = $('.grc-section-7-jupiter');
+var _s7Planet             = $('.grc-section-7-planet');
+var _s7Comet              = $('.grc-section-7-comet');
+
+var scene7_animation_bg = new TimelineMax()
+  .add([
+    TweenMax.to(_s7Chair, 2, {
+      x: '-200%'
+    }),
+    TweenMax.to(_s7Char, 10, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7Equation1, 10, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7Equation2, 10, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7Equation3, 10, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7Equation4, 10, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7Equation5, 10, {
+      x: '-10%'
+    })
+  ]);
+var scene7_animation = new TimelineMax()
+  .add([
+    TweenMax.to(_s7Equation1, 2.5, {
+      width: '100%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Equation2, 2.5, {
+      width: '100%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Equation3, 2.5, {
+      width: '100%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Equation4, 2.5, {
+      width: '100%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Equation5, 2.5, {
+      width: '100%'
+    })
+  ])
   .add(TweenMax.to($s7Path1, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path2, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path3, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
@@ -437,16 +493,74 @@ var scene7_svgtween = new TimelineMax()
   .add(TweenMax.to($s7Path21, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path22, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path23, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($s7Path24, 2, {strokeDashoffset: 0, ease:Linear.easeNone}));
-  // .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);
+  .add(TweenMax.to($s7Path24, 2, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add([
+    TweenMax.to(_s7Text1, 2.5, {
+      opacity: 0,
+      x: '-100%'
+    }),
+    TweenMax.to(_s7Text2, 2.5, {
+      opacity: 1
+    })
+  ])
+
+  // first wipe
+  .add([
+    TweenMax.to(_s7Svg, 5, {
+      x: '-10%'
+    }),
+    TweenMax.to(_s7EquationContainer, 5, {
+      x: '-10%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Svg, 5, {
+      x: '-200%'
+    }),
+    TweenMax.to(_s7EquationContainer, 5, {
+      x: '-200%'
+    }),
+    TweenMax.to(_s7CosmosContainer, 5, {
+      left: '0%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s7Svg, 5, {
+      x: '-200%'
+    }),
+    TweenMax.to(_s7EquationContainer, 5, {
+      x: '-200%'
+    }),
+    TweenMax.to(_s7CosmosContainer, 5, {
+      left: '0%'
+    }),
+    TweenMax.to(_s7Blackhole, 5, {
+      x: '-2%'
+    }),
+    TweenMax.to(_s7Jupiter, 5, {
+      x: '-15%'
+    }),
+    TweenMax.to(_s7Planet, 5, {
+      x: '-2%'
+    }),
+    TweenMax.to(_s7Comet, 5, {
+      x: '-20%'
+    }),
+  ])
+  .add([
+    TweenMax.to(_s7Text3, 5, {
+      x: '-10%',
+      opacity: 1
+    })
+  ]);
 
 var scene7 = new ScrollScene({
-  duration: 2000,
+  duration: 4000,
   triggerElement: '.grc-section-7',
   triggerHook: '0'
 })
   .setPin('.grc-section-7')
-  .setTween([scene7_animation, scene7_svgtween]);
+  .setTween([scene7_animation, scene7_animation_bg]);
 
 /* Controller | @controller
    ========================================================================== */

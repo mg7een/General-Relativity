@@ -226,6 +226,12 @@ body {
     overflow: hidden;
     background-color: #091525;
     height: auto;
+    @include desktop {
+      height: 100%;
+    }
+  }
+  &-end {
+    background-color: orange;
   }
   &-text {
     position: absolute;
@@ -1129,19 +1135,25 @@ $s6-char-height: 600px;
 // }
 
 .grc-section-7 {
-  padding-top: 80px;
+  padding-top: 140px;
   &-chair {
     display: block;
-    margin: 0 auto;
+    margin: 80px auto;
     width: (412px/2);
     height: (437px/2);
   }
   &-equation-container,
   &-cosmos-container {
     position: relative;
-    min-height: 660px;
-    padding-top: 40px;
+    padding-top: 140px;
   }
+  &-equation-container {
+    min-height: 660px;
+  }
+  &-cosmos-container {
+    min-height: 540px;
+  }
+  &-main-equation,
   &-equation-1,
   &-equation-2,
   &-equation-3,
@@ -1158,43 +1170,63 @@ $s6-char-height: 600px;
     right: 0;
     margin: 0 auto;
   }
-  &-equation-1,
-  &-equation-2,
-  &-equation-3,
-  &-equation-4,
-  &-equation-5 {
-    clip-path: url(#s7-equation-clip);
+  &-main-equation {
+    top: 55%;
+    width: (400px/2);
+    height: (152px/2);
+    z-index: 20;
   }
   &-equation-1 {
-    top: 40%;
+    top: 44%;
     left: auto;
     right: 2%;
     width: (894px/3);
     height: (84px/3);
+    img {
+      width: (894px/3);
+      height: (84px/3);
+    }
   }
   &-equation-2 {
-    top: 30%;
+    top: 36%;
     left: auto;
     right: 15%;
     width: (475px/3);
     height: (106px/3);
+    img {
+      width: (475px/3);
+      height: (106px/3);
+    }
   }
   &-equation-3 {
-    top: 20%;
+    top: 28%;
     left: 5%;
     right: auto;
     width: (455px/3);
     height: (77px/3);
+    img {
+      width: (455px/3);
+      height: (77px/3);
+    }
   }
   &-equation-4 {
-    top: 10%;
+    top: 22%;
     width: (177px/3);
     height: (87px/3);
+    img {
+      width: (177px/3);
+      height: (87px/3);
+    }
   }
   &-equation-5 {
+    top: 17%;
     left: 30%;
     width: (254px/3);
     height: (49px/3);
+    img {
+      width: (254px/3);
+      height: (49px/3);
+    }
   }
   &-char {
     bottom: 0;
@@ -1234,20 +1266,36 @@ $s6-char-height: 600px;
       width: (412px/1.75);
       height: (437px/1.75);
     }
-    &-equation-container,
+    &-equation-container {
+      min-height: 960px;
+    }
     &-cosmos-container {
-      min-height: 860px;
+      min-height: 760px;
+    }
+    &-main-equation {
+      top: 47%;
+      width: (400px/1);
+      height: (152px/1);
     }
     &-equation-1 {
+      top: 38%;
       width: (894px/1.75);
       height: (84px/1.75);
+      img {
+        width: (894px/1.75);
+        height: (84px/1.75);
+      }
     }
     &-equation-2 {
-      top: 30%;
+      top: 28%;
       left: auto;
       right: 15%;
       width: (475px/1.75);
       height: (106px/1.75);
+      img {
+        width: (475px/1.75);
+        height: (106px/1.75);
+      }
     }
     &-equation-3 {
       top: 20%;
@@ -1255,16 +1303,28 @@ $s6-char-height: 600px;
       right: auto;
       width: (455px/1.75);
       height: (77px/1.75);
+      img {
+        width: (455px/1.75);
+        height: (77px/1.75);
+      }
     }
     &-equation-4 {
       top: 10%;
       width: (177px/1.75);
       height: (87px/1.75);
+      img {
+        width: (177px/1.75);
+        height: (87px/1.75);
+      }
     }
     &-equation-5 {
       left: 30%;
       width: (254px/1.75);
       height: (49px/1.75);
+      img {
+        width: (254px/1.75);
+        height: (49px/1.75);
+      }
     }
     &-char {
       bottom: 0;
@@ -1313,17 +1373,21 @@ $s6-char-height: 600px;
       min-height: auto;
       padding-top: 0;
     }
+    &-cosmos-container {
+      position: relative;
+      left: 120%;
+    }
     &-equation-container {
       position: absolute;
-      left: 30%;
-      width: 60%;
-      max-width: 600px;
+      left: 40%;
+      width: 80%;
+      max-width: 800px;
     }
     &-equation-1 {
       top: auto;
       bottom: 45%;
-      left: auto;
-      right: 2%;
+      left: 0;
+      right: auto;
       z-index: 10;
     }
     &-equation-2 {
@@ -1335,27 +1399,27 @@ $s6-char-height: 600px;
     }
     &-equation-3 {
       top: auto;
-      bottom: 25%;
-      left: auto;
-      right: 5%;
+      bottom: 29%;
+      left: 40%;
+      right: auto;
       z-index: 10;
     }
     &-equation-4 {
       top: auto;
-      bottom: 15%;
+      bottom: 24%;
       left: 15%;
       right: auto;
       z-index: 10;
     }
     &-equation-5 {
-      bottom: 10%;
+      bottom: 20%;
       top: auto;
-      right: 0;
-      left: auto;
+      right: auto;
+      left: 60%;
       z-index: 10;
     }
     &-char {
-      bottom: 0;
+      bottom: 10%;
       width: (386px/1.25);
       height: (750px/1.25);
     }
@@ -1364,18 +1428,19 @@ $s6-char-height: 600px;
       height: (934px/1.5);
     }
     &-jupiter {
-      top: 15%;
+      top: 25%;
       width: (145px/1.5);
       height: (228px/1.5);
     }
     &-planet {
       left: auto;
+      top: 15%;
       right: 15%;
       width: (194px/1.5);
       height: (174px/1.5);
     }
     &-comet {
-      bottom: 45%;
+      bottom: 25%;
       left: auto;
       width: (526px/1.5);
       height: (401px/1.5);
@@ -1387,11 +1452,88 @@ $s6-char-height: 600px;
   }
 }
 
+/* Text */
+
+.grc-section-7-text-1 {
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: $text-mobile;
+  &-content {
+    padding: 20px;
+  }
+  @include tablet {
+    width: 600px;
+    margin-top: 5%;
+    font: $text-tablet;
+  }
+  @include desktop {
+    top: 0%;
+    left: 5%;
+    right: auto;
+    bottom: auto;
+    width: 300px;
+    font: $text-desktop;
+  }
+}
+
+.grc-section-7-text-2 {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: $text-mobile;
+  &-content {
+    padding: 20px;
+  }
+  @include tablet {
+    width: 600px;
+    margin-top: 0;
+    font: $text-tablet;
+  }
+  @include desktop {
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 55%;
+    width: 300px;
+    font: $text-desktop;
+    z-index: 21;
+  }
+}
+
+.grc-section-7-text-3 {
+  position: absolute;
+  top: auto;
+  bottom: 40px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: $text-mobile;
+  &-content {
+    padding: 20px;
+  }
+  @include tablet {
+    width: 600px;
+    margin-top: 20%;
+    font: $text-tablet;
+  }
+  @include desktop {
+    top: auto;
+    left: auto;
+    right: 1%;
+    bottom: 20px;
+    font: $text-desktop;
+  }
+}
+
 /* SVG Animations */
 
 #s7-svg {
   position: absolute;
-  top: 15%;
-  left: 25%;
-  z-index: 999;
+  bottom: 55%;
+  left: 35%;
+  z-index: 15;
+  display: none;
 }

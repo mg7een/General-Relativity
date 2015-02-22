@@ -96,6 +96,11 @@ body {
     overflow: hidden;
     background-color: #091525;
     height: auto; }
+    @media only screen and (min-width: 992px) {
+      .grc-section-7 {
+        height: 100%; } }
+  .grc-section-end {
+    background-color: orange; }
   .grc-section-text {
     position: absolute;
     top: 0;
@@ -994,49 +999,71 @@ body {
 /* Section 7 | @s7
    ========================================================================== */
 .grc-section-7 {
-  padding-top: 80px; }
+  padding-top: 140px; }
   .grc-section-7-chair {
     display: block;
-    margin: 0 auto;
+    margin: 80px auto;
     width: 206px;
     height: 218.5px; }
   .grc-section-7-equation-container, .grc-section-7-cosmos-container {
     position: relative;
-    min-height: 660px;
-    padding-top: 40px; }
-  .grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5, .grc-section-7-char, .grc-section-7-blackhole, .grc-section-7-jupiter, .grc-section-7-planet, .grc-section-7-comet, .grc-section-7-stars {
+    padding-top: 140px; }
+  .grc-section-7-equation-container {
+    min-height: 660px; }
+  .grc-section-7-cosmos-container {
+    min-height: 540px; }
+  .grc-section-7-main-equation, .grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5, .grc-section-7-char, .grc-section-7-blackhole, .grc-section-7-jupiter, .grc-section-7-planet, .grc-section-7-comet, .grc-section-7-stars {
     position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto; }
-  .grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5 {
-    clip-path: url(#s7-equation-clip); }
+  .grc-section-7-main-equation {
+    top: 55%;
+    width: 200px;
+    height: 76px;
+    z-index: 20; }
   .grc-section-7-equation-1 {
-    top: 40%;
+    top: 44%;
     left: auto;
     right: 2%;
     width: 298px;
     height: 28px; }
+    .grc-section-7-equation-1 img {
+      width: 298px;
+      height: 28px; }
   .grc-section-7-equation-2 {
-    top: 30%;
+    top: 36%;
     left: auto;
     right: 15%;
     width: 158.33333px;
     height: 35.33333px; }
+    .grc-section-7-equation-2 img {
+      width: 158.33333px;
+      height: 35.33333px; }
   .grc-section-7-equation-3 {
-    top: 20%;
+    top: 28%;
     left: 5%;
     right: auto;
     width: 151.66667px;
     height: 25.66667px; }
+    .grc-section-7-equation-3 img {
+      width: 151.66667px;
+      height: 25.66667px; }
   .grc-section-7-equation-4 {
-    top: 10%;
+    top: 22%;
     width: 59px;
     height: 29px; }
+    .grc-section-7-equation-4 img {
+      width: 59px;
+      height: 29px; }
   .grc-section-7-equation-5 {
+    top: 17%;
     left: 30%;
     width: 84.66667px;
     height: 16.33333px; }
+    .grc-section-7-equation-5 img {
+      width: 84.66667px;
+      height: 16.33333px; }
   .grc-section-7-char {
     bottom: 0;
     width: 128.66667px;
@@ -1068,31 +1095,53 @@ body {
     .grc-section-7-chair {
       width: 235.42857px;
       height: 249.71429px; }
-    .grc-section-7-equation-container, .grc-section-7-cosmos-container {
-      min-height: 860px; }
+    .grc-section-7-equation-container {
+      min-height: 960px; }
+    .grc-section-7-cosmos-container {
+      min-height: 760px; }
+    .grc-section-7-main-equation {
+      top: 47%;
+      width: 400px;
+      height: 152px; }
     .grc-section-7-equation-1 {
+      top: 38%;
       width: 510.85714px;
       height: 48px; }
+      .grc-section-7-equation-1 img {
+        width: 510.85714px;
+        height: 48px; }
     .grc-section-7-equation-2 {
-      top: 30%;
+      top: 28%;
       left: auto;
       right: 15%;
       width: 271.42857px;
       height: 60.57143px; }
+      .grc-section-7-equation-2 img {
+        width: 271.42857px;
+        height: 60.57143px; }
     .grc-section-7-equation-3 {
       top: 20%;
       left: 5%;
       right: auto;
       width: 260px;
       height: 44px; }
+      .grc-section-7-equation-3 img {
+        width: 260px;
+        height: 44px; }
     .grc-section-7-equation-4 {
       top: 10%;
       width: 101.14286px;
       height: 49.71429px; }
+      .grc-section-7-equation-4 img {
+        width: 101.14286px;
+        height: 49.71429px; }
     .grc-section-7-equation-5 {
       left: 30%;
       width: 145.14286px;
       height: 28px; }
+      .grc-section-7-equation-5 img {
+        width: 145.14286px;
+        height: 28px; }
     .grc-section-7-char {
       bottom: 0;
       width: 220.57143px;
@@ -1131,16 +1180,19 @@ body {
       .grc-section-7-equation-container, .grc-section-7-cosmos-container {
         min-height: auto;
         padding-top: 0; }
+      .grc-section-7-cosmos-container {
+        position: relative;
+        left: 120%; }
       .grc-section-7-equation-container {
         position: absolute;
-        left: 30%;
-        width: 60%;
-        max-width: 600px; }
+        left: 40%;
+        width: 80%;
+        max-width: 800px; }
       .grc-section-7-equation-1 {
         top: auto;
         bottom: 45%;
-        left: auto;
-        right: 2%;
+        left: 0;
+        right: auto;
         z-index: 10; }
       .grc-section-7-equation-2 {
         top: auto;
@@ -1150,40 +1202,41 @@ body {
         z-index: 10; }
       .grc-section-7-equation-3 {
         top: auto;
-        bottom: 25%;
-        left: auto;
-        right: 5%;
+        bottom: 29%;
+        left: 40%;
+        right: auto;
         z-index: 10; }
       .grc-section-7-equation-4 {
         top: auto;
-        bottom: 15%;
+        bottom: 24%;
         left: 15%;
         right: auto;
         z-index: 10; }
       .grc-section-7-equation-5 {
-        bottom: 10%;
+        bottom: 20%;
         top: auto;
-        right: 0;
-        left: auto;
+        right: auto;
+        left: 60%;
         z-index: 10; }
       .grc-section-7-char {
-        bottom: 0;
+        bottom: 10%;
         width: 308.8px;
         height: 600px; }
       .grc-section-7-blackhole {
         width: 333.33333px;
         height: 622.66667px; }
       .grc-section-7-jupiter {
-        top: 15%;
+        top: 25%;
         width: 96.66667px;
         height: 152px; }
       .grc-section-7-planet {
         left: auto;
+        top: 15%;
         right: 15%;
         width: 129.33333px;
         height: 116px; }
       .grc-section-7-comet {
-        bottom: 45%;
+        bottom: 25%;
         left: auto;
         width: 350.66667px;
         height: 267.33333px; }
@@ -1191,9 +1244,79 @@ body {
         width: 1238.66667px;
         height: 722px; } }
 
+/* Text */
+.grc-section-7-text-1 {
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  .grc-section-7-text-1-content {
+    padding: 20px; }
+  @media only screen and (min-width: 768px) {
+    .grc-section-7-text-1 {
+      width: 600px;
+      margin-top: 5%;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-7-text-1 {
+      top: 0%;
+      left: 5%;
+      right: auto;
+      bottom: auto;
+      width: 300px;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+
+.grc-section-7-text-2 {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  .grc-section-7-text-2-content {
+    padding: 20px; }
+  @media only screen and (min-width: 768px) {
+    .grc-section-7-text-2 {
+      width: 600px;
+      margin-top: 0;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-7-text-2 {
+      top: auto;
+      left: auto;
+      right: 0;
+      bottom: 55%;
+      width: 300px;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial;
+      z-index: 21; } }
+
+.grc-section-7-text-3 {
+  position: absolute;
+  top: auto;
+  bottom: 40px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  .grc-section-7-text-3-content {
+    padding: 20px; }
+  @media only screen and (min-width: 768px) {
+    .grc-section-7-text-3 {
+      width: 600px;
+      margin-top: 20%;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-7-text-3 {
+      top: auto;
+      left: auto;
+      right: 1%;
+      bottom: 20px;
+      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+
 /* SVG Animations */
 #s7-svg {
   position: absolute;
-  top: 15%;
-  left: 25%;
-  z-index: 999; }
+  bottom: 55%;
+  left: 35%;
+  z-index: 15;
+  display: none; }
