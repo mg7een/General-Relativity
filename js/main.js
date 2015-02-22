@@ -258,22 +258,21 @@ var scene5 = new ScrollScene();
  * animatable desktop graph
  */
 
-$('.grc-section-6-graph-mobile-1, .grc-section-6-graph-mobile-2').hide();
-$('.grc-section-6-roof-line-container, .grc-section-6-graph, .grc-section-6-graph-animation, .grc-section-6-graph-container').show();
+$('.grc-section-6-graph-mobile-1, .grc-section-6-graph-mobile-2, .grc-section-6-character-container').hide();
+$('.grc-section-6-roof-line-container, .grc-section-6-graph, .grc-section-6-graph-animation, .grc-section-6-graph-container, .grc-section-6-character-desktop').show();
 
 $('.grc-section-6').css({
   'height': 'inherit'
 });
 
-var _roofLine = $('.grc-section-6-roof-line');
+TweenMax.set('.grc-section-6-text-2', {
+  opacity: 0,
+  x: '-10%'
+});
 
-// .add([
-//   TweenMax.from("#object2", 5, {
-//     backgroundPosition: "500px 0px",
-//     ease: SteppedEase.config(5),
-//     repeat: 3,
-//     repeatDelay: -0.5})
-// ]);
+var _roofLine = $('.grc-section-6-roof-line');
+var _s6Text1 = $('.grc-section-6-text-1');
+var _s6Text2 = $('.grc-section-6-text-2');
 
 var frameWidth = 100, numCols = 12;
 var steppedEase = new SteppedEase(numCols);
@@ -287,6 +286,18 @@ var s6GraphWidth = 809 * 8;
 var steppedEase = new SteppedEase(8);
 
 var scene6_animation = new TimelineMax({ delay: 2 })
+  .add([
+    TweenMax.to(_s6Text1, 1, {
+      opacity: 0,
+      y: '-10%'
+    })
+  ])
+  .add([
+    TweenMax.to(_s6Text2, 1, {
+      opacity: 1,
+      x: '10%'
+    })
+  ])
   .add([
     TweenMax.to('.grc-section-6-graph-animation', 1, {
       opacity: 1

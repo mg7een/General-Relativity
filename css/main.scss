@@ -536,7 +536,7 @@ $ein-height: 388px;
 
 .grc-section-2-character {
   position: absolute;
-  top: 23%;
+  top: 7%;
   left: 0%;
   right: 0%;
   max-width: 180px;
@@ -918,6 +918,24 @@ $s5-char-height: 702px;
 /* Section 6 | @s6
    ========================================================================== */
 
+@include keyframes(scene6MoveChar) {
+  from {
+    @include vendor-prefix(transform, translateX(0%));
+  }
+  to {
+    @include vendor-prefix(transform, translateX(250%));
+  }
+}
+
+@include keyframes(scene6MoveCharDesktop) {
+  from {
+    @include vendor-prefix(transform, translateX(0%));
+  }
+  to {
+    @include vendor-prefix(transform, translateX(400%));
+  }
+}
+
 .grc-section-6-roof-line-container {
   position: relative;
   top: 258px;
@@ -947,9 +965,14 @@ $s6-graph-height: 1667px;
 
 .grc-section-6-graph-mobile-1,
 .grc-section-6-graph-mobile-2 {
+  position: relative;
   max-width: 80%;
   margin: 0 auto;
   display: block;
+  @include tablet {
+    position: relative;
+    top: -40px;
+  }
 }
 
 .grc-section-6-graph-mobile-1 {
@@ -958,6 +981,42 @@ $s6-graph-height: 1667px;
 
 .grc-section-6-graph-mobile-2 {
   padding-bottom: 60px;
+}
+
+$s6-char-width: 310px;
+$s6-char-height: 460px;
+
+.grc-section-6-character-container {
+  position: relative;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 50%;
+  margin: 0 auto;
+  @include tablet {
+    top: 140px;
+  }
+}
+
+.grc-section-6-character {
+  position: relative;
+  width: $s6-char-width/6;
+  height: $s6-char-height/6;
+  @include vendor-prefix(animation, scene6MoveChar 2s ease-in-out infinite);
+  @include tablet {
+    width: $s6-char-width/3;
+    height: $s6-char-height/3;
+  }
+}
+
+.grc-section-6-character-desktop {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  display: none;
+  width: $s6-char-width/4;
+  height: $s6-char-height/4;
+  @include vendor-prefix(animation, scene6MoveCharDesktop 2s ease-in-out infinite);
 }
 
 .grc-section-6-text-1,
@@ -972,7 +1031,10 @@ $s6-graph-height: 1667px;
   }
   @include desktop {
     position: absolute;
-    top: 10%;
+    left: 0;
+    right: 0;
+    top: 5%;
+    margin: auto;
     font: $text-desktop;
   }
 }
@@ -986,12 +1048,15 @@ $s6-graph-height: 1667px;
 
 .grc-section-6-text-2 {
   padding-top: 40px;
-  padding-bottom: 60px;
+  // padding-bottom: 60px;
   span {
     color: #00a99d;
   }
   @include desktop {
-    left: 30%;
+    top: 15%;
+    left: 5%;
+    right: auto;
+    width: 400px;
     padding-top: 0;
   }
 }
@@ -1119,20 +1184,6 @@ $s6-char-height: 600px;
 
 /* Section 7 | @s7
    ========================================================================== */
-
-// .grc-section-7-bg {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-// }
-
-// .grc-section-7-cosmos {
-//   min-height: 100%;
-//   max-height: 100%;
-// }
 
 .grc-section-7 {
   padding-top: 140px;
@@ -1298,7 +1349,7 @@ $s6-char-height: 600px;
       }
     }
     &-equation-3 {
-      top: 20%;
+      top: 23%;
       left: 5%;
       right: auto;
       width: (455px/1.75);
@@ -1309,7 +1360,7 @@ $s6-char-height: 600px;
       }
     }
     &-equation-4 {
-      top: 10%;
+      top: 12%;
       width: (177px/1.75);
       height: (87px/1.75);
       img {
@@ -1318,6 +1369,7 @@ $s6-char-height: 600px;
       }
     }
     &-equation-5 {
+      top: 19%;
       left: 30%;
       width: (254px/1.75);
       height: (49px/1.75);
