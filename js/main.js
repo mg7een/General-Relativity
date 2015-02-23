@@ -166,26 +166,74 @@ var scene2 = new ScrollScene({
  */
 
 $('.grc-section-3-panel-left-bg').attr("src", 'img/s3-panel-left-bg.png');
-$('.grc-section-3-panel-left-vehicles').show();
+$('.grc-section-3-panel-left-vehicles-container').show();
 
 $('.grc-section-3-panel-right-bg').attr("src", 'img/s3-panel-right-bg.png');
 
-var _veh1 = $('.grc-section-3-vehicles');
-var _panelRight = $('.grc-section-3-panel-right-bg-repeat');
+/**
+ * set desktop animation defaults
+ */
 
-var scene3_animation = TweenMax.to(_veh1, 1, {
-  x: '300',
-  repeat: -1,
-  // onStart: function() {
-  // }
+TweenMax.set('.grc-section-3-panel-left', {
+  x: '25%'
+});
+
+TweenMax.set('.grc-section-3-panel-right', {
+  opacity: 0,
+  x: '50%'
+});
+
+TweenMax.set('.grc-section-3-panel-left-bubble', {
+  scale: 0.5,
+  opacity: 0
+});
+
+TweenMax.set('.grc-section-3-panel-right-bubble', {
+  scale: 0.5,
+  opacity: 0
+});
+
+var _veh1 = $('.grc-section-3-panel-left-vehicles');
+var _panelRight = $('.grc-section-3-panel-right-bg-repeat');
+var _s3LeftBubble = $('.grc-section-3-panel-left-bubble');
+var _s3RightBubble = $('.grc-section-3-panel-right-bubble');
+
+var scene3_animation = TweenMax.to(_veh1, 3, {
+  x: '1000',
+  repeat: -1
 });
 scene3_animation.pause();
+
+var scene3_timeline = new TimelineMax()
+  .add([
+    TweenMax.to('.grc-section-3-panel-left', 3, {
+      x: '0%'
+    }),
+    TweenMax.to('.grc-section-3-panel-left-bubble', 3, {
+      scale: 1,
+      opacity: 1
+    })
+  ])
+  .add([
+    TweenMax.to('.grc-section-3-panel-right', 3, {
+      x: '0%',
+      opacity: 1
+    })
+  ])
+  .add([
+    TweenMax.to('.grc-section-3-panel-right-bubble', 3, {
+      scale: 1,
+      opacity: 1
+    })
+  ]);
 
 var scene3 = new ScrollScene({
   duration: 1000,
   triggerElement: '.grc-section-3',
   triggerHook: '0'
-});
+})
+  .setPin('.grc-section-3')
+  .setTween(scene3_timeline);
 
 scene3.on('enter', function() {
   scene3_animation.play();
@@ -201,6 +249,13 @@ scene3.on('leave', function(ev) {
 /* Scene 4 | @s4
    ========================================================================== */
 
+var _s4Bubble = $('.grc-section-4-bubble');
+
+TweenMax.set(_s4Bubble, {
+  opacity: 0,
+  scale: 0.5
+});
+
 TweenMax.set('.grc-section-4-bg', {
   scale: 4
 });
@@ -215,6 +270,12 @@ var scene4_animation = new TimelineMax()
       scale: 1
     }),
     TweenMax.to('.grc-section-4-char', 1, {
+      scale: 1
+    })
+  ])
+  .add([
+    TweenMax.to(_s4Bubble, 1, {
+      opacity: 1,
       scale: 1
     })
   ]);
@@ -248,7 +309,70 @@ scene4.on('leave', function(ev) {
 /* Scene 5 | @s5
    ========================================================================== */
 
-var scene5 = new ScrollScene();
+$('.grc-section-5-text-warp').hide();
+$('.grc-section-5-text-warp-animation').css({
+  display: 'inline-block'
+});
+
+TweenMax.set('.grc-section-5-building-1', {
+  y: '20%'
+});
+
+TweenMax.set('.grc-section-5-building-2', {
+  y: '20%'
+});
+
+TweenMax.set('.grc-section-5-char', {
+  y: '10%'
+});
+
+TweenMax.set('.grc-section-5-text', {
+  opacity: 0,
+  y: '20%'
+});
+
+
+var s5GraphWidth = 400 * 6;
+var s5SteppedEase = new SteppedEase(6);
+var s5Building1 = $('.grc-section-5-building-1');
+var s5Building2 = $('.grc-section-5-building-2');
+var s5Char = $('.grc-section-5-char');
+
+var scene5_animation_bg = new TimelineMax()
+  .add([
+    TweenMax.to(s5Building1, 3, {
+      y: '0%'
+    }),
+    TweenMax.to(s5Building2, 3, {
+      y: '0%'
+    }),
+    TweenMax.to(s5Char, 3, {
+      y: '0%'
+    })
+  ]);
+
+var scene5_animation = new TimelineMax()
+  .add([
+    TweenMax.to('.grc-section-5-text-warp-animation', 1, {
+      backgroundPosition: "-" + s5GraphWidth + "px 0px",
+      ease: s5SteppedEase
+    })
+  ])
+  .add([
+    TweenMax.to('.grc-section-5-text', 3, {
+      opacity: 1,
+      y: '0%'
+    })
+  ]);
+
+var scene5 = new ScrollScene({
+  duration: 1000,
+  triggerElement: '.grc-section-5',
+  triggerHook: '0'
+})
+  .setTween([scene5_animation, scene5_animation_bg])
+  .setPin('.grc-section-5');
+
 
 /* Scene 6 | @s6
    ========================================================================== */
@@ -274,16 +398,16 @@ var _roofLine = $('.grc-section-6-roof-line');
 var _s6Text1 = $('.grc-section-6-text-1');
 var _s6Text2 = $('.grc-section-6-text-2');
 
-var frameWidth = 100, numCols = 12;
-var steppedEase = new SteppedEase(numCols);
+// var frameWidth = 100, numCols = 12;
+// var steppedEase = new SteppedEase(numCols);
 
-TweenMax.to('#selector', 6, {
-  backgroundPosition: '-'+(frameWidth*numCols)+'px 0px',
-  ease:steppedEase, repeat:-1});
+// TweenMax.to('#selector', 6, {
+//   backgroundPosition: '-'+(frameWidth*numCols)+'px 0px',
+//   ease:steppedEase, repeat:-1});
 
 
 var s6GraphWidth = 809 * 8;
-var steppedEase = new SteppedEase(8);
+var s6SteppedEase = new SteppedEase(8);
 
 var scene6_animation = new TimelineMax({ delay: 2 })
   .add([
@@ -306,7 +430,7 @@ var scene6_animation = new TimelineMax({ delay: 2 })
   .add([
     TweenMax.to('.grc-section-6-graph-animation', 1, {
       backgroundPosition: "-" + s6GraphWidth + "px 0px",
-      ease: steppedEase
+      ease: s6SteppedEase
     })
   ]);
 
@@ -573,6 +697,17 @@ var scene7 = new ScrollScene({
   .setPin('.grc-section-7')
   .setTween([scene7_animation, scene7_animation_bg]);
 
+/* Scene End | @end
+   ========================================================================== */
+
+var sceneEnd = new ScrollScene({
+  // duration: 4000,
+  // triggerElement: '.grc-section-7',
+  // triggerHook: '0'
+});
+  // .setPin('.grc-section-7')
+  // .setTween([scene7_animation, scene7_animation_bg]);
+
 /* Controller | @controller
    ========================================================================== */
 
@@ -584,7 +719,8 @@ controller.addScene([
   scene4,
   scene5,
   scene6,
-  scene7
+  scene7,
+  sceneEnd
 ]);
 
 } // end mobilecheck

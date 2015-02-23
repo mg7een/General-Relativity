@@ -188,6 +188,7 @@ body {
   padding: 0;
   &-loader {
     background-color: #1f222d;
+    border-bottom: 20px solid black;
   }
   &-1 {
     position: relative;
@@ -231,7 +232,7 @@ body {
     }
   }
   &-end {
-    background-color: orange;
+    background-color: #091525;
   }
   &-text {
     position: absolute;
@@ -598,13 +599,21 @@ $s3-panel-left-width: 800px;
     height: 100%;
     width: 100%;
   }
-  &-vehicles {
+  &-vehicles-container {
     display: none;
     position: absolute;
     top: 0;
-    left: 0;
-    z-index: 9999;
+    left: 2.5%;
+    width: (533px*3);
+    height: (43px*3);
     max-width: 100%;
+    @include vendor-prefix(transform, rotate(34deg));
+  }
+  &-vehicles {
+    position: relative;
+    left: -500px;
+    width: (533px*1.5);
+    height: (43px*1.5);
   }
   &-border {
     position: absolute;
@@ -664,6 +673,7 @@ $s3-panel-left-width: 800px;
     margin: inherit;
     margin-left: -30%;
     display: inline-block;
+    overflow: hidden;
   }
 }
 
@@ -690,7 +700,7 @@ $s3-panel-right-width: 800px;
     background-image: url(../img/s3-panel-right-bg-repeat.jpg);
     @include vendor-prefix(transform, scale(0.95));
     &.animated {
-      @include vendor-prefix(animation, scene3MoveBg 4s linear infinite);
+      @include vendor-prefix(animation, scene3MoveBg 2s linear infinite);
     }
   }
   &-bg {
@@ -770,13 +780,14 @@ $s4-char-height: 420px;
 
 .grc-section-4-char {
   position: absolute;
-  top: 30%;
-  left: 0;
+  top: 40%;
+  left: -15%;
   right: auto;
   max-width: 100%;
   margin: auto;
   @include tablet {
     top: 20%;
+    left: 0;
     width: $s4-char-width * 1.5;
     height: $s4-char-height * 1.5;
   }
@@ -789,6 +800,7 @@ $s4-char-height: 420px;
 
 .grc-section-4-text {
   position: relative;
+  top: 5%;
   font-size: 0.75em;
   color: white;
   margin: 5% 10% 0;
@@ -816,11 +828,16 @@ $s4-char-height: 420px;
   line-height: 90%;
   &-content {
     padding: 20px 40px;
+    padding-left: 60px;
   }
   @include tablet {
+    bottom: 35%;
     width: 240px;
-    left: 50%;
+    left: 60%;
     line-height: 120%;
+  }
+  @include desktop {
+    left: 55%;
   }
 }
 
@@ -865,19 +882,90 @@ $b2-width: 252px;
   }
 }
 
+.grc-section-5-text-1,
+.grc-section-5-text-2,
+.grc-section-5-text-3 {
+  font: $text-mobile;
+  @include tablet {
+    font: $text-tablet;
+  }
+  @include desktop {
+    font-size: 2em;
+  }
+}
+
+.grc-section-5-text-1 {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  width: 280px;
+  margin: auto;
+  text-align: center;
+  @include tablet {
+    top: 34%;
+  }
+  @include desktop {
+    top: 22%;
+    @include vendor-prefix(transform, translateX(30%));
+  }
+}
+
+.grc-section-5-text-2,
+.grc-section-5-text-3 {
+  display: inline-block;
+  @include desktop {
+    position: relative;
+    top: -100px;
+    @include vendor-prefix(transform, translateX(30%));
+  }
+}
+
+.grc-section-5-text-2 {
+  @include desktop {
+    margin-right: 9%;
+  }
+}
+
+.grc-section-5-text-3 {
+  @include desktop {
+    margin-left: 5%;
+  }
+}
+
+.grc-section-5-text-row {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  @include tablet {
+    top: 35%;
+  }
+  @include desktop {
+    top: 28%;
+  }
+}
+
 $s5-char-width: 496px;
 $s5-char-height: 702px;
 
 .grc-section-5-text-warp {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: $s5-char-height/3;
-  margin: auto;
-  max-width: 200px;
+  position: relative;
+  top: -4px;
+  max-width: 100px;
   @include tablet {
-    bottom: $s5-char-height/1.75;
+    max-width: 25%;
   }
+}
+
+.grc-section-5-text-warp-animation {
+  display: none;
+  width: 400px;
+  height: 239px;
+  background-image: url('../img/s5-warp-animation-spritesheet.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  @include vendor-prefix(transform, translateX(30%));
 }
 
 .grc-section-5-char {
@@ -1588,4 +1676,121 @@ $s6-char-height: 600px;
   left: 35%;
   z-index: 15;
   display: none;
+}
+
+/* Section End | @end
+   ========================================================================== */
+
+.grc-section-end {
+  position: relative;
+  overflow: hidden;
+  min-height: 720px;
+  &-stars-mobile,
+  &-stars-desktop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    @include tablet {
+      min-width: 100%;
+      min-height: 90%;
+    }
+  }
+  &-stars-mobile {
+    @include desktop {
+      display: none;
+    }
+  }
+  &-stars-desktop {
+    display: none;
+    @include desktop {
+      display: block;
+    }
+  }
+  &-text {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    font-family: $font-benton;
+    line-height: 120%;
+    @include tablet {
+      font-family: $font-benton;
+    }
+    @include desktop {
+      font-family: $font-benton;
+      font-size: 2em;
+    }
+  }
+  &-social-container {
+    position: relative;
+    top: 2.5%;
+    text-align: center;
+  }
+  &-social-icon {
+    display: inline-block;
+    padding: 20px;
+    img {
+      height: 80px;
+      width: 80px;
+    }
+    @include tablet {
+      padding: 40px;
+      img {
+        height: 120px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+.grc-section-end-logo {
+  width: $logo-width;
+  height: $logo-height;
+  margin: 0 auto;
+  margin-bottom: 12%;
+  margin-top: 40%;
+  clear: both;
+  display: block;
+  @include landscape {
+    margin-bottom: 30px;
+  }
+  @include tablet {
+    margin-top: 15%;
+    width: $logo-width * 2;
+    height: $logo-height * 2;
+  }
+  @include desktop {
+    margin-top: 5%;
+    width: $logo-width * 2;
+    height: $logo-height * 2;
+    margin-bottom: 5%;
+  }
+}
+
+.grc-section-end-title-text {
+  position: relative;
+  width: $title-width;
+  height: $title-height;
+  margin: auto;
+  margin-bottom: 12%;
+  clear: both;
+  display: block;
+  z-index: 10;
+  @include landscape {
+    margin-bottom: 10px;
+  }
+  @include tablet {
+    margin-bottom: 8%;
+    width: $title-width * 2;
+    height: $title-height * 2;
+  }
+  @include desktop {
+    width: $title-width * 1.75;
+    height: $title-height * 1.75;
+    margin-bottom: 5%;
+  }
 }
