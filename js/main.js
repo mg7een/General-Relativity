@@ -56,8 +56,39 @@ var controller = new ScrollMagic({
   // }
 });
 
+/* Scene Loader | @load
+   ========================================================================== */
+
+/**
+ * global toggle sound
+ */
+
+var buzzPlaying = true;
+
+$('#grc-toggle-sound').on('click', function() {
+
+  // toggle sound and play or stop corresponding to value
+  buzzPlaying = !buzzPlaying;
+  if (!buzzPlaying) { buzz.all().stop(); }
+  else { s1Sound.play().loop(); }
+
+  // swap text
+  if ($(this).html() == "On") {
+    $(this).html("Off");
+  } else {
+    $(this).html("On");
+  }
+});
+
 /* Scene 1 | @s1
    ========================================================================== */
+
+/* Buzz */
+
+buzz.defaults.formats = [ 'ogg', 'mp3' ];
+var s1Sound = new buzz.sound('sounds/opener-loop');
+
+if (buzzPlaying) { s1Sound.play().loop(); }
 
 // scene 2 is under scene 1 so set up some initial properties
 
@@ -157,6 +188,10 @@ var scene2 = new ScrollScene({
 /* Scene 3 | @s3
    ========================================================================== */
 
+/* Buzz */
+
+var s3Sound = new buzz.sound('sounds/traffic-loop');
+
 /**
  * if animations are enabled,
  * swap the scene background to use the
@@ -235,15 +270,24 @@ var scene3 = new ScrollScene({
   .setPin('.grc-section-3')
   .setTween(scene3_timeline);
 
-scene3.on('enter', function() {
+scene3.on('enter', function(ev) {
   scene3_animation.play();
   $(_panelRight).addClass("animated");
+  if (ev.scrollDirection == "FORWARD") {
+    s1Sound.pause();
+    if (buzzPlaying) { s3Sound.fadeIn().loop(); }
+  }
 });
 
 // TODO: find fix for end/leave event
 scene3.on('leave', function(ev) {
   scene3_animation.pause();
   $(_panelRight).removeClass("animated");
+  if (ev.scrollDirection == "REVERSE") {
+    if (buzzPlaying) { s1Sound.play().loop(); }
+    s3Sound.pause();
+  }
+
 });
 
 /* Scene 4 | @s4
@@ -442,18 +486,26 @@ var scene6 = new ScrollScene({
   .setTween(scene6_animation)
   .setPin('.grc-section-6');
 
-scene6.on('enter', function() {
+scene6.on('enter', function(ev) {
   $(_roofLine).removeClass("animated");
-  // console.log("s6 enter");
+  if (ev.scrollDirection == "FORWARD") {
+    s3Sound.pause();
+  }
 });
 
 scene6.on('leave', function(ev) {
-  if (ev.scrollDirection == "REVERSE") $(_roofLine).addClass("animated");
-  // console.log("s6 leave");
+  if (ev.scrollDirection == "REVERSE") {
+    $(_roofLine).addClass("animated");
+    if (buzzPlaying) { s3Sound.play().loop(); }
+  }
 });
 
 /* Scene 7 | @s7
    ========================================================================== */
+
+/* Buzz */
+
+var s7Sound = new buzz.sound('sounds/chalk-loop');
 
 $('.grc-section-7-main-equation').hide();
 $('#s7-svg').show();
@@ -564,7 +616,10 @@ var scene7_animation_bg = new TimelineMax()
       x: '-10%'
     }),
     TweenMax.to(_s7Equation1, 10, {
-      x: '-10%'
+      x: '-10%',
+      onStart: function() {
+        if (buzzPlaying && s7Sound.isPaused()) { s7Sound.play().loop(); }
+      }
     }),
     TweenMax.to(_s7Equation2, 10, {
       x: '-10%'
@@ -628,7 +683,15 @@ var scene7_animation = new TimelineMax()
   .add(TweenMax.to($s7Path21, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path22, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path23, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
-  .add(TweenMax.to($s7Path24, 2, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(TweenMax.to($s7Path24, 2, {
+    strokeDashoffset: 0,
+    ease:Linear.easeNone,
+    onComplete: function() {
+      if (s7Direction == "FORWARD") {
+        s7Sound.pause();
+      }
+    }
+  }))
   .add([
     TweenMax.to(_s7Text1, 2.5, {
       opacity: 0,
@@ -697,16 +760,40 @@ var scene7 = new ScrollScene({
   .setPin('.grc-section-7')
   .setTween([scene7_animation, scene7_animation_bg]);
 
+
+// set up s7 scroll direction variable
+var s7Direction;
+
+scene7.on('progress', function(ev) {
+  s7Direction = ev.scrollDirection;
+});
+
 /* Scene End | @end
    ========================================================================== */
 
+var s8Sound = new buzz.sound('sounds/equationscosmos');
+
 var sceneEnd = new ScrollScene({
   // duration: 4000,
-  // triggerElement: '.grc-section-7',
-  // triggerHook: '0'
+  triggerElement: '.grc-section-end',
+  triggerHook: '0'
 });
   // .setPin('.grc-section-7')
   // .setTween([scene7_animation, scene7_animation_bg]);
+
+sceneEnd.on('enter', function(ev) {
+  if(ev.scrollDirection == "FORWARD") {
+    s8Sound.play();
+  }
+});
+
+sceneEnd.on('leave', function(ev) {
+  buzz.all().pause();
+});
+
+s8Sound.bind('ended', function() {
+  s1Sound.play().loop();
+});
 
 /* Controller | @controller
    ========================================================================== */

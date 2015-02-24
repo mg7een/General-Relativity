@@ -239,6 +239,18 @@ body {
 .grc-section-loader-scrolldown {
   display: none; }
 
+.grc-section-loader-sound-toggle {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  color: white; }
+  .grc-section-loader-sound-toggle a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase; }
+
 /* Section 1 | @s1
    ========================================================================== */
 .grc-section-1-bg {
