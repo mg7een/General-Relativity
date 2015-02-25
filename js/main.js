@@ -109,6 +109,10 @@ var s1Sound = new buzz.sound('sounds/opener-loop');
 
 if (buzzPlaying) { s1Sound.play().loop(); }
 
+
+var s1SpriteWidth = 833 * 25;
+var s1SteppedEase = new SteppedEase(25);
+
 // scene 2 is under scene 1 so set up some initial properties
 
 TweenMax.set('.grc-section-1', {
@@ -140,23 +144,29 @@ var scene1_bgAnimation = new TimelineMax()
 
 var scene1_animation = new TimelineMax({ delay: 4 })
   .add([
-    TweenMax.to('.grc-section-1-book-cover', 0.5, {
-      rotationY: '-90'
-    }),
-    TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
-      rotationY: '-90'
+    TweenMax.to('.grc-section-1-book-cover-2', 1, {
+      backgroundPosition: "-" + s1SpriteWidth + "px 0px",
+      ease: s1SteppedEase
     })
   ])
-  .add([
-    TweenMax.to('.grc-section-1-book-cover', 0.01, {
-      opacity: '0'
-    })
-  ])
-  .add([
-    TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
-      rotationY: '-180'
-    })
-  ])
+  // .add([
+  //   TweenMax.to('.grc-section-1-book-cover', 0.5, {
+  //     rotationY: '-90'
+  //   }),
+  //   TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
+  //     rotationY: '-90'
+  //   })
+  // ])
+  // .add([
+  //   TweenMax.to('.grc-section-1-book-cover', 0.01, {
+  //     opacity: '0'
+  //   })
+  // ])
+  // .add([
+  //   TweenMax.to('.grc-section-1-book-cover-back', 0.5, {
+  //     rotationY: '-180'
+  //   })
+  // ])
   .add([
     TweenMax.to('.grc-section-1-scale-wrapper', 0.5, {
       scale: 5,
