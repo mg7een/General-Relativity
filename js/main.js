@@ -74,7 +74,7 @@ var controller = new ScrollMagic({
  * global toggle sound
  */
 
-var buzzPlaying = true;
+var buzzPlaying = false;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -128,7 +128,7 @@ TweenMax.set('.grc-section-2-text', {
 var scene1_bgAnimation = new TimelineMax()
   .add([
     TweenMax.to('.grc-section-1-scale-wrapper', 5, {
-      y: '-10%'
+      y: '-5%'
     }),
     TweenMax.to('.grc-section-2-bg', 5, {
       backgroundColor: '#001d23'
@@ -138,7 +138,7 @@ var scene1_bgAnimation = new TimelineMax()
     })
   ]);
 
-var scene1_animation = new TimelineMax()
+var scene1_animation = new TimelineMax({ delay: 4 })
   .add([
     TweenMax.to('.grc-section-1-book-cover', 0.5, {
       rotationY: '-90'
@@ -167,12 +167,15 @@ var scene1_animation = new TimelineMax()
 
   // Scene 2 elements
   .add([
-    TweenMax.to('.grc-section-2-character', 5, {
-      left: '100%'
-    }),
+    // TweenMax.to('.grc-section-2-character', 5, {
+    //   left: '100%'
+    // }),
     TweenMax.to('.grc-section-2-text', 2.5, {
       opacity: 1,
-      y: '0%'
+      y: '0%',
+      onStart: function() {
+        $('.grc-section-2-character').addClass("animated");
+      }
     })
   ]);
 
@@ -202,10 +205,10 @@ TweenMax.set('.grc-section-2', {
   'z-index': '-1'
 });
 
-TweenMax.set('.grc-section-2-character', {
-  left: '-30%',
-  right: 'auto'
-});
+// TweenMax.set('.grc-section-2-character', {
+//   left: '-30%',
+//   right: 'auto'
+// });
 
 var scene2 = new ScrollScene({
   duration: 1000,
@@ -213,12 +216,18 @@ var scene2 = new ScrollScene({
   triggerHook: '0'
 });
 
-scene2.on('enter', function() {
+scene2.on('enter', function(ev) {
   if (!scene2_trigger) {
     $(document).trigger('setScene', {
       scene: 'Scene 2: Floating',
     });
     scene2_trigger = true;
+  }
+});
+
+scene1.on('progress', function(ev) {
+  if (ev.scrollDirection == "REVERSE") {
+    $('.grc-section-2-character').removeClass("animated");
   }
 });
 

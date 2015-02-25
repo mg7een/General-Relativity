@@ -149,7 +149,7 @@ $font-wild: 'CCWildWordsBoldItalic', 'Helvetica Neue', Helvetica, Arial;
 
 $text-mobile: normal 0.75em/120% $font-wild;
 $text-tablet: normal 1em/120% $font-wild;
-$text-desktop: normal 1em/120% $font-wild;
+$text-desktop: normal 0.85em/180% $font-wild;
 
 /* ==========================================================================
    Custom CSS
@@ -407,6 +407,10 @@ $ein-height: 388px;
   right: 5%;
   font-family: 'Helvetica Neue', Helvetica, Arial;
   color: white;
+  display: none;
+  @include desktop {
+    display: block;
+  }
   a {
     text-decoration: none;
     font-weight: bold;
@@ -503,17 +507,17 @@ $ein-height: 388px;
   left: 0;
   right: 0;
   margin: auto 10%;
-  font-size: 0.75em;
-  font-family: $font-wild;
-  line-height: 120%;
+  font: $text-mobile;
   color: white;
   @include tablet {
     top: 10%;
-    font-size: 1.25em;
+    font: $text-tablet;
   }
   @include desktop {
     margin: auto 25%;
-    font-size: 1em;
+    font: $text-desktop;
+    text-shadow: 2px 2px #000000;
+    z-index: 20;
   }
 }
 
@@ -524,6 +528,11 @@ $ein-height: 388px;
   0% { @include vendor-prefix(transform, translateY(0px)); }
   50% { @include vendor-prefix(transform, translateY(40px)); }
   100% { @include vendor-prefix(transform, translateY(0px)); }
+}
+
+@include keyframes(scene2Float) {
+  0% { left: -150% }
+  100% { left: 100% }
 }
 
 .grc-section-2-bg,
@@ -557,9 +566,14 @@ $ein-height: 388px;
   max-width: 180px;
   margin: auto;
   display: block;
-  @include vendor-prefix(animation, scene2Bouncy 6s ease-in-out infinite);
+  &.animated {
+    @include vendor-prefix(animation, scene2Float 6s linear infinite);
+  }
   @include tablet {
     max-width: 100%;
+  }
+  @include desktop {
+    left: -150%;
   }
 }
 
@@ -568,8 +582,7 @@ $ein-height: 388px;
   bottom: 40px;
   width: 280px;
   margin: auto;
-  font-family: $font-wild;
-  line-height: 90%;
+  font: $text-mobile;
   &-box {
   }
   &-content {
@@ -578,10 +591,13 @@ $ein-height: 388px;
   }
   @include tablet {
     width: 600px;
-    line-height: 120%;
+    font: $text-tablet;
     &-content {
       padding: 30px 50px;
     }
+  }
+  @include desktop {
+    font: $text-desktop;
   }
 }
 
@@ -641,22 +657,26 @@ $s3-panel-left-width: 800px;
     left: -6%;
     height: 60px;
     width: 180px;
-    font-family: $font-wild;
     &-box {
     }
     &-content {
       padding: 10px;
       text-align: left;
+      font: $text-mobile;
     }
     @include tablet {
       top: 40px;
       width: 260px;
       &-content {
         padding: 20px;
+        font: $text-tablet;
       }
     }
     @include desktop {
       left: 0;
+      &-content {
+        font: $text-desktop;
+      }
     }
   }
   &-bubble {
@@ -670,12 +690,18 @@ $s3-panel-left-width: 800px;
     &-content {
       padding: 20px;
       margin-left: 220px;
-      font-family: $font-wild;
+      font: $text-mobile;
     }
     @include tablet {
       width: 240px;
       &-content {
         padding: 30px;
+        font: $text-tablet;
+      }
+    }
+    @include desktop {
+      &-content {
+        font: $text-desktop;
       }
     }
   }
@@ -723,21 +749,34 @@ $s3-panel-right-width: 800px;
   }
   &-text {
     width: 180px;
-    &-box {
+    font: $text-mobile;
+    @include tablet {
+      font: $text-tablet;
     }
-    &-content {
+    @include desktop {
+      font: $text-desktop;
     }
   }
   &-bubble {
     width: 240px;
     top: -160px;
     left: auto;
-    font-family: $font-wild;
     &-box {
 
     }
     &-content {
       padding: 40px;
+      font: $text-mobile;
+    }
+    @include tablet {
+      &-content {
+        font: $text-tablet;
+      }
+    }
+    @include desktop {
+      &-content {
+        font: $text-desktop;
+      }
     }
   }
   @include tablet {
@@ -818,8 +857,7 @@ $s4-char-height: 420px;
   font-size: 0.75em;
   color: white;
   margin: 5% 10% 0;
-  font-family: $font-wild;
-  line-height: 120%;
+  font: $text-mobile;
   &-orange {
     color: #fb7c00;
   }
@@ -827,7 +865,10 @@ $s4-char-height: 420px;
     color: #1461db;
   }
   @include tablet {
-    font-size: 1em;
+    font: $text-tablet;
+  }
+  @include desktop {
+    font: $text-desktop;
   }
 }
 
@@ -838,20 +879,25 @@ $s4-char-height: 420px;
   left: 40%;
   right: auto;
   margin: 0 auto;
-  font-family: $font-wild;
-  line-height: 90%;
   &-content {
     padding: 20px 40px;
     padding-left: 60px;
+    font: $text-mobile;
   }
   @include tablet {
     bottom: 35%;
     width: 240px;
     left: 60%;
     line-height: 120%;
+    &-content {
+      font: $text-tablet;
+    }
   }
   @include desktop {
     left: 55%;
+    &-content {
+      font: $text-desktop;
+    }
   }
 }
 
@@ -1001,19 +1047,23 @@ $s5-char-height: 702px;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
-  font: $text-mobile;
   &-content {
     padding: 20px;
+    font: $text-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
-    font: $text-tablet;
+    &-content {
+      font: $text-tablet;
+    }
   }
   @include desktop {
     top: auto;
     bottom: 20px;
-    font: $text-desktop;
+    &-content {
+      font: $text-desktop;
+    }
   }
 }
 
@@ -1276,8 +1326,8 @@ $s6-char-height: 600px;
     height: $s6-char-height / 2;
   }
   @include desktop {
-    width: auto;
-    height: auto;
+    // width: $s6-char-width / 2;
+    // height: $s6-char-height / 2;
     top: 0;
     bottom: 0;
     @include vendor-prefix( transform, translateX(270px) translateY(240px) );
@@ -1614,14 +1664,16 @@ $s6-char-height: 600px;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
-  font: $text-mobile;
   &-content {
     padding: 20px;
+    font: $text-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 5%;
-    font: $text-tablet;
+    &-content {
+      font: $text-tablet;
+    }
   }
   @include desktop {
     top: 0%;
@@ -1629,7 +1681,9 @@ $s6-char-height: 600px;
     right: auto;
     bottom: auto;
     width: 300px;
-    font: $text-desktop;
+    &-content {
+      font: $text-desktop;
+    }
   }
 }
 
@@ -1637,14 +1691,16 @@ $s6-char-height: 600px;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
-  font: $text-mobile;
   &-content {
     padding: 20px;
+    font: $text-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 0;
-    font: $text-tablet;
+    &-content {
+      font: $text-tablet;
+    }
   }
   @include desktop {
     top: auto;
@@ -1652,8 +1708,10 @@ $s6-char-height: 600px;
     right: 0;
     bottom: 55%;
     width: 300px;
-    font: $text-desktop;
     z-index: 21;
+    &-content {
+      font: $text-desktop;
+    }
   }
 }
 
@@ -1664,21 +1722,25 @@ $s6-char-height: 600px;
   width: 300px;
   margin: 0 auto;
   margin-top: 20px;
-  font: $text-mobile;
   &-content {
     padding: 20px;
+    font: $text-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
-    font: $text-tablet;
+    &-content {
+      font: $text-tablet;
+    }
   }
   @include desktop {
     top: auto;
     left: auto;
     right: 1%;
     bottom: 20px;
-    font: $text-desktop;
+    &-content {
+      font: $text-desktop;
+    }
   }
 }
 
