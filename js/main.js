@@ -34,6 +34,17 @@ var resize = function() {
 resize();
 $(window).on('resize', resize);
 
+var scene1_trigger      = false,
+    scene2_trigger      = false,
+    scene3_trigger      = false,
+    scene4_trigger      = false,
+    scene5_trigger      = false,
+    scene6_trigger      = false,
+    scene7_trigger      = false,
+    scene8_trigger      = false,
+    sceneend_trigger    = false;
+
+
 /* Platform Detection | @detect
    ========================================================================== */
 
@@ -78,6 +89,14 @@ $('#grc-toggle-sound').on('click', function() {
   } else {
     $(this).html("On");
   }
+});
+
+/**
+ * first load trigger first analytics call
+ */
+
+$(document).trigger('setScene', {
+  scene: 'Loader Screen Complete',
 });
 
 /* Scene 1 | @s1
@@ -165,6 +184,15 @@ var scene1 = new ScrollScene({
   .setPin(".grc-section-1")
   .setTween([scene1_animation, scene1_bgAnimation]);
 
+scene1.on('enter', function() {
+  if (!scene1_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 1: Cover',
+    });
+    scene1_trigger = true;
+  }
+});
+
 /* Scene 2 | @s2
    ========================================================================== */
 
@@ -183,6 +211,15 @@ var scene2 = new ScrollScene({
   duration: 1000,
   triggerElement: '.grc-section-2',
   triggerHook: '0'
+});
+
+scene2.on('enter', function() {
+  if (!scene2_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 2: Floating',
+    });
+    scene2_trigger = true;
+  }
 });
 
 /* Scene 3 | @s3
@@ -277,6 +314,14 @@ scene3.on('enter', function(ev) {
     s1Sound.pause();
     if (buzzPlaying) { s3Sound.fadeIn().loop(); }
   }
+
+  if (!scene3_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 3: City',
+    });
+    scene3_trigger = true;
+  }
+
 });
 
 // TODO: find fix for end/leave event
@@ -338,6 +383,13 @@ scene4.on('enter', function(ev) {
     TweenMax.set('.grc-section-2', {
       position: 'absolute'
     });
+  }
+
+  if (!scene4_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 4: Paradox',
+    });
+    scene4_trigger = true;
   }
 });
 
@@ -417,6 +469,14 @@ var scene5 = new ScrollScene({
   .setTween([scene5_animation, scene5_animation_bg])
   .setPin('.grc-section-5');
 
+scene5.on('enter', function() {
+  if (!scene5_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 5: Warped',
+    });
+    scene5_trigger = true;
+  }
+});
 
 /* Scene 6 | @s6
    ========================================================================== */
@@ -490,6 +550,13 @@ scene6.on('enter', function(ev) {
   $(_roofLine).removeClass("animated");
   if (ev.scrollDirection == "FORWARD") {
     s3Sound.pause();
+  }
+
+  if (!scene6_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 6: Graph',
+    });
+    scene6_trigger = true;
   }
 });
 
@@ -719,7 +786,16 @@ var scene7_animation = new TimelineMax()
       x: '-200%'
     }),
     TweenMax.to(_s7CosmosContainer, 5, {
-      left: '0%'
+      left: '0%',
+      onComplete: function() {
+        console.log("entered cosmos");
+        if (!scene8_trigger) {
+          $(document).trigger('setScene', {
+            scene: 'Scene 8: Cosmos',
+          });
+          scene8_trigger = true;
+        }
+      }
     })
   ])
   .add([
@@ -766,6 +842,15 @@ var s7Direction;
 
 scene7.on('progress', function(ev) {
   s7Direction = ev.scrollDirection;
+});
+
+scene7.on('enter', function() {
+  if (!scene7_trigger) {
+    $(document).trigger('setScene', {
+      scene: 'Scene 7: Equations',
+    });
+    scene7_trigger = true;
+  }
 });
 
 /* Scene End | @end
