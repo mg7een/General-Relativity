@@ -572,7 +572,12 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    -webkit-transform: scale(0.99);
+    -ms-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -o-transform: scale(0.99);
+    transform: scale(0.99); }
   .grc-section-3-panel-left-vehicles-container {
     display: none;
     position: absolute;
@@ -1711,28 +1716,42 @@ body {
           height: 120px;
           width: 120px; } }
 
-.grc-section-end-logo {
+.grc-section-end-logo-link {
+  position: relative;
   width: 100px;
   height: 39px;
   margin: 0 auto;
   margin-bottom: 12%;
   margin-top: 40%;
+  z-index: 20;
   clear: both;
   display: block; }
   @media all and (orientation: landscape) {
-    .grc-section-end-logo {
+    .grc-section-end-logo-link {
       margin-bottom: 30px; } }
   @media only screen and (min-width: 768px) {
-    .grc-section-end-logo {
+    .grc-section-end-logo-link {
       margin-top: 15%;
       width: 200px;
       height: 78px; } }
   @media only screen and (min-width: 992px) {
-    .grc-section-end-logo {
+    .grc-section-end-logo-link {
       margin-top: 5%;
       width: 200px;
       height: 78px;
       margin-bottom: 5%; } }
+
+.grc-section-end-logo {
+  width: 100px;
+  height: 39px; }
+  @media only screen and (min-width: 768px) {
+    .grc-section-end-logo {
+      width: 200px;
+      height: 78px; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-end-logo {
+      width: 200px;
+      height: 78px; } }
 
 .grc-section-end-title-text {
   position: relative;

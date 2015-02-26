@@ -636,6 +636,7 @@ $s3-panel-left-width: 800px;
     left: 0;
     height: 100%;
     width: 100%;
+    @include vendor-prefix(transform, scale(0.99));
   }
   &-vehicles-container {
     display: none;
@@ -1828,15 +1829,23 @@ $s6-char-height: 600px;
         width: 120px;
       }
     }
+    // @include desktop {
+    //   img {
+    //     height: 80px;
+    //     width: 80px;
+    //   }
+    // }
   }
 }
 
-.grc-section-end-logo {
+.grc-section-end-logo-link {
+  position: relative;
   width: $logo-width;
   height: $logo-height;
   margin: 0 auto;
   margin-bottom: 12%;
   margin-top: 40%;
+  z-index: 20;
   clear: both;
   display: block;
   @include landscape {
@@ -1852,6 +1861,19 @@ $s6-char-height: 600px;
     width: $logo-width * 2;
     height: $logo-height * 2;
     margin-bottom: 5%;
+  }
+}
+
+.grc-section-end-logo {
+  width: $logo-width;
+  height: $logo-height;
+  @include tablet {
+    width: $logo-width * 2;
+    height: $logo-height * 2;
+  }
+  @include desktop {
+    width: $logo-width * 2;
+    height: $logo-height * 2;
   }
 }
 

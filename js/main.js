@@ -2,8 +2,22 @@
  * CONTENTS
  *
  * SETUP
- * XX.........................................@XX | Description.
- * YY.........................................@YY | Description.
+ * Variables..................................@vars | General project variables.
+ * Platform Detection.........................@detect | Platform detection.
+ * Social.....................................@social | Social sharing functions.
+ * Init ScrollMagic...........................@sm-init | Initialize scroll magic.
+ *
+ * SCENES
+ * Scene Loader...............................@load | Intro load scene.
+ * Scene 1....................................@s1 | Scene 1.
+ * Scene 2....................................@s2 | Scene 2.
+ * Scene 3....................................@s3 | Scene 3.
+ * Scene 4....................................@s4 | Scene 4.
+ * Scene 5....................................@s5 | Scene 5.
+ * Scene 6....................................@s6 | Scene 6.
+ * Scene 7....................................@s7 | Scene 7.
+ * Scene End..................................@end | Scene 1.
+ * Controller.................................@controller | Controller for managing scenes.
  *
  */
 
@@ -19,9 +33,9 @@
  * set to page top on load
  */
 
-// window.onbeforeunload = function(){
-//   window.scrollTo(0,0);
-// };
+window.onbeforeunload = function(){
+  window.scrollTo(0,0);
+};
 
 /* Variables | @vars
    ========================================================================== */
@@ -54,18 +68,81 @@ window.mobilecheck = function() {
   return check;
 };
 
+/* Social | @social
+   ========================================================================== */
+
+// fallback for browsers that do not support window.location.origin
+if (!window.location.origin) { window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: ''); }
+
+var siteUrl = window.location.host;
+
+var shareAccount = "sciencemagazine";
+var shareUrl = window.location.origin + window.location.pathname;
+var shareString = "Text. Via @" + shareAccount;
+var shareStringWithHash = "Text. #Hash Via @" + shareAccount;
+
+/* Functions
+   ========================================================================== */
+
+/* Facebook */
+function shareFb() {
+
+  if (window.mobilecheck()) {
+    var shareUrl = "https://www.facebook.com/dialog/share_open_graph?" +
+      "app_id=355911134593287" +
+      "&display=page" +
+      "&action_type=og.likes" +
+      "&action_properties=%7B%22object%22%3A%22http%3A%2F%2Fwww.sciencemag.org%2Fsite%2Fspecial%2Fgeneralrelativity%22%7D" +
+      "&redirect_uri=http%3A%2F%2Fwww.sciencemag.org%2Fsite%2Fspecial%2Fgeneralrelativity";
+    window.open(shareUrl);
+  } else {
+    FB.ui({
+      method: 'share',
+      name: 'General Relativity 100th Anniversary',
+      href: 'http://www.sciencemag.org/site/special/generalrelativity'
+    });
+  }
+
+}
+
+/* Twitter */
+function shareTwitter() {
+  // twitter share prompt
+  window.open('https://twitter.com/intent/tweet?url='+shareUrl+'&text='+shareString+'&hashtags=GeneralRelativity','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420');
+}
+
+/* Mail */
+function shareMail() {
+  // mail share prompt
+  document.location.href = "mailto:?subject=" + shareStringWithHash + "&body=" + shareUrl;
+}
+
+/* Share Buttons */
+
+$('#grc-fb-share').on('click', function() {
+  shareFb();
+});
+
+$('#grc-tw-share').on('click', function() {
+  shareTwitter();
+});
+
 /* Init ScrollMagic | @sm-init
    ========================================================================== */
 
-// only init if not mobile/tablet
+/**
+ * only init if not mobile/tablet
+ * beginning of desktop code
+ */
 if (window.mobilecheck() === false) {
 
 // init controller
-var controller = new ScrollMagic({
-  // globalSceneOptions: {
-  //   triggerHook: "onLeave"
-  // }
-});
+var controller = new ScrollMagic();
+
+
+/* ==========================================================================
+   Scenes
+   ========================================================================== */
 
 /* Scene Loader | @load
    ========================================================================== */
@@ -109,6 +186,7 @@ var s1Sound = new buzz.sound('sounds/opener-loop');
 
 if (buzzPlaying) { s1Sound.play().loop(); }
 
+/* Scene 1 Variables */
 
 var s1SpriteWidth = 833 * 25;
 var s1SteppedEase = new SteppedEase(25);
@@ -343,7 +421,6 @@ scene3.on('enter', function(ev) {
 
 });
 
-// TODO: find fix for end/leave event
 scene3.on('leave', function(ev) {
   scene3_animation.pause();
   $(_panelRight).removeClass("animated");
@@ -693,6 +770,10 @@ var _s7Jupiter            = $('.grc-section-7-jupiter');
 var _s7Planet             = $('.grc-section-7-planet');
 var _s7Comet              = $('.grc-section-7-comet');
 
+TweenMax.set(_s7Comet, {
+  x: '100%'
+});
+
 var scene7_animation_bg = new TimelineMax()
   .add([
     TweenMax.to(_s7Chair, 2, {
@@ -837,7 +918,7 @@ var scene7_animation = new TimelineMax()
       x: '-2%'
     }),
     TweenMax.to(_s7Comet, 5, {
-      x: '-20%'
+      x: '-50%'
     }),
   ])
   .add([
@@ -887,7 +968,7 @@ var sceneEnd = new ScrollScene({
 
 sceneEnd.on('enter', function(ev) {
   if(ev.scrollDirection == "FORWARD") {
-    s8Sound.play();
+    if (buzzPlaying) s8Sound.play();
   }
 });
 

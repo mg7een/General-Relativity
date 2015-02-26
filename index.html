@@ -38,6 +38,26 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- FB JS SDK -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '355911134593287',
+          xfbml      : true,
+          version    : 'v2.1'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- End FB JS SDK -->
+
     <div id="grc-app">
 
       <section class="grc-section grc-section-loader">
@@ -269,12 +289,14 @@
       <section class="grc-section grc-section-end">
         <img class="grc-section-end-stars-mobile" src="img/end-stars-mobile.png">
         <img class="grc-section-end-stars-desktop" src="img/end-stars-desktop.png">
-        <img class="grc-section-end-logo" src="img/loader-logo.jpg">
+        <a class="grc-section-end-logo-link" href="http://www.sciencemag.org">
+          <img class="grc-section-end-logo" src="img/loader-logo.jpg">
+        </a>
         <img class="grc-section-end-title-text" src="img/loader-title-text.png">
         <div class="grc-section-end-text">Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</div>
         <div class="grc-section-end-social-container">
-          <a class="grc-section-end-social-icon" href="javascript:;"><img src="img/facebook.png"></a>
-          <a class="grc-section-end-social-icon" href="javascript:;"><img src="img/twitter.png"></a>
+          <a id="grc-fb-share" class="grc-section-end-social-icon" href="javascript:;"><img src="img/facebook.png"></a>
+          <a id="grc-tw-share" class="grc-section-end-social-icon" href="javascript:;"><img src="img/twitter.png"></a>
         </div>
       </section>
 
