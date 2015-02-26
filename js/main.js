@@ -151,7 +151,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = false;
+var buzzPlaying = true;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -335,7 +335,7 @@ var s3Sound = new buzz.sound('sounds/traffic-loop');
  */
 
 $('.grc-section-3-panel-left-bg').attr("src", 'img/s3-panel-left-bg.png');
-$('.grc-section-3-panel-left-vehicles-container').show();
+$('.grc-section-3-panel-left-vehicles-container, .grc-section-3-panel-left-char').show();
 
 $('.grc-section-3-panel-right-bg').attr("src", 'img/s3-panel-right-bg.png');
 
@@ -364,12 +364,14 @@ TweenMax.set('.grc-section-3-panel-right-bubble', {
 
 var _veh1 = $('.grc-section-3-panel-left-vehicles');
 var _panelRight = $('.grc-section-3-panel-right-bg-repeat');
+var _s3Char = $('.grc-section-3-panel-left-char');
 var _s3LeftBubble = $('.grc-section-3-panel-left-bubble');
 var _s3RightBubble = $('.grc-section-3-panel-right-bubble');
 
-var scene3_animation = TweenMax.to(_veh1, 3, {
-  x: '1000',
-  repeat: -1
+var scene3_animation = TweenMax.to(_veh1, 6, {
+  x: '900',
+  repeat: -1,
+  ease: Linear.easeNone
 });
 scene3_animation.pause();
 
@@ -381,6 +383,10 @@ var scene3_timeline = new TimelineMax()
     TweenMax.to('.grc-section-3-panel-left-bubble', 3, {
       scale: 1,
       opacity: 1
+    }),
+    TweenMax.to(_s3Char, 3, {
+      top: '40%',
+      left: '20%'
     })
   ])
   .add([
@@ -435,11 +441,18 @@ scene3.on('leave', function(ev) {
    ========================================================================== */
 
 var _s4Bubble = $('.grc-section-4-bubble');
+var _s4Text = $('.grc-section-4-text');
 
 TweenMax.set(_s4Bubble, {
   opacity: 0,
   scale: 0.5
 });
+
+TweenMax.set(_s4Text, {
+  opacity: 0,
+  y: '-10%'
+});
+
 
 TweenMax.set('.grc-section-4-bg', {
   scale: 4
@@ -456,6 +469,12 @@ var scene4_animation = new TimelineMax()
     }),
     TweenMax.to('.grc-section-4-char', 1, {
       scale: 1
+    })
+  ])
+  .add([
+    TweenMax.to(_s4Text, 1, {
+      opacity: 1,
+      y: '0%'
     })
   ])
   .add([

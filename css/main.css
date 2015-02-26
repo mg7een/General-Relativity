@@ -596,6 +596,11 @@ body {
     left: -500px;
     width: 799.5px;
     height: 64.5px; }
+  .grc-section-3-panel-left-char {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 10%; }
   .grc-section-3-panel-left-border {
     position: absolute;
     top: 0;
@@ -777,7 +782,7 @@ body {
   .grc-section-4-text-orange {
     color: #fb7c00; }
   .grc-section-4-text-blue {
-    color: #1461db; }
+    color: #448af9; }
   @media only screen and (min-width: 768px) {
     .grc-section-4-text {
       font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
@@ -949,6 +954,10 @@ body {
       -moz-transform: translateX(-100px);
       -o-transform: translateX(-100px);
       transform: translateX(-100px); } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-5-char {
+      width: 496px;
+      height: 702px; } }
 
 .grc-section-5-text {
   width: 300px;
@@ -973,104 +982,152 @@ body {
 /* Section 6 | @s6
    ========================================================================== */
 @-webkit-keyframes scene6MoveChar {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(250%);
     -ms-transform: translateX(250%);
     -moz-transform: translateX(250%);
     -o-transform: translateX(250%);
     transform: translateX(250%); } }
 @-moz-keyframes scene6MoveChar {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(250%);
     -ms-transform: translateX(250%);
     -moz-transform: translateX(250%);
     -o-transform: translateX(250%);
     transform: translateX(250%); } }
 @-ms-keyframes scene6MoveChar {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(250%);
     -ms-transform: translateX(250%);
     -moz-transform: translateX(250%);
     -o-transform: translateX(250%);
     transform: translateX(250%); } }
 @keyframes scene6MoveChar {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(250%);
     -ms-transform: translateX(250%);
     -moz-transform: translateX(250%);
     -o-transform: translateX(250%);
     transform: translateX(250%); } }
 @-webkit-keyframes scene6MoveCharDesktop {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(400%);
     -ms-transform: translateX(400%);
     -moz-transform: translateX(400%);
     -o-transform: translateX(400%);
     transform: translateX(400%); } }
 @-moz-keyframes scene6MoveCharDesktop {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(400%);
     -ms-transform: translateX(400%);
     -moz-transform: translateX(400%);
     -o-transform: translateX(400%);
     transform: translateX(400%); } }
 @-ms-keyframes scene6MoveCharDesktop {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(400%);
     -ms-transform: translateX(400%);
     -moz-transform: translateX(400%);
     -o-transform: translateX(400%);
     transform: translateX(400%); } }
 @keyframes scene6MoveCharDesktop {
-  from {
+  0% {
+    opacity: 0;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
-  to {
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
     -webkit-transform: translateX(400%);
     -ms-transform: translateX(400%);
     -moz-transform: translateX(400%);
@@ -1146,11 +1203,11 @@ body {
   position: relative;
   width: 51.66667px;
   height: 76.66667px;
-  -webkit-animation: scene6MoveChar 2s ease-in-out infinite;
-  -ms-animation: scene6MoveChar 2s ease-in-out infinite;
-  -moz-animation: scene6MoveChar 2s ease-in-out infinite;
-  -o-animation: scene6MoveChar 2s ease-in-out infinite;
-  animation: scene6MoveChar 2s ease-in-out infinite; }
+  -webkit-animation: scene6MoveChar 2s linear infinite;
+  -ms-animation: scene6MoveChar 2s linear infinite;
+  -moz-animation: scene6MoveChar 2s linear infinite;
+  -o-animation: scene6MoveChar 2s linear infinite;
+  animation: scene6MoveChar 2s linear infinite; }
   @media only screen and (min-width: 768px) {
     .grc-section-6-character {
       width: 103.33333px;
@@ -1163,11 +1220,11 @@ body {
   display: none;
   width: 77.5px;
   height: 115px;
-  -webkit-animation: scene6MoveCharDesktop 2s ease-in-out infinite;
-  -ms-animation: scene6MoveCharDesktop 2s ease-in-out infinite;
-  -moz-animation: scene6MoveCharDesktop 2s ease-in-out infinite;
-  -o-animation: scene6MoveCharDesktop 2s ease-in-out infinite;
-  animation: scene6MoveCharDesktop 2s ease-in-out infinite; }
+  -webkit-animation: scene6MoveCharDesktop 2s linear infinite;
+  -ms-animation: scene6MoveCharDesktop 2s linear infinite;
+  -moz-animation: scene6MoveCharDesktop 2s linear infinite;
+  -o-animation: scene6MoveCharDesktop 2s linear infinite;
+  animation: scene6MoveCharDesktop 2s linear infinite; }
 
 .grc-section-6-text-1,
 .grc-section-6-text-2,
@@ -1200,7 +1257,7 @@ body {
 .grc-section-6-text-2 {
   padding-top: 40px; }
   .grc-section-6-text-2 span {
-    color: #00a99d; }
+    color: #ffeb40; }
   @media only screen and (min-width: 992px) {
     .grc-section-6-text-2 {
       top: 15%;

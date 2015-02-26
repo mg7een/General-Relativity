@@ -654,6 +654,12 @@ $s3-panel-left-width: 800px;
     width: (533px*1.5);
     height: (43px*1.5);
   }
+  &-char {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+  }
   &-border {
     position: absolute;
     top: 0;
@@ -871,7 +877,7 @@ $s4-char-height: 420px;
     color: #fb7c00;
   }
   &-blue {
-    color: #1461db;
+    color: #448af9;
   }
   @include tablet {
     font: $text-tablet;
@@ -1050,6 +1056,10 @@ $s5-char-height: 702px;
     height: $s5-char-height/1.25;
     @include vendor-prefix(transform, translateX(-100px));
   }
+  @include desktop-xl {
+    width: $s5-char-width/1;
+    height: $s5-char-height/1;
+  }
 }
 
 .grc-section-5-text {
@@ -1080,19 +1090,27 @@ $s5-char-height: 702px;
    ========================================================================== */
 
 @include keyframes(scene6MoveChar) {
-  from {
+  0% {
+    opacity: 0;
     @include vendor-prefix(transform, translateX(0%));
   }
-  to {
+  15% { opacity: 1 }
+  85% { opacity: 1 }
+  100% {
+    opacity: 0;
     @include vendor-prefix(transform, translateX(250%));
   }
 }
 
 @include keyframes(scene6MoveCharDesktop) {
-  from {
+  0% {
+    opacity: 0;
     @include vendor-prefix(transform, translateX(0%));
   }
-  to {
+  15% { opacity: 1 }
+  85% { opacity: 1 }
+  100% {
+    opacity: 0;
     @include vendor-prefix(transform, translateX(400%));
   }
 }
@@ -1163,7 +1181,7 @@ $s6-char-height: 460px;
   position: relative;
   width: $s6-char-width/6;
   height: $s6-char-height/6;
-  @include vendor-prefix(animation, scene6MoveChar 2s ease-in-out infinite);
+  @include vendor-prefix(animation, scene6MoveChar 2s linear infinite);
   @include tablet {
     width: $s6-char-width/3;
     height: $s6-char-height/3;
@@ -1177,7 +1195,7 @@ $s6-char-height: 460px;
   display: none;
   width: $s6-char-width/4;
   height: $s6-char-height/4;
-  @include vendor-prefix(animation, scene6MoveCharDesktop 2s ease-in-out infinite);
+  @include vendor-prefix(animation, scene6MoveCharDesktop 2s linear infinite);
 }
 
 .grc-section-6-text-1,
@@ -1211,7 +1229,7 @@ $s6-char-height: 460px;
   padding-top: 40px;
   // padding-bottom: 60px;
   span {
-    color: #00a99d;
+    color: #ffeb40;
   }
   @include desktop {
     top: 15%;
