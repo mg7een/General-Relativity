@@ -32,12 +32,20 @@
 
 /* first for IE 4–8 */
 @font-face {
-  font-family: CCWildWordsBoldItalic;
-  src: url("../fonts/CCWildWordsBoldItalicWeb.eot"); }
+  font-family: CCWildWordsRegular;
+  src: url("../fonts/CCWildWordsRegularWeb.eot"); }
 /* then for WOFF-capable browsers */
 @font-face {
-  font-family: CCWildWordsBoldItalic;
-  src: url("../fonts/CCWildWordsBoldItalicWeb.woff") format("woff"); }
+  font-family: CCWildWordsRegular;
+  src: url("../fonts/CCWildWordsRegularWeb.woff") format("woff"); }
+/* first for IE 4–8 */
+@font-face {
+  font-family: CCWildWordsItalic;
+  src: url("../fonts/CCWildWordsItalicWeb.eot"); }
+/* then for WOFF-capable browsers */
+@font-face {
+  font-family: CCWildWordsItalic;
+  src: url("../fonts/CCWildWordsItalicWeb.woff") format("woff"); }
 /* ==========================================================================
    Custom CSS
    ========================================================================== */
@@ -69,39 +77,48 @@ body {
   padding: 0; }
   .grc-section-loader {
     background-color: #1f222d;
-    border-bottom: 20px solid black; }
+    border-bottom: 20px solid black;
+    z-index: 200; }
   .grc-section-1 {
     position: relative;
     overflow: hidden;
-    background-color: #2d3343; }
+    background-color: #2d3343;
+    z-index: 80; }
   .grc-section-2 {
-    overflow: hidden; }
+    overflow: hidden;
+    z-index: 10; }
   .grc-section-3 {
     height: auto;
     padding: 5% 0;
     text-align: center;
-    background-color: white; }
+    background-color: white;
+    z-index: 20; }
     @media only screen and (min-width: 992px) {
       .grc-section-3 {
         min-height: 100%; } }
   .grc-section-4 {
-    overflow: hidden; }
+    overflow: hidden;
+    z-index: 20; }
   .grc-section-5 {
     background-color: #9fcfda;
-    overflow: hidden; }
+    overflow: hidden;
+    z-index: 20; }
   .grc-section-6 {
     height: auto;
     background-color: #888a8c;
-    overflow: hidden; }
+    overflow: hidden;
+    z-index: 20; }
   .grc-section-7 {
     overflow: hidden;
     background-color: #091525;
-    height: auto; }
+    height: auto;
+    z-index: 20; }
     @media only screen and (min-width: 992px) {
       .grc-section-7 {
         height: 100%; } }
   .grc-section-end {
-    background-color: #091525; }
+    background-color: #091525;
+    z-index: 20; }
   .grc-section-text {
     position: absolute;
     top: 0;
@@ -364,16 +381,16 @@ body {
   left: 0;
   right: 0;
   margin: auto 10%;
-  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial;
+  font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
   color: white; }
   @media only screen and (min-width: 768px) {
     .grc-section-1-text {
       top: 10%;
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-1-text {
       margin: auto 25%;
-      font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial;
+      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
       text-shadow: 2px 2px #000000;
       z-index: 20; } }
 
@@ -522,19 +539,19 @@ body {
   bottom: 40px;
   width: 280px;
   margin: auto;
-  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
   .grc-section-2-text-content {
     padding: 20px;
     text-align: left; }
   @media only screen and (min-width: 768px) {
     .grc-section-2-text {
       width: 600px;
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+      font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
       .grc-section-2-text-content {
         padding: 30px 50px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-2-text {
-      font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 /* Section 3 | @s3
    ========================================================================== */
@@ -615,19 +632,19 @@ body {
     .grc-section-3-panel-left-text-content {
       padding: 10px;
       text-align: left;
-      font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+      font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
     @media only screen and (min-width: 768px) {
       .grc-section-3-panel-left-text {
         top: 40px;
         width: 260px; }
         .grc-section-3-panel-left-text-content {
           padding: 20px;
-          font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+          font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-left-text {
         left: 0; }
         .grc-section-3-panel-left-text-content {
-          font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+          font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   .grc-section-3-panel-left-bubble {
     width: 160px;
     top: 70%;
@@ -636,16 +653,16 @@ body {
     .grc-section-3-panel-left-bubble-content {
       padding: 20px;
       margin-left: 220px;
-      font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+      font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
     @media only screen and (min-width: 768px) {
       .grc-section-3-panel-left-bubble {
         width: 240px; }
         .grc-section-3-panel-left-bubble-content {
           padding: 30px;
-          font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+          font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-left-bubble-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 768px) {
     .grc-section-3-panel-left {
       width: 533.33333px;
@@ -691,26 +708,26 @@ body {
     width: 100%; }
   .grc-section-3-panel-right-text {
     width: 180px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
     @media only screen and (min-width: 768px) {
       .grc-section-3-panel-right-text {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-right-text {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   .grc-section-3-panel-right-bubble {
     width: 240px;
     top: -160px;
     left: auto; }
     .grc-section-3-panel-right-bubble-content {
       padding: 40px;
-      font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+      font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
     @media only screen and (min-width: 768px) {
       .grc-section-3-panel-right-bubble-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-right-bubble-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 768px) {
     .grc-section-3-panel-right {
       width: 533.33333px;
@@ -778,17 +795,17 @@ body {
   font-size: 0.75em;
   color: white;
   margin: 5% 10% 0;
-  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   .grc-section-4-text-orange {
     color: #fb7c00; }
   .grc-section-4-text-blue {
     color: #448af9; }
   @media only screen and (min-width: 768px) {
     .grc-section-4-text {
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-4-text {
-      font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-4-bubble {
   width: 200px;
@@ -800,7 +817,7 @@ body {
   .grc-section-4-bubble-content {
     padding: 20px 40px;
     padding-left: 60px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-4-bubble {
       bottom: 35%;
@@ -808,12 +825,12 @@ body {
       left: 60%;
       line-height: 120%; }
       .grc-section-4-bubble-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-4-bubble {
       left: 55%; }
       .grc-section-4-bubble-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 /* Section 5 | @s5
    ========================================================================== */
@@ -850,12 +867,12 @@ body {
 .grc-section-5-text-1,
 .grc-section-5-text-2,
 .grc-section-5-text-3 {
-  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-5-text-1,
     .grc-section-5-text-2,
     .grc-section-5-text-3 {
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-text-1,
     .grc-section-5-text-2,
@@ -965,19 +982,19 @@ body {
   margin-top: 20px; }
   .grc-section-5-text-content {
     padding: 20px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-5-text {
       width: 600px;
       margin-top: 20%; }
       .grc-section-5-text-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-text {
       top: auto;
       bottom: 20px; }
       .grc-section-5-text-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 /* Section 6 | @s6
    ========================================================================== */
@@ -1232,12 +1249,12 @@ body {
   max-width: 600px;
   color: white;
   margin: 0 10%;
-  font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+  font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-6-text-1,
     .grc-section-6-text-2,
     .grc-section-6-text-3 {
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-6-text-1,
     .grc-section-6-text-2,
@@ -1247,7 +1264,7 @@ body {
       right: 0;
       top: 5%;
       margin: auto;
-      font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-6-text-1 {
   padding-top: 80px; }
@@ -1319,11 +1336,11 @@ body {
   .grc-section-6-bubble-box {
     display: none; }
   .grc-section-6-bubble-content {
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial;
+    font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial;
     color: white; }
   @media only screen and (min-width: 768px) {
     .grc-section-6-bubble-content {
-      font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-6-bubble {
       position: absolute;
@@ -1354,7 +1371,7 @@ body {
         margin: 0 auto;
         width: 80%;
         height: 100%;
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial;
+        font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial;
         color: black; } }
 
 .grc-section-6-char {
@@ -1642,13 +1659,13 @@ body {
   margin-top: 20px; }
   .grc-section-7-text-1-content {
     padding: 20px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-7-text-1 {
       width: 600px;
       margin-top: 5%; }
       .grc-section-7-text-1-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-1 {
       top: 0%;
@@ -1657,7 +1674,7 @@ body {
       bottom: auto;
       width: 300px; }
       .grc-section-7-text-1-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-7-text-2 {
   width: 300px;
@@ -1665,13 +1682,13 @@ body {
   margin-top: 20px; }
   .grc-section-7-text-2-content {
     padding: 20px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-7-text-2 {
       width: 600px;
       margin-top: 0; }
       .grc-section-7-text-2-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-2 {
       top: auto;
@@ -1681,7 +1698,7 @@ body {
       width: 300px;
       z-index: 21; }
       .grc-section-7-text-2-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-7-text-3 {
   position: absolute;
@@ -1692,13 +1709,13 @@ body {
   margin-top: 20px; }
   .grc-section-7-text-3-content {
     padding: 20px;
-    font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
+    font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-7-text-3 {
       width: 600px;
       margin-top: 20%; }
       .grc-section-7-text-3-content {
-        font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-3 {
       top: auto;
@@ -1706,7 +1723,7 @@ body {
       right: 1%;
       bottom: 20px; }
       .grc-section-7-text-3-content {
-        font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 /* SVG Animations */
 #s7-svg {

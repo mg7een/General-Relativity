@@ -151,7 +151,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = true;
+var buzzPlaying = false;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -246,7 +246,7 @@ var scene1_animation = new TimelineMax({ delay: 4 })
   //   })
   // ])
   .add([
-    TweenMax.to('.grc-section-1-scale-wrapper', 0.5, {
+    TweenMax.to('.grc-section-1-scale-wrapper', 3, {
       scale: 5,
       x: '20%',
       opacity: 0

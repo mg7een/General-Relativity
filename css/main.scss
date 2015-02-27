@@ -135,21 +135,38 @@ $font-benton: 'Helvetica Neue', Helvetica, Arial;
 
 /* first for IE 4–8 */
 @font-face {
-  font-family: CCWildWordsBoldItalic;
-  src: url("../fonts/CCWildWordsBoldItalicWeb.eot");
+  font-family: CCWildWordsRegular;
+  src: url("../fonts/CCWildWordsRegularWeb.eot");
 }
 
 /* then for WOFF-capable browsers */
 @font-face {
-  font-family: CCWildWordsBoldItalic;
-  src: url("../fonts/CCWildWordsBoldItalicWeb.woff") format("woff");
+  font-family: CCWildWordsRegular;
+  src: url("../fonts/CCWildWordsRegularWeb.woff") format("woff");
 }
 
-$font-wild: 'CCWildWordsBoldItalic', 'Helvetica Neue', Helvetica, Arial;
+/* first for IE 4–8 */
+@font-face {
+  font-family: CCWildWordsItalic;
+  src: url("../fonts/CCWildWordsItalicWeb.eot");
+}
+
+/* then for WOFF-capable browsers */
+@font-face {
+  font-family: CCWildWordsItalic;
+  src: url("../fonts/CCWildWordsItalicWeb.woff") format("woff");
+}
+
+$font-wild: 'CCWildWordsRegular', 'Helvetica Neue', Helvetica, Arial;
+$font-wild-italic: 'CCWildWordsItalic', 'Helvetica Neue', Helvetica, Arial;
 
 $text-mobile: normal 0.75em/120% $font-wild;
 $text-tablet: normal 1em/120% $font-wild;
 $text-desktop: normal 0.85em/180% $font-wild;
+
+$text-italic-mobile: normal 0.75em/120% $font-wild-italic;
+$text-italic-tablet: normal 1em/120% $font-wild-italic;
+$text-italic-desktop: normal 0.85em/180% $font-wild-italic;
 
 /* ==========================================================================
    Custom CSS
@@ -189,20 +206,24 @@ body {
   &-loader {
     background-color: #1f222d;
     border-bottom: 20px solid black;
+    z-index: 200;
   }
   &-1 {
     position: relative;
     overflow: hidden;
     background-color: #2d3343;
+    z-index: 80;
   }
   &-2 {
     overflow: hidden;
+    z-index: 10;
   }
   &-3 {
     height: auto;
     padding: 5% 0;
     text-align: center;
     background-color: white;
+    z-index: 20;
     @include desktop {
       min-height: 100%;
     }
@@ -210,15 +231,18 @@ body {
   &-4 {
     // background-color: purple;
     overflow: hidden;
+    z-index: 20;
   }
   &-5 {
     background-color: #9fcfda;
     overflow: hidden;
+    z-index: 20;
   }
   &-6 {
     height: auto;
     background-color: #888a8c;
     overflow: hidden;
+    z-index: 20;
     // @include desktop {
     //   min-height: 100%;
     // }
@@ -227,12 +251,14 @@ body {
     overflow: hidden;
     background-color: #091525;
     height: auto;
+    z-index: 20;
     @include desktop {
       height: 100%;
     }
   }
   &-end {
     background-color: #091525;
+    z-index: 20;
   }
   &-text {
     position: absolute;
@@ -515,15 +541,15 @@ $ein-height: 388px;
   left: 0;
   right: 0;
   margin: auto 10%;
-  font: $text-mobile;
+  font: $text-italic-mobile;
   color: white;
   @include tablet {
     top: 10%;
-    font: $text-tablet;
+    font: $text-italic-tablet;
   }
   @include desktop {
     margin: auto 25%;
-    font: $text-desktop;
+    font: $text-italic-desktop;
     text-shadow: 2px 2px #000000;
     z-index: 20;
   }
@@ -677,20 +703,20 @@ $s3-panel-left-width: 800px;
     &-content {
       padding: 10px;
       text-align: left;
-      font: $text-mobile;
+      font: $text-italic-mobile;
     }
     @include tablet {
       top: 40px;
       width: 260px;
       &-content {
         padding: 20px;
-        font: $text-tablet;
+        font: $text-italic-tablet;
       }
     }
     @include desktop {
       left: 0;
       &-content {
-        font: $text-desktop;
+        font: $text-italic-desktop;
       }
     }
   }
@@ -872,7 +898,7 @@ $s4-char-height: 420px;
   font-size: 0.75em;
   color: white;
   margin: 5% 10% 0;
-  font: $text-mobile;
+  font: $text-italic-mobile;
   &-orange {
     color: #fb7c00;
   }
@@ -880,10 +906,10 @@ $s4-char-height: 420px;
     color: #448af9;
   }
   @include tablet {
-    font: $text-tablet;
+    font: $text-italic-tablet;
   }
   @include desktop {
-    font: $text-desktop;
+    font: $text-italic-desktop;
   }
 }
 
@@ -960,9 +986,9 @@ $b2-width: 252px;
 .grc-section-5-text-1,
 .grc-section-5-text-2,
 .grc-section-5-text-3 {
-  font: $text-mobile;
+  font: $text-italic-mobile;
   @include tablet {
-    font: $text-tablet;
+    font: $text-italic-tablet;
   }
   @include desktop {
     font-size: 2em;
@@ -1068,20 +1094,20 @@ $s5-char-height: 702px;
   margin-top: 20px;
   &-content {
     padding: 20px;
-    font: $text-mobile;
+    font: $text-italic-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
     &-content {
-      font: $text-tablet;
+      font: $text-italic-tablet;
     }
   }
   @include desktop {
     top: auto;
     bottom: 20px;
     &-content {
-      font: $text-desktop;
+      font: $text-italic-desktop;
     }
   }
 }
@@ -1693,13 +1719,13 @@ $s6-char-height: 600px;
   margin-top: 20px;
   &-content {
     padding: 20px;
-    font: $text-mobile;
+    font: $text-italic-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 5%;
     &-content {
-      font: $text-tablet;
+      font: $text-italic-tablet;
     }
   }
   @include desktop {
@@ -1709,7 +1735,7 @@ $s6-char-height: 600px;
     bottom: auto;
     width: 300px;
     &-content {
-      font: $text-desktop;
+      font: $text-italic-desktop;
     }
   }
 }
@@ -1720,13 +1746,13 @@ $s6-char-height: 600px;
   margin-top: 20px;
   &-content {
     padding: 20px;
-    font: $text-mobile;
+    font: $text-italic-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 0;
     &-content {
-      font: $text-tablet;
+      font: $text-italic-tablet;
     }
   }
   @include desktop {
@@ -1737,7 +1763,7 @@ $s6-char-height: 600px;
     width: 300px;
     z-index: 21;
     &-content {
-      font: $text-desktop;
+      font: $text-italic-desktop;
     }
   }
 }
@@ -1751,13 +1777,13 @@ $s6-char-height: 600px;
   margin-top: 20px;
   &-content {
     padding: 20px;
-    font: $text-mobile;
+    font: $text-italic-mobile;
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
     &-content {
-      font: $text-tablet;
+      font: $text-italic-tablet;
     }
   }
   @include desktop {
@@ -1766,7 +1792,7 @@ $s6-char-height: 600px;
     right: 1%;
     bottom: 20px;
     &-content {
-      font: $text-desktop;
+      font: $text-italic-desktop;
     }
   }
 }
