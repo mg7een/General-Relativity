@@ -92,7 +92,8 @@ body {
     padding: 5% 0;
     text-align: center;
     background-color: white;
-    z-index: 20; }
+    z-index: 20;
+    overflow: hidden; }
     @media only screen and (min-width: 992px) {
       .grc-section-3 {
         min-height: 100%; } }
@@ -235,11 +236,13 @@ body {
 
 .grc-section-loader-einstein {
   position: absolute;
+  top: auto;
   bottom: 0;
   left: 0;
   right: 0;
   display: block;
   margin: auto;
+  margin-bottom: 0;
   width: 266.66667px;
   height: 258.66667px; }
   @media only screen and (min-width: 768px) {
@@ -551,7 +554,11 @@ body {
         padding: 30px 50px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-2-text {
+      bottom: 60px;
       font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+
+.ie .grc-section-2-text {
+  display: block; }
 
 /* Section 3 | @s3
    ========================================================================== */
@@ -813,7 +820,8 @@ body {
   bottom: 30%;
   left: 40%;
   right: auto;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
   .grc-section-4-bubble-content {
     padding: 20px 40px;
     padding-left: 60px;
@@ -831,6 +839,9 @@ body {
       left: 55%; }
       .grc-section-4-bubble-content {
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+
+.ie .grc-section-4-bubble {
+  display: block; }
 
 /* Section 5 | @s5
    ========================================================================== */
@@ -995,6 +1006,9 @@ body {
       bottom: 20px; }
       .grc-section-5-text-content {
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+
+.ie .grc-section-5-text {
+  display: block; }
 
 /* Section 6 | @s6
    ========================================================================== */
@@ -1270,6 +1284,10 @@ body {
   padding-top: 80px; }
   .grc-section-6-text-1 span {
     color: black; }
+  @media only screen and (min-width: 992px) {
+    .grc-section-6-text-1 {
+      width: 60%;
+      max-width: 800px; } }
 
 .grc-section-6-text-2 {
   padding-top: 40px; }

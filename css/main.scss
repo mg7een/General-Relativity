@@ -224,6 +224,7 @@ body {
     text-align: center;
     background-color: white;
     z-index: 20;
+    overflow: hidden;
     @include desktop {
       min-height: 100%;
     }
@@ -288,6 +289,11 @@ body {
       font-size: 1em;
     }
   }
+  // &.ie {
+  //   &-text {
+  //     display: block;
+  //   }
+  // }
 }
 
 /* Section Loader | @loader
@@ -404,11 +410,13 @@ $ein-height: 388px;
 
 .grc-section-loader-einstein {
   position: absolute;
+  top: auto;
   bottom: 0;
   left: 0;
   right: 0;
   display: block;
   margin: auto;
+  margin-bottom: 0;
   width: $ein-width/1.5;
   height: $ein-height/1.5;
   @include tablet {
@@ -631,8 +639,13 @@ $ein-height: 388px;
     }
   }
   @include desktop {
+    bottom: 60px;
     font: $text-desktop;
   }
+}
+
+.ie .grc-section-2-text {
+  display: block;
 }
 
 /* Section 3 | @s3
@@ -920,6 +933,7 @@ $s4-char-height: 420px;
   left: 40%;
   right: auto;
   margin: 0 auto;
+  display: block;
   &-content {
     padding: 20px 40px;
     padding-left: 60px;
@@ -940,6 +954,10 @@ $s4-char-height: 420px;
       font: $text-desktop;
     }
   }
+}
+
+.ie .grc-section-4-bubble {
+  display: block;
 }
 
 /* Section 5 | @s5
@@ -1112,6 +1130,10 @@ $s5-char-height: 702px;
   }
 }
 
+.ie .grc-section-5-text {
+  display: block;
+}
+
 /* Section 6 | @s6
    ========================================================================== */
 
@@ -1248,6 +1270,10 @@ $s6-char-height: 460px;
   padding-top: 80px;
   span {
     color: black;
+  }
+  @include desktop {
+    width: 60%;
+    max-width: 800px;
   }
 }
 

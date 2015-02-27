@@ -151,7 +151,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = false;
+var buzzPlaying = true;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -203,6 +203,7 @@ TweenMax.set('.grc-section-2-bg-stars', {
 
 TweenMax.set('.grc-section-2-text', {
   opacity: 0,
+  css: {autoAlpha:0},
   y: '10%'
 });
 
@@ -260,6 +261,7 @@ var scene1_animation = new TimelineMax({ delay: 4 })
     // }),
     TweenMax.to('.grc-section-2-text', 2.5, {
       opacity: 1,
+      css: {autoAlpha:1},
       y: '0%',
       onStart: function() {
         $('.grc-section-2-character').addClass("animated");
@@ -445,7 +447,8 @@ var _s4Text = $('.grc-section-4-text');
 
 TweenMax.set(_s4Bubble, {
   opacity: 0,
-  scale: 0.5
+  scale: 0.5,
+  css: {autoAlpha:0},
 });
 
 TweenMax.set(_s4Text, {
@@ -480,7 +483,8 @@ var scene4_animation = new TimelineMax()
   .add([
     TweenMax.to(_s4Bubble, 1, {
       opacity: 1,
-      scale: 1
+      scale: 1,
+      css: {autoAlpha:1},
     })
   ]);
 
