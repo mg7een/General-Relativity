@@ -46,6 +46,17 @@
 @font-face {
   font-family: CCWildWordsItalic;
   src: url("../fonts/CCWildWordsItalicWeb.woff") format("woff"); }
+/* Helpers | @helpers
+   ========================================================================== */
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  .clearfix:after {
+    clear: both; }
+
 /* ==========================================================================
    Custom CSS
    ========================================================================== */
@@ -119,7 +130,10 @@ body {
         height: 100%; } }
   .grc-section-end {
     background-color: #091525;
-    z-index: 20; }
+    z-index: 25; }
+    @media only screen and (min-width: 992px) {
+      .grc-section-end {
+        background-color: transparent; } }
   .grc-section-text {
     position: absolute;
     top: 0;
@@ -1102,11 +1116,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(400%);
-    -ms-transform: translateX(400%);
-    -moz-transform: translateX(400%);
-    -o-transform: translateX(400%);
-    transform: translateX(400%); } }
+    -webkit-transform: translateX(550%);
+    -ms-transform: translateX(550%);
+    -moz-transform: translateX(550%);
+    -o-transform: translateX(550%);
+    transform: translateX(550%); } }
 @-moz-keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1121,11 +1135,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(400%);
-    -ms-transform: translateX(400%);
-    -moz-transform: translateX(400%);
-    -o-transform: translateX(400%);
-    transform: translateX(400%); } }
+    -webkit-transform: translateX(550%);
+    -ms-transform: translateX(550%);
+    -moz-transform: translateX(550%);
+    -o-transform: translateX(550%);
+    transform: translateX(550%); } }
 @-ms-keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1140,11 +1154,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(400%);
-    -ms-transform: translateX(400%);
-    -moz-transform: translateX(400%);
-    -o-transform: translateX(400%);
-    transform: translateX(400%); } }
+    -webkit-transform: translateX(550%);
+    -ms-transform: translateX(550%);
+    -moz-transform: translateX(550%);
+    -o-transform: translateX(550%);
+    transform: translateX(550%); } }
 @keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1159,11 +1173,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(400%);
-    -ms-transform: translateX(400%);
-    -moz-transform: translateX(400%);
-    -o-transform: translateX(400%);
-    transform: translateX(400%); } }
+    -webkit-transform: translateX(550%);
+    -ms-transform: translateX(550%);
+    -moz-transform: translateX(550%);
+    -o-transform: translateX(550%);
+    transform: translateX(550%); } }
 .grc-section-6-roof-line-container {
   position: relative;
   top: 258px;
@@ -1611,7 +1625,8 @@ body {
         position: absolute;
         left: 40%;
         width: 80%;
-        max-width: 800px; }
+        max-width: 800px;
+        min-height: 100%; }
       .grc-section-7-equation-1 {
         top: auto;
         bottom: 45%;
@@ -1643,7 +1658,7 @@ body {
         left: 60%;
         z-index: 10; }
       .grc-section-7-char {
-        bottom: 10%;
+        bottom: 0%;
         width: 308.8px;
         height: 600px; }
       .grc-section-7-blackhole {
@@ -1774,9 +1789,6 @@ body {
       display: none; } }
   .grc-section-end-stars-desktop {
     display: none; }
-    @media only screen and (min-width: 992px) {
-      .grc-section-end-stars-desktop {
-        display: block; } }
   .grc-section-end-text {
     width: 80%;
     margin: 0 auto;
@@ -1807,6 +1819,14 @@ body {
         .grc-section-end-social-icon img {
           height: 120px;
           width: 120px; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-end {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 10; } }
 
 .grc-section-end-logo-link {
   position: relative;

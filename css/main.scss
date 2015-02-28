@@ -168,6 +168,24 @@ $text-italic-mobile: normal 0.75em/120% $font-wild-italic;
 $text-italic-tablet: normal 1em/120% $font-wild-italic;
 $text-italic-desktop: normal 0.85em/180% $font-wild-italic;
 
+/* Helpers | @helpers
+   ========================================================================== */
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 /* ==========================================================================
    Custom CSS
    ========================================================================== */
@@ -259,7 +277,10 @@ body {
   }
   &-end {
     background-color: #091525;
-    z-index: 20;
+    z-index: 25;
+    @include desktop {
+      background-color: transparent;
+    }
   }
   &-text {
     position: absolute;
@@ -1159,7 +1180,7 @@ $s5-char-height: 702px;
   85% { opacity: 1 }
   100% {
     opacity: 0;
-    @include vendor-prefix(transform, translateX(400%));
+    @include vendor-prefix(transform, translateX(550%));
   }
 }
 
@@ -1665,6 +1686,7 @@ $s6-char-height: 600px;
       left: 40%;
       width: 80%;
       max-width: 800px;
+      min-height: 100%;
     }
     &-equation-1 {
       top: auto;
@@ -1702,7 +1724,7 @@ $s6-char-height: 600px;
       z-index: 10;
     }
     &-char {
-      bottom: 10%;
+      bottom: 0%;
       width: (386px/1.25);
       height: (750px/1.25);
     }
@@ -1862,7 +1884,7 @@ $s6-char-height: 600px;
   &-stars-desktop {
     display: none;
     @include desktop {
-      display: block;
+      // display: block;
     }
   }
   &-text {
@@ -1905,6 +1927,14 @@ $s6-char-height: 600px;
     //     width: 80px;
     //   }
     // }
+  }
+  @include desktop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
   }
 }
 

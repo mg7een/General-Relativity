@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js ie lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js ie lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js ie"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <!--[if gt IE 8]><!-->
     <script type="text/javascript">
@@ -115,7 +115,7 @@
         </div>
       </section>
 
-      <section class="grc-section grc-section-3">
+      <section class="grc-section grc-section-3 clearfix">
         <div class="grc-section-3-panel-left">
           <img class="grc-section-3-panel-left-bg" src="img/s3-panel-left-bg-mobile.png" />
           <div class="grc-section-3-panel-left-vehicles-container">
@@ -152,7 +152,7 @@
         <div class="grc-section-4-bg"></div>
         <img class="grc-section-4-char" src="img/s4-char@3x.png" />
         <div class="grc-section-4-text">
-          ￼Einstein had landed inside a paradox. An object that feels no force should travel at a <span class="grc-section-4-text-blue">constant</span> speed. But something <span class="grc-section-4-text-orange">accelerating</span> because of gravity feels no force. Einstein realized that if he resolved the paradox, he might explain the origins of gravity.
+          Einstein had landed inside a paradox. An object that feels no force should travel at a <span class="grc-section-4-text-blue">constant</span> speed. But something <span class="grc-section-4-text-orange">accelerating</span> because of gravity feels no force. Einstein realized that if he resolved the paradox, he might explain the origins of gravity.
         </div>
         <div class="grc-section-4-bubble grc-section-text">
           <img class="grc-section-4-bubble-box grc-section-box" src="img/bubble-speech-s4.png" />
@@ -238,6 +238,7 @@
           <div class="grc-section-7-equation-5"><img src="img/s7-equation-5.png"></div>
           <img class="grc-section-7-char" src="img/s7-char.png">
         </div>
+
         <div class="grc-section-7-cosmos-container">
           <img class="grc-section-7-stars" src="img/s7-stars.png">
           <img class="grc-section-7-blackhole" src="img/s7-blackhole.png">
@@ -251,6 +252,7 @@
             </div>
           </div>
         </div>
+
         <svg version="1.1" id="s7-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="575" height="223">
           <path id="s7-svg-path-1" fill="none" stroke="#FFFFFF" stroke-width="6" d="M107.3,73.4c-8.5-1.8-17.6-0.4-25.1,4c-7.5,4.4-13.3,11.6-15.9,19.9
             c-1.5,4.8-2,10-0.7,14.9c1.7,6.3,6.2,11.6,11.7,15c5.5,3.4,12,5.1,18.5,5.6c3.3,0.3,6.7,0.3,9.8-0.8c3.1-1.1,5.9-3.6,6.7-6.7
@@ -303,8 +305,24 @@
             c-1.5,22.2,11.2,43.6,28.3,57.8S71,173.4,91.9,181c42.2,15.3,85.1,28.8,129,38.1"/>
         </svg>
 
+        <div class="grc-section grc-section-end">
+          <img class="grc-section-end-stars-mobile" src="img/end-stars-mobile.png">
+          <img class="grc-section-end-stars-desktop" src="img/end-stars-desktop.png">
+          <a class="grc-section-end-logo-link" href="http://www.sciencemag.org">
+            <img class="grc-section-end-logo" src="img/loader-logo.jpg">
+          </a>
+          <img class="grc-section-end-title-text" src="img/loader-title-text.png">
+          <div class="grc-section-end-text">Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</div>
+          <div class="grc-section-end-social-container">
+            <a id="grc-fb-share" class="grc-section-end-social-icon" href="javascript:;"><img src="img/facebook.png"></a>
+            <a id="grc-tw-share" class="grc-section-end-social-icon" href="javascript:;"><img src="img/twitter.png"></a>
+          </div>
+        </div>
 
       </section>
+
+
+      <!--
       <section class="grc-section grc-section-end">
         <img class="grc-section-end-stars-mobile" src="img/end-stars-mobile.png">
         <img class="grc-section-end-stars-desktop" src="img/end-stars-desktop.png">
@@ -318,6 +336,7 @@
           <a id="grc-tw-share" class="grc-section-end-social-icon" href="javascript:;"><img src="img/twitter.png"></a>
         </div>
       </section>
+      -->
 
 
     </div><!-- End General Relativity Comic App -->
@@ -329,10 +348,6 @@
     - use only gsap necessary
     - use min version of main.js
     - site title???
-    - cover back Credits
-    - sound ON button
-    - disable sound on mobile
-    - add bubble tails
      -->
 
     <script src="js/vendor/jquery/jquery-2.1.3.min.js"></script>
@@ -342,8 +357,8 @@
     <!-- <script src="js/vendor/gsap/TweenLite.min.js"></script> -->
     <script src="js/vendor/gsap/TimelineMax.min.js"></script>
     <!-- <script src="js/vendor/gsap/TimelineLite.min.js"></script> -->
+    <script src="js/vendor/gsap/plugins/ScrollToPlugin.min.js"></script>
     <script src="js/vendor/scrollmagic/jquery.scrollmagic.min.js"></script>
-    <script src="js/vendor/scrollmagic/jquery.scrollmagic.debug.js"></script>
     <script src="js/vendor/retina/retina.min.js"></script>
     <script src="js/vendor/buzz/buzz.min.js"></script>
 
