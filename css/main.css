@@ -100,7 +100,7 @@ body {
     z-index: 10; }
   .grc-section-3 {
     height: auto;
-    padding: 5% 0;
+    padding: 2.5% 0;
     text-align: center;
     background-color: white;
     z-index: 20;
@@ -638,7 +638,7 @@ body {
   .grc-section-3-panel-left-char {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 10%; }
   .grc-section-3-panel-left-border {
     position: absolute;
@@ -719,13 +719,15 @@ body {
     -moz-transform: scale(0.95);
     -o-transform: scale(0.95);
     transform: scale(0.95); }
-    .grc-section-3-panel-right-bg-repeat.animated {
-      -webkit-animation: scene3MoveBg 2s linear infinite;
-      -ms-animation: scene3MoveBg 2s linear infinite;
-      -moz-animation: scene3MoveBg 2s linear infinite;
-      -o-animation: scene3MoveBg 2s linear infinite;
-      animation: scene3MoveBg 2s linear infinite; }
   .grc-section-3-panel-right-bg {
+    height: 100%;
+    width: 100%; }
+  .grc-section-3-panel-right-char {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     width: 100%; }
   .grc-section-3-panel-right-text {
@@ -770,6 +772,18 @@ body {
         display: block; }
       .grc-section-3-panel-right-bg {
         position: relative; }
+      .grc-section-3-panel-right-char {
+        top: 15%;
+        width: 234px;
+        height: 320px;
+        margin: 0 auto; }
+      .grc-section-3-panel-right-char-container {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        height: 100%;
+        width: 100%;
+        overflow: hidden; }
       .grc-section-3-panel-right-bubble {
         width: 320px;
         top: -120px;

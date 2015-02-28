@@ -377,7 +377,7 @@ var s3Sound = new buzz.sound('sounds/traffic-loop');
  */
 
 $('.grc-section-3-panel-left-bg').attr("src", 'img/s3-panel-left-bg.png');
-$('.grc-section-3-panel-left-vehicles-container, .grc-section-3-panel-left-char').show();
+$('.grc-section-3-panel-left-vehicles-container, .grc-section-3-panel-left-char, .grc-section-3-panel-right-char').show();
 
 $('.grc-section-3-panel-right-bg').attr("src", 'img/s3-panel-right-bg.png');
 
@@ -404,14 +404,19 @@ TweenMax.set('.grc-section-3-panel-right-bubble', {
   opacity: 0
 });
 
+TweenMax.set('.grc-section-3-panel-right-char', {
+  y: '-150%'
+});
+
 // manually set height of s3 because of floated elements
 $('.grc-section-3').css({
-  height: windowHeight
+  'min-height': windowHeight
 });
 
 var _veh1 = $('.grc-section-3-panel-left-vehicles');
 var _panelRight = $('.grc-section-3-panel-right-bg-repeat');
 var _s3Char = $('.grc-section-3-panel-left-char');
+var _s3CharRight = $('.grc-section-3-panel-right-char');
 var _s3LeftBubble = $('.grc-section-3-panel-left-bubble');
 var _s3RightBubble = $('.grc-section-3-panel-right-bubble');
 
@@ -432,7 +437,7 @@ var scene3_timeline = new TimelineMax()
       opacity: 1
     }),
     TweenMax.to(_s3Char, 3, {
-      top: '40%',
+      top: '52%',
       left: '20%'
     })
   ])
@@ -440,6 +445,11 @@ var scene3_timeline = new TimelineMax()
     TweenMax.to('.grc-section-3-panel-right', 3, {
       x: '0%',
       opacity: 1
+    })
+  ])
+  .add([
+    TweenMax.to(_s3CharRight, 3, {
+      y: '0%'
     })
   ])
   .add([

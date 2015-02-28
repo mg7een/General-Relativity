@@ -238,7 +238,7 @@ body {
   }
   &-3 {
     height: auto;
-    padding: 5% 0;
+    padding: 2.5% 0;
     text-align: center;
     background-color: white;
     z-index: 20;
@@ -718,7 +718,7 @@ $s3-panel-left-width: 800px;
   &-char {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 10%;
   }
   &-border {
@@ -796,6 +796,9 @@ $s3-panel-left-width: 800px;
 $s3-panel-right-height: 956px;
 $s3-panel-right-width: 800px;
 
+$s3-panel-right-char-width: 468px;
+$s3-panel-right-char-height: 640px;
+
 .grc-section-3-panel-right {
   position: relative;
   width: $s3-panel-right-width/3;
@@ -815,11 +818,20 @@ $s3-panel-right-width: 800px;
     background-repeat: repeat-y;
     background-image: url(../img/s3-panel-right-bg-repeat.jpg);
     @include vendor-prefix(transform, scale(0.95));
-    &.animated {
-      @include vendor-prefix(animation, scene3MoveBg 2s linear infinite);
-    }
+    // &.animated {
+    //   @include vendor-prefix(animation, scene3MoveBg 2s linear infinite);
+    // }
   }
   &-bg {
+    height: 100%;
+    width: 100%;
+  }
+  &-char {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     width: 100%;
   }
@@ -879,6 +891,20 @@ $s3-panel-right-width: 800px;
     }
     &-bg {
       position: relative;
+    }
+    &-char {
+      top: 15%;
+      width: $s3-panel-right-char-width /2;
+      height: $s3-panel-right-char-height /2;
+      margin: 0 auto;
+    }
+    &-char-container {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
     &-bubble {
       width: 320px;
