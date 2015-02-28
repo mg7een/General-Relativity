@@ -981,12 +981,14 @@ body {
 
 .grc-section-5-char {
   position: absolute;
-  bottom: 0;
+  top: auto;
+  bottom: 0%;
   left: 0;
   right: 0;
   width: 165.33333px;
   height: 234px;
-  margin: auto; }
+  margin: auto;
+  margin-bottom: 0; }
   @media only screen and (min-width: 768px) {
     .grc-section-5-char {
       width: 396.8px;
@@ -1675,7 +1677,9 @@ body {
         width: 129.33333px;
         height: 116px; }
       .grc-section-7-comet {
-        bottom: 25%;
+        position: fixed;
+        top: 45%;
+        bottom: auto;
         left: auto;
         width: 350.66667px;
         height: 267.33333px; }
@@ -1751,11 +1755,16 @@ body {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-3 {
+      position: fixed;
       top: auto;
       left: auto;
       right: 1%;
       bottom: 20px; }
+      .grc-section-7-text-3-box {
+        z-index: -1; }
       .grc-section-7-text-3-content {
+        position: relative;
+        z-index: 20;
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 /* SVG Animations */

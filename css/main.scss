@@ -1110,12 +1110,14 @@ $s5-char-height: 702px;
 
 .grc-section-5-char {
   position: absolute;
-  bottom: 0;
+  top: auto;
+  bottom: 0%;
   left: 0;
   right: 0;
   width: $s5-char-width/3;
   height: $s5-char-height/3;
   margin: auto;
+  margin-bottom: 0;
   @include tablet {
     width: $s5-char-width/1.25;
     height: $s5-char-height/1.25;
@@ -1745,7 +1747,9 @@ $s6-char-height: 600px;
       height: (174px/1.5);
     }
     &-comet {
-      bottom: 25%;
+      position: fixed;
+      top: 45%;
+      bottom: auto;
       left: auto;
       width: (526px/1.5);
       height: (401px/1.5);
@@ -1835,11 +1839,17 @@ $s6-char-height: 600px;
     }
   }
   @include desktop {
+    position: fixed;
     top: auto;
     left: auto;
     right: 1%;
     bottom: 20px;
+    &-box {
+      z-index: -1;
+    }
     &-content {
+      position: relative;
+      z-index: 20;
       font: $text-italic-desktop;
     }
   }

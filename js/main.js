@@ -586,7 +586,6 @@ TweenMax.set('.grc-section-5-text', {
   y: '20%'
 });
 
-
 var s5GraphWidth = 400 * 6;
 var s5SteppedEase = new SteppedEase(6);
 var s5Building1 = $('.grc-section-5-building-1');
@@ -763,7 +762,7 @@ var s7Sound = new buzz.sound('sounds/chalk-loop');
 $('.grc-section-7-main-equation').hide();
 $('#s7-svg').show();
 $('.grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5').css({
-  width: '100%',
+  width: '0%',
   overflow: 'hidden'
 });
 
