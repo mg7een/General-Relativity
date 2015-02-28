@@ -959,6 +959,10 @@ var scene7_animation = new TimelineMax()
       opacity: 0,
       x: '-100%'
     }),
+    TweenMax.to(_s7Chair, 2.5, {
+      opacity: 0,
+      x: '-100%'
+    }),
     TweenMax.to(_s7Text2, 2.5, {
       opacity: 1
     })
