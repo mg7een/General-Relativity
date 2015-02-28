@@ -549,7 +549,8 @@ body {
       max-width: 100%; } }
   @media only screen and (min-width: 992px) {
     .grc-section-2-character {
-      left: -150%; } }
+      left: -100%;
+      margin: 0; } }
 
 .grc-section-2-text {
   top: auto;
@@ -826,7 +827,9 @@ body {
       font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-4-text {
-      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
+      max-width: 900px;
+      margin: 5% auto 0; } }
 
 .grc-section-4-bubble {
   width: 200px;
@@ -839,6 +842,7 @@ body {
   .grc-section-4-bubble-content {
     padding: 20px 40px;
     padding-left: 60px;
+    padding-right: 30px;
     font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-4-bubble {

@@ -636,7 +636,8 @@ $ein-height: 388px;
     max-width: 100%;
   }
   @include desktop {
-    left: -150%;
+    left: -100%;
+    margin: 0;
   }
 }
 
@@ -944,6 +945,8 @@ $s4-char-height: 420px;
   }
   @include desktop {
     font: $text-italic-desktop;
+    max-width: 900px;
+    margin: 5% auto 0;
   }
 }
 
@@ -958,6 +961,7 @@ $s4-char-height: 420px;
   &-content {
     padding: 20px 40px;
     padding-left: 60px;
+    padding-right: 30px;
     font: $text-mobile;
   }
   @include tablet {

@@ -61,7 +61,7 @@ var scene1_trigger      = false,
 // scroll
 var $window = $(window);
 var scrollTime = 0.6;
-var scrollDistance = 150;
+var scrollDistance = 200;
 
 
 /* Platform Detection | @detect
@@ -139,24 +139,24 @@ $('#grc-tw-share').on('click', function() {
 /* GSAP Scroll | @scroll
    ========================================================================== */
 
-// $(function(){
+$(function(){
 
-//   $window.on("mousewheel DOMMouseScroll", function(event){
+  $window.on("mousewheel DOMMouseScroll", function(event){
 
-//     event.preventDefault();
+    event.preventDefault();
 
-//     var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
-//     var scrollTop = $window.scrollTop();
-//     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+    var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+    var scrollTop = $window.scrollTop();
+    var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
-//     TweenMax.to($window, scrollTime, {
-//       scrollTo : { y: finalScroll, autoKill:true },
-//         ease: Power1.easeOut,
-//         overwrite: 5
-//       });
+    TweenMax.to($window, scrollTime, {
+      scrollTo : { y: finalScroll, autoKill:true },
+        ease: Power1.easeOut,
+        overwrite: 5
+      });
 
-//   });
-// });
+  });
+});
 
 /* Init ScrollMagic | @sm-init
    ========================================================================== */
@@ -254,7 +254,7 @@ var scene1_bgAnimation = new TimelineMax()
 
 var scene1_animation = new TimelineMax({ delay: 4 })
   .add([
-    TweenMax.to('.grc-section-1-book-cover-2', 1, {
+    TweenMax.to('.grc-section-1-book-cover-2', 1.5, {
       backgroundPosition: "-" + s1SpriteWidth + "px 0px",
       ease: s1SteppedEase
     })
@@ -297,6 +297,11 @@ var scene1_animation = new TimelineMax({ delay: 4 })
       onStart: function() {
         $('.grc-section-2-character').addClass("animated");
       }
+    })
+  ])
+  // extend time on scene
+  .add([
+    TweenMax.to('.grc-section-2-text', 5, {
     })
   ]);
 
@@ -349,6 +354,10 @@ scene2.on('enter', function(ev) {
 scene1.on('progress', function(ev) {
   if (ev.scrollDirection == "REVERSE") {
     $('.grc-section-2-character').removeClass("animated");
+  } else {
+    if (!$('.grc-section-2-character').hasClass("animated")) {
+      $('.grc-section-2-character').addClass("animated");
+    }
   }
 });
 
@@ -718,8 +727,7 @@ var scene6_animation = new TimelineMax({ delay: 2 })
     })
   ])
   .add([
-    TweenMax.to(_s6Bubble, 3, {
-      opacity: 1
+    TweenMax.to(_s6Bubble, 6, {
     })
   ]);
 
