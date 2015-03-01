@@ -59,6 +59,7 @@ var scene1_trigger      = false,
     sceneend_trigger    = false;
 
 // scroll
+var windowScrollable = false;
 var $window = $(window);
 var scrollTime = 0.6;
 var scrollDistance = 200;
@@ -141,21 +142,23 @@ $('#grc-tw-share').on('click', function() {
 
 $(function(){
 
-  $window.on("mousewheel DOMMouseScroll", function(event){
+  if (windowScrollable) {
+    $window.on("mousewheel DOMMouseScroll", function(event){
 
-    event.preventDefault();
+      event.preventDefault();
 
-    var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
-    var scrollTop = $window.scrollTop();
-    var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+      var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+      var scrollTop = $window.scrollTop();
+      var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
-    TweenMax.to($window, scrollTime, {
-      scrollTo : { y: finalScroll, autoKill:true },
-        ease: Power1.easeOut,
-        overwrite: 5
-      });
+      TweenMax.to($window, scrollTime, {
+        scrollTo : { y: finalScroll, autoKill:true },
+          ease: Power1.easeOut,
+          overwrite: 5
+        });
 
-  });
+    });
+  }
 });
 
 /* Init ScrollMagic | @sm-init
@@ -182,7 +185,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = false;
+var buzzPlaying = true;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -467,7 +470,7 @@ scene3.on('enter', function(ev) {
   scene3_animation.play();
   $(_panelRight).addClass("animated");
   if (ev.scrollDirection == "FORWARD") {
-    s1Sound.pause();
+    s1Sound.fadeOut(2000);
     if (buzzPlaying) { s3Sound.fadeIn().loop(); }
   }
 
@@ -780,6 +783,7 @@ scene6.on('leave', function(ev) {
 /* Buzz */
 
 var s7Sound = new buzz.sound('sounds/chalk-loop');
+var s8Sound = new buzz.sound('sounds/equationscosmos');
 
 $('.grc-section-7-main-equation').hide();
 $('#s7-svg').show();
@@ -999,7 +1003,11 @@ var scene7_animation = new TimelineMax()
   ])
   .add([
     TweenMax.to(_s7Svg, 5, {
-      x: '-200%'
+      x: '-200%',
+      onStart: function() {
+        if (buzzPlaying) s8Sound.play();
+        console.log("playing s8Sound");
+      }
     }),
     TweenMax.to(_s7Chair, 2.5, {
       opacity: 0,
@@ -1103,7 +1111,7 @@ scene7.on('enter', function() {
 
 /* Buzz */
 
-var s8Sound = new buzz.sound('sounds/equationscosmos');
+// var s8Sound = new buzz.sound('sounds/equationscosmos');
 
 /* Animation Defaults */
 
@@ -1126,9 +1134,10 @@ var s8Sound = new buzz.sound('sounds/equationscosmos');
 //   buzz.all().pause();
 // });
 
-// s8Sound.bind('ended', function() {
-//   s1Sound.play().loop();
-// });
+s8Sound.bind('ended', function() {
+  s1Sound.fadeIn(300).stop().play().loop();
+  console.log("s1Sound ended");
+});
 
 /* Controller | @controller
    ========================================================================== */
