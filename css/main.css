@@ -1646,7 +1646,8 @@ body {
         left: 40%;
         width: 80%;
         max-width: 800px;
-        min-height: 100%; }
+        min-height: 100%;
+        z-index: 10; }
       .grc-section-7-equation-1 {
         top: auto;
         bottom: 45%;
@@ -1842,10 +1843,7 @@ body {
       width: 80px; }
     @media only screen and (min-width: 768px) {
       .grc-section-end-social-icon {
-        padding: 40px; }
-        .grc-section-end-social-icon img {
-          height: 120px;
-          width: 120px; } }
+        padding: 40px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-end {
       position: absolute;

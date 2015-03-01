@@ -296,6 +296,14 @@ var scene1_animation = new TimelineMax({ delay: 4 })
       y: '0%',
       onStart: function() {
         $('.grc-section-2-character').addClass("animated");
+
+        if (!scene2_trigger) {
+          $(document).trigger('setScene', {
+            scene: 'Scene 2: Floating',
+          });
+          scene2_trigger = true;
+          console.log("s2 trigger");
+        }
       }
     })
   ])
@@ -319,6 +327,7 @@ scene1.on('enter', function() {
       scene: 'Scene 1: Cover',
     });
     scene1_trigger = true;
+    console.log("s1 trigger");
   }
 });
 
@@ -342,22 +351,9 @@ var scene2 = new ScrollScene({
   triggerHook: '0'
 });
 
-scene2.on('enter', function(ev) {
-  if (!scene2_trigger) {
-    $(document).trigger('setScene', {
-      scene: 'Scene 2: Floating',
-    });
-    scene2_trigger = true;
-  }
-});
-
 scene1.on('progress', function(ev) {
   if (ev.scrollDirection == "REVERSE") {
     $('.grc-section-2-character').removeClass("animated");
-  } else {
-    if (!$('.grc-section-2-character').hasClass("animated")) {
-      $('.grc-section-2-character').addClass("animated");
-    }
   }
 });
 
@@ -480,6 +476,7 @@ scene3.on('enter', function(ev) {
       scene: 'Scene 3: City',
     });
     scene3_trigger = true;
+    console.log("s3 trigger");
   }
 
 });
@@ -568,6 +565,7 @@ scene4.on('enter', function(ev) {
       scene: 'Scene 4: Paradox',
     });
     scene4_trigger = true;
+    console.log("s4 trigger");
   }
 });
 
@@ -626,7 +624,7 @@ var scene5_animation_bg = new TimelineMax()
 
 var scene5_animation = new TimelineMax()
   .add([
-    TweenMax.to('.grc-section-5-text-warp-animation', 1, {
+    TweenMax.to('.grc-section-5-text-warp-animation', 1.5, {
       backgroundPosition: "-" + s5GraphWidth + "px 0px",
       ease: s5SteppedEase
     })
@@ -652,6 +650,7 @@ scene5.on('enter', function() {
       scene: 'Scene 5: Warped',
     });
     scene5_trigger = true;
+    console.log("s5 trigger");
   }
 });
 
@@ -720,7 +719,7 @@ var scene6_animation = new TimelineMax({ delay: 2 })
     })
   ])
   .add([
-    TweenMax.to('.grc-section-6-graph-animation', 1, {
+    TweenMax.to('.grc-section-6-graph-animation', 1.5, {
       backgroundPosition: "-" + s6GraphWidth + "px 0px",
       ease: s6SteppedEase
     })
@@ -760,6 +759,7 @@ scene6.on('enter', function(ev) {
       scene: 'Scene 6: Graph',
     });
     scene6_trigger = true;
+    console.log("s6 trigger");
   }
 });
 
@@ -976,10 +976,6 @@ var scene7_animation = new TimelineMax()
       opacity: 0,
       x: '-100%'
     }),
-    TweenMax.to(_s7Chair, 2.5, {
-      opacity: 0,
-      x: '-100%'
-    }),
     TweenMax.to(_s7Text2, 2.5, {
       opacity: 1
     })
@@ -992,11 +988,18 @@ var scene7_animation = new TimelineMax()
     }),
     TweenMax.to(_s7EquationContainer, 5, {
       x: '-10%'
-    })
+    }),
+    TweenMax.to(_s7Chair, 2.5, {
+      x: '-10%'
+    }),
   ])
   .add([
     TweenMax.to(_s7Svg, 5, {
       x: '-200%'
+    }),
+    TweenMax.to(_s7Chair, 2.5, {
+      opacity: 0,
+      x: '-100%'
     }),
     TweenMax.to(_s7EquationContainer, 5, {
       x: '-200%'
@@ -1010,6 +1013,7 @@ var scene7_animation = new TimelineMax()
             scene: 'Scene 8: Cosmos',
           });
           scene8_trigger = true;
+          console.log("s8 trigger");
         }
       }
     })
@@ -1041,6 +1045,11 @@ var scene7_animation = new TimelineMax()
     TweenMax.to(_s7Text3, 5, {
       x: '-10%',
       opacity: 1
+    })
+  ])
+  // hold scene for a few more seconds
+  .add([
+    TweenMax.to(_s7Text3, 5, {
     })
   ])
 
@@ -1081,6 +1090,7 @@ scene7.on('enter', function() {
       scene: 'Scene 7: Equations',
     });
     scene7_trigger = true;
+    console.log("s7 trigger");
   }
 });
 

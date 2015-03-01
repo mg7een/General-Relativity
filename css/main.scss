@@ -1719,6 +1719,7 @@ $s6-char-height: 600px;
       width: 80%;
       max-width: 800px;
       min-height: 100%;
+      z-index: 10;
     }
     &-equation-1 {
       top: auto;
@@ -1957,8 +1958,8 @@ $s6-char-height: 600px;
     @include tablet {
       padding: 40px;
       img {
-        height: 120px;
-        width: 120px;
+        // height: 120px;
+        // width: 120px;
       }
     }
     // @include desktop {
