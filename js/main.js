@@ -219,7 +219,7 @@ if (buzzPlaying) { s1Sound.play().loop(); }
 
 /* Scene 1 Variables */
 
-var s1SpriteWidth = 833 * 25;
+var s1SpriteWidth = 825 * 25;
 var s1SteppedEase = new SteppedEase(25);
 
 // scene 2 is under scene 1 so set up some initial properties
@@ -417,7 +417,7 @@ var _s3LeftBubble = $('.grc-section-3-panel-left-bubble');
 var _s3RightBubble = $('.grc-section-3-panel-right-bubble');
 
 var scene3_animation = TweenMax.to(_veh1, 6, {
-  x: '900',
+  x: '1000',
   repeat: -1,
   ease: Linear.easeNone
 });
@@ -433,8 +433,8 @@ var scene3_timeline = new TimelineMax()
       opacity: 1
     }),
     TweenMax.to(_s3Char, 3, {
-      top: '52%',
-      left: '20%'
+      top: '49%',
+      left: '23%'
     })
   ])
   .add([
@@ -612,9 +612,13 @@ var s5Char = $('.grc-section-5-char');
 var scene5_animation_bg = new TimelineMax()
   .add([
     TweenMax.to(s5Building1, 3, {
+      scale: 1.15,
+      x: '5%',
       y: '0%'
     }),
     TweenMax.to(s5Building2, 3, {
+      scale: 1.15,
+      x: '-5%',
       y: '0%'
     }),
     TweenMax.to(s5Char, 3, {
@@ -680,7 +684,7 @@ TweenMax.set('.grc-section-6-bubble', {
 
 TweenMax.set('.grc-section-6-char', {
   opacity: 0,
-  x: '200px',
+  x: '340px',
 });
 
 var _roofLine = $('.grc-section-6-roof-line');
