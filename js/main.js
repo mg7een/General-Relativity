@@ -1076,7 +1076,8 @@ var scene7_animation = new TimelineMax()
   // fade in section end
   .add([
     TweenMax.to('.grc-section-end', 3, {
-      opacity: 1
+      opacity: 1,
+      'z-index': 10
     })
   ]);
 

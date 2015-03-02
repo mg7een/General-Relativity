@@ -133,6 +133,8 @@ $desktop-xl: 1600;
 
 $font-benton: 'Helvetica Neue', Helvetica, Arial;
 
+/* Regular */
+
 /* first for IE 4–8 */
 @font-face {
   font-family: CCWildWordsRegular;
@@ -144,6 +146,8 @@ $font-benton: 'Helvetica Neue', Helvetica, Arial;
   font-family: CCWildWordsRegular;
   src: url("../fonts/CCWildWordsRegularWeb.woff") format("woff");
 }
+
+/* Italic */
 
 /* first for IE 4–8 */
 @font-face {
@@ -157,8 +161,23 @@ $font-benton: 'Helvetica Neue', Helvetica, Arial;
   src: url("../fonts/CCWildWordsItalicWeb.woff") format("woff");
 }
 
+/* Bold Italic */
+
+/* first for IE 4–8 */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.eot");
+}
+
+/* then for WOFF-capable browsers */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.woff") format("woff");
+}
+
 $font-wild: 'CCWildWordsRegular', 'Helvetica Neue', Helvetica, Arial;
 $font-wild-italic: 'CCWildWordsItalic', 'Helvetica Neue', Helvetica, Arial;
+$font-wild-bold: 'CCWildWordsBoldItalic', 'Helvetica Neue', Helvetica, Arial;
 
 $text-mobile: normal 0.75em/120% $font-wild;
 $text-tablet: normal 1em/120% $font-wild;
@@ -167,6 +186,10 @@ $text-desktop: normal 0.85em/180% $font-wild;
 $text-italic-mobile: normal 0.75em/120% $font-wild-italic;
 $text-italic-tablet: normal 1em/120% $font-wild-italic;
 $text-italic-desktop: normal 0.85em/180% $font-wild-italic;
+
+$text-bold-mobile: normal 0.75em/120% $font-wild-bold;
+$text-bold-tablet: normal 1em/120% $font-wild-bold;
+$text-bold-desktop: normal 0.85em/180% $font-wild-bold;
 
 /* Helpers | @helpers
    ========================================================================== */
@@ -1195,12 +1218,18 @@ $s5-char-height: 702px;
   &-content {
     padding: 20px;
     font: $text-italic-mobile;
+    b {
+      font: $text-bold-mobile;
+    }
   }
   @include tablet {
     width: 600px;
     margin-top: 20%;
     &-content {
       font: $text-italic-tablet;
+      b {
+        font: $text-bold-tablet;
+      }
     }
   }
   @include desktop {
@@ -1208,6 +1237,9 @@ $s5-char-height: 702px;
     bottom: 50px;
     &-content {
       font: $text-italic-desktop;
+      b {
+        font: $text-bold-desktop;
+      }
     }
   }
   @include desktop-xl {
@@ -1526,7 +1558,7 @@ $s6-char-height: 600px;
     padding-top: 140px;
   }
   &-equation-container {
-    min-height: 660px;
+    min-height: 910px;
   }
   &-cosmos-container {
     min-height: 540px;
@@ -1608,8 +1640,8 @@ $s6-char-height: 600px;
   }
   &-char {
     bottom: 0;
-    width: (386px/3);
-    height: (750px/3);
+    width: (383px/3);
+    height: (1121px/3);
   }
   &-blackhole {
     top: 15%;
@@ -1645,7 +1677,7 @@ $s6-char-height: 600px;
       height: (437px/1.75);
     }
     &-equation-container {
-      min-height: 960px;
+      min-height: 1580px;
     }
     &-cosmos-container {
       min-height: 760px;
@@ -1707,8 +1739,8 @@ $s6-char-height: 600px;
     }
     &-char {
       bottom: 0;
-      width: (386px/1.75);
-      height: (750px/1.75);
+      width: (383px/1.5);
+      height: (1121px/1.5);
     }
     &-blackhole {
       top: 15%;
@@ -1791,7 +1823,7 @@ $s6-char-height: 600px;
     &-equation-4 {
       top: auto;
       bottom: 24%;
-      left: 15%;
+      left: 17%;
       right: auto;
       z-index: 10;
     }
@@ -1803,9 +1835,10 @@ $s6-char-height: 600px;
       z-index: 10;
     }
     &-char {
-      bottom: 0%;
-      width: (386px/1.25);
-      height: (750px/1.25);
+      bottom: -35%;
+      left: -30%;
+      width: (383px/1.25);
+      height: (1121px/1.25);
     }
     &-blackhole {
       width: (500px/1.5);
@@ -1839,6 +1872,10 @@ $s6-char-height: 600px;
       &-stars {
         width: (1858px);
         height: (1083px);
+      }
+      &-char {
+        bottom: -24%;
+        left: -40%;
       }
     }
   }
@@ -2027,7 +2064,7 @@ $s6-char-height: 600px;
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: 10;
+    z-index: -1;
   }
 }
 

@@ -30,6 +30,7 @@
   font-style: normal;
   font-weight: bold; }
 
+/* Regular */
 /* first for IE 4–8 */
 @font-face {
   font-family: CCWildWordsRegular;
@@ -38,6 +39,7 @@
 @font-face {
   font-family: CCWildWordsRegular;
   src: url("../fonts/CCWildWordsRegularWeb.woff") format("woff"); }
+/* Italic */
 /* first for IE 4–8 */
 @font-face {
   font-family: CCWildWordsItalic;
@@ -46,6 +48,15 @@
 @font-face {
   font-family: CCWildWordsItalic;
   src: url("../fonts/CCWildWordsItalicWeb.woff") format("woff"); }
+/* Bold Italic */
+/* first for IE 4–8 */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.eot"); }
+/* then for WOFF-capable browsers */
+@font-face {
+  font-family: CCWildWordsBoldItalic;
+  src: url("../fonts/CCWildWordsBoldItalicWeb.woff") format("woff"); }
 /* Helpers | @helpers
    ========================================================================== */
 .clearfix {
@@ -1053,18 +1064,24 @@ body {
   .grc-section-5-text-content {
     padding: 20px;
     font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
+    .grc-section-5-text-content b {
+      font: normal 0.75em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-5-text {
       width: 600px;
       margin-top: 20%; }
       .grc-section-5-text-content {
-        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
+        .grc-section-5-text-content b {
+          font: normal 1em/120% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-text {
       top: auto;
       bottom: 50px; }
       .grc-section-5-text-content {
-        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
+        .grc-section-5-text-content b {
+          font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 1600px) {
     .grc-section-5-text {
       bottom: 80px; } }
@@ -1504,7 +1521,7 @@ body {
     position: relative;
     padding-top: 140px; }
   .grc-section-7-equation-container {
-    min-height: 660px; }
+    min-height: 910px; }
   .grc-section-7-cosmos-container {
     min-height: 540px; }
   .grc-section-7-main-equation, .grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5, .grc-section-7-char, .grc-section-7-blackhole, .grc-section-7-jupiter, .grc-section-7-planet, .grc-section-7-comet, .grc-section-7-stars {
@@ -1561,8 +1578,8 @@ body {
       height: 16.33333px; }
   .grc-section-7-char {
     bottom: 0;
-    width: 128.66667px;
-    height: 250px; }
+    width: 127.66667px;
+    height: 373.66667px; }
   .grc-section-7-blackhole {
     top: 15%;
     right: auto;
@@ -1591,7 +1608,7 @@ body {
       width: 235.42857px;
       height: 249.71429px; }
     .grc-section-7-equation-container {
-      min-height: 960px; }
+      min-height: 1580px; }
     .grc-section-7-cosmos-container {
       min-height: 760px; }
     .grc-section-7-main-equation {
@@ -1640,8 +1657,8 @@ body {
         height: 28px; }
     .grc-section-7-char {
       bottom: 0;
-      width: 220.57143px;
-      height: 428.57143px; }
+      width: 255.33333px;
+      height: 747.33333px; }
     .grc-section-7-blackhole {
       top: 15%;
       right: auto;
@@ -1710,7 +1727,7 @@ body {
       .grc-section-7-equation-4 {
         top: auto;
         bottom: 24%;
-        left: 15%;
+        left: 17%;
         right: auto;
         z-index: 10; }
       .grc-section-7-equation-5 {
@@ -1720,9 +1737,10 @@ body {
         left: 60%;
         z-index: 10; }
       .grc-section-7-char {
-        bottom: 0%;
-        width: 308.8px;
-        height: 600px; }
+        bottom: -35%;
+        left: -30%;
+        width: 306.4px;
+        height: 896.8px; }
       .grc-section-7-blackhole {
         width: 333.33333px;
         height: 622.66667px; }
@@ -1749,7 +1767,10 @@ body {
   @media only screen and (min-width: 992px) and (min-width: 1600px) {
     .grc-section-7-stars {
       width: 1858px;
-      height: 1083px; } }
+      height: 1083px; }
+    .grc-section-7-char {
+      bottom: -24%;
+      left: -40%; } }
 
 /* Text */
 .grc-section-7-text-1 {
@@ -1896,7 +1917,7 @@ body {
       right: 0;
       bottom: 0;
       top: 0;
-      z-index: 10; } }
+      z-index: -1; } }
 
 .grc-section-end-logo-link {
   position: relative;
