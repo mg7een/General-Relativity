@@ -238,7 +238,7 @@ body {
   }
   &-3 {
     height: auto;
-    padding: 5% 0;
+    padding: 2.5% 0;
     text-align: center;
     background-color: white;
     z-index: 20;
@@ -557,9 +557,10 @@ $ein-height: 388px;
 }
 
 .grc-section-1-book-cover-2 {
-  width: 833px;
-  height: 636px;
+  width: 825px;
+  height: 1173.25px;
   background-image: url('../img/s1-book-cover-spritesheet.png');
+  // background-size: (21450px) (628px);
   background-repeat: no-repeat;
   background-position: 0px 0px;
 }
@@ -594,8 +595,10 @@ $ein-height: 388px;
 }
 
 @include keyframes(scene2Float) {
-  0% { left: -150% }
-  100% { left: 100% }
+  0% {
+    left: 0%; }
+  100% {
+    left: 150%; }
 }
 
 .grc-section-2-bg,
@@ -636,7 +639,13 @@ $ein-height: 388px;
     max-width: 100%;
   }
   @include desktop {
-    left: -150%;
+    top: 10%;
+    left: -25%;
+    margin: 0;
+    @include vendor-prefix(transform, translateX(-100%));
+  }
+  @include desktop-xl {
+    top: 25%;
   }
 }
 
@@ -645,23 +654,25 @@ $ein-height: 388px;
   bottom: 40px;
   width: 280px;
   margin: auto;
-  font: $text-mobile;
   &-box {
   }
   &-content {
     padding: 20px;
     text-align: left;
+    font: $text-italic-mobile;
   }
   @include tablet {
     width: 600px;
-    font: $text-tablet;
     &-content {
       padding: 30px 50px;
+      font: $text-italic-tablet;
     }
   }
   @include desktop {
     bottom: 60px;
-    font: $text-desktop;
+    &-content {
+      font: $text-italic-desktop;
+    }
   }
 }
 
@@ -701,23 +712,33 @@ $s3-panel-left-width: 800px;
   &-vehicles-container {
     display: none;
     position: absolute;
-    top: 0;
-    left: 2.5%;
+    top: 2px;
+    right: 2px;
     width: (533px*3);
-    height: (43px*3);
+    // height: (43px*3);
+    height: 50%;
     max-width: 100%;
+    overflow: hidden;
+  }
+  &-vehicles-container-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     @include vendor-prefix(transform, rotate(34deg));
   }
   &-vehicles {
-    position: relative;
-    left: -500px;
+    position: absolute;
+    top: 10px;
+    left: -600px;
     width: (533px*1.5);
     height: (43px*1.5);
   }
   &-char {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 10%;
   }
   &-border {
@@ -785,15 +806,23 @@ $s3-panel-left-width: 800px;
     height: $s3-panel-left-height/1.5;
   }
   @include desktop {
-    margin: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
     margin-left: -30%;
     display: inline-block;
     overflow: hidden;
+  }
+  @include desktop-xl {
   }
 }
 
 $s3-panel-right-height: 956px;
 $s3-panel-right-width: 800px;
+
+$s3-panel-right-char-width: 468px;
+$s3-panel-right-char-height: 640px;
 
 .grc-section-3-panel-right {
   position: relative;
@@ -814,11 +843,20 @@ $s3-panel-right-width: 800px;
     background-repeat: repeat-y;
     background-image: url(../img/s3-panel-right-bg-repeat.jpg);
     @include vendor-prefix(transform, scale(0.95));
-    &.animated {
-      @include vendor-prefix(animation, scene3MoveBg 2s linear infinite);
-    }
+    // &.animated {
+    //   @include vendor-prefix(animation, scene3MoveBg 2s linear infinite);
+    // }
   }
   &-bg {
+    height: 100%;
+    width: 100%;
+  }
+  &-char {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     width: 100%;
   }
@@ -866,9 +904,10 @@ $s3-panel-right-width: 800px;
     }
   }
   @include desktop {
-    position: relative;
-    top: 200px;
-    margin: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
     display: inline-block;
     position: absolute;
     width: $s3-panel-right-width/2;
@@ -878,6 +917,20 @@ $s3-panel-right-width: 800px;
     }
     &-bg {
       position: relative;
+    }
+    &-char {
+      top: 15%;
+      width: $s3-panel-right-char-width /2;
+      height: $s3-panel-right-char-height /2;
+      margin: 0 auto;
+    }
+    &-char-container {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
     &-bubble {
       width: 320px;
@@ -924,6 +977,9 @@ $s4-char-height: 420px;
     left: 0;
     right: 0;
   }
+  @include desktop-xl {
+    top: 25%;
+  }
 }
 
 .grc-section-4-text {
@@ -944,6 +1000,8 @@ $s4-char-height: 420px;
   }
   @include desktop {
     font: $text-italic-desktop;
+    max-width: 900px;
+    margin: 5% auto 0;
   }
 }
 
@@ -958,6 +1016,7 @@ $s4-char-height: 420px;
   &-content {
     padding: 20px 40px;
     padding-left: 60px;
+    padding-right: 30px;
     font: $text-mobile;
   }
   @include tablet {
@@ -998,8 +1057,8 @@ $b1-width: 716px;
     height: $b1-height/2;
   }
   @include desktop {
-    width: $b1-width/1.5;
-    height: $b1-height/1.5;
+    width: $b1-width/1;
+    height: $b1-height/1;
   }
 }
 
@@ -1017,8 +1076,8 @@ $b2-width: 252px;
     height: $b2-height/2;
   }
   @include desktop {
-    width: $b2-width/1.5;
-    height: $b2-height/1.5;
+    width: $b2-width/1;
+    height: $b2-height/1;
   }
 }
 
@@ -1110,12 +1169,14 @@ $s5-char-height: 702px;
 
 .grc-section-5-char {
   position: absolute;
-  bottom: 0;
+  top: auto;
+  bottom: 0%;
   left: 0;
   right: 0;
   width: $s5-char-width/3;
   height: $s5-char-height/3;
   margin: auto;
+  margin-bottom: 0;
   @include tablet {
     width: $s5-char-width/1.25;
     height: $s5-char-height/1.25;
@@ -1144,15 +1205,26 @@ $s5-char-height: 702px;
   }
   @include desktop {
     top: auto;
-    bottom: 20px;
+    bottom: 50px;
     &-content {
       font: $text-italic-desktop;
     }
+  }
+  @include desktop-xl {
+    bottom: 80px;
   }
 }
 
 .ie .grc-section-5-text {
   display: block;
+}
+
+.grc-section-5-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Section 6 | @s6
@@ -1180,7 +1252,7 @@ $s5-char-height: 702px;
   85% { opacity: 1 }
   100% {
     opacity: 0;
-    @include vendor-prefix(transform, translateX(550%));
+    @include vendor-prefix(transform, translateX(575%));
   }
 }
 
@@ -1260,7 +1332,7 @@ $s6-char-height: 460px;
 .grc-section-6-character-desktop {
   position: absolute;
   top: 20%;
-  left: 5%;
+  left: 0;
   display: none;
   width: $s6-char-width/4;
   height: $s6-char-height/4;
@@ -1310,6 +1382,9 @@ $s6-char-height: 460px;
     right: auto;
     width: 400px;
     padding-top: 0;
+  }
+  @include desktop-xl {
+    left: 15%;
   }
 }
 
@@ -1670,6 +1745,8 @@ $s6-char-height: 600px;
       position: absolute;
       bottom: 0;
       left: 15%;
+      width: (412px/1.25);
+      height: (437px/1.25);
       margin: 0;
     }
     &-equation-container,
@@ -1680,6 +1757,7 @@ $s6-char-height: 600px;
     &-cosmos-container {
       position: relative;
       left: 120%;
+      min-height: 100%;
     }
     &-equation-container {
       position: absolute;
@@ -1687,6 +1765,7 @@ $s6-char-height: 600px;
       width: 80%;
       max-width: 800px;
       min-height: 100%;
+      z-index: 10;
     }
     &-equation-1 {
       top: auto;
@@ -1745,7 +1824,9 @@ $s6-char-height: 600px;
       height: (174px/1.5);
     }
     &-comet {
-      bottom: 25%;
+      position: fixed;
+      top: 45%;
+      bottom: auto;
       left: auto;
       width: (526px/1.5);
       height: (401px/1.5);
@@ -1753,6 +1834,12 @@ $s6-char-height: 600px;
     &-stars {
       width: (1858px/1.5);
       height: (1083px/1.5);
+    }
+    @include desktop-xl {
+      &-stars {
+        width: (1858px);
+        height: (1083px);
+      }
     }
   }
 }
@@ -1835,11 +1922,17 @@ $s6-char-height: 600px;
     }
   }
   @include desktop {
-    top: auto;
-    left: auto;
-    right: 1%;
-    bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &-box {
+      z-index: -1;
+    }
     &-content {
+      position: relative;
+      z-index: 20;
       font: $text-italic-desktop;
     }
   }
@@ -1917,8 +2010,8 @@ $s6-char-height: 600px;
     @include tablet {
       padding: 40px;
       img {
-        height: 120px;
-        width: 120px;
+        // height: 120px;
+        // width: 120px;
       }
     }
     // @include desktop {

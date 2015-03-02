@@ -100,7 +100,7 @@ body {
     z-index: 10; }
   .grc-section-3 {
     height: auto;
-    padding: 5% 0;
+    padding: 2.5% 0;
     text-align: center;
     background-color: white;
     z-index: 20;
@@ -386,8 +386,8 @@ body {
   background-image: url(../img/s1-cover-back.png); }
 
 .grc-section-1-book-cover-2 {
-  width: 833px;
-  height: 636px;
+  width: 825px;
+  height: 1173.25px;
   background-image: url("../img/s1-book-cover-spritesheet.png");
   background-repeat: no-repeat;
   background-position: 0px 0px; }
@@ -491,24 +491,24 @@ body {
     transform: translateY(0px); } }
 @-webkit-keyframes scene2Float {
   0% {
-    left: -150%; }
+    left: 0%; }
   100% {
-    left: 100%; } }
+    left: 150%; } }
 @-moz-keyframes scene2Float {
   0% {
-    left: -150%; }
+    left: 0%; }
   100% {
-    left: 100%; } }
+    left: 150%; } }
 @-ms-keyframes scene2Float {
   0% {
-    left: -150%; }
+    left: 0%; }
   100% {
-    left: 100%; } }
+    left: 150%; } }
 @keyframes scene2Float {
   0% {
-    left: -150%; }
+    left: 0%; }
   100% {
-    left: 100%; } }
+    left: 150%; } }
 .grc-section-2-bg,
 .grc-section-2-bg-stars {
   position: absolute;
@@ -549,27 +549,38 @@ body {
       max-width: 100%; } }
   @media only screen and (min-width: 992px) {
     .grc-section-2-character {
-      left: -150%; } }
+      top: 10%;
+      left: -25%;
+      margin: 0;
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      transform: translateX(-100%); } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-2-character {
+      top: 25%; } }
 
 .grc-section-2-text {
   top: auto;
   bottom: 40px;
   width: 280px;
-  margin: auto;
-  font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
+  margin: auto; }
   .grc-section-2-text-content {
     padding: 20px;
-    text-align: left; }
+    text-align: left;
+    font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-2-text {
-      width: 600px;
-      font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
+      width: 600px; }
       .grc-section-2-text-content {
-        padding: 30px 50px; } }
+        padding: 30px 50px;
+        font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-2-text {
-      bottom: 60px;
-      font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+      bottom: 60px; }
+      .grc-section-2-text-content {
+        font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .ie .grc-section-2-text {
   display: block; }
@@ -619,25 +630,33 @@ body {
   .grc-section-3-panel-left-vehicles-container {
     display: none;
     position: absolute;
-    top: 0;
-    left: 2.5%;
+    top: 2px;
+    right: 2px;
     width: 1599px;
-    height: 129px;
+    height: 50%;
     max-width: 100%;
+    overflow: hidden; }
+  .grc-section-3-panel-left-vehicles-container-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     -webkit-transform: rotate(34deg);
     -ms-transform: rotate(34deg);
     -moz-transform: rotate(34deg);
     -o-transform: rotate(34deg);
     transform: rotate(34deg); }
   .grc-section-3-panel-left-vehicles {
-    position: relative;
-    left: -500px;
+    position: absolute;
+    top: 10px;
+    left: -600px;
     width: 799.5px;
     height: 64.5px; }
   .grc-section-3-panel-left-char {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 62%;
     left: 10%; }
   .grc-section-3-panel-left-border {
     position: absolute;
@@ -690,7 +709,10 @@ body {
       height: 711.33333px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-3-panel-left {
-      margin: inherit;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
       margin-left: -30%;
       display: inline-block;
       overflow: hidden; } }
@@ -718,13 +740,15 @@ body {
     -moz-transform: scale(0.95);
     -o-transform: scale(0.95);
     transform: scale(0.95); }
-    .grc-section-3-panel-right-bg-repeat.animated {
-      -webkit-animation: scene3MoveBg 2s linear infinite;
-      -ms-animation: scene3MoveBg 2s linear infinite;
-      -moz-animation: scene3MoveBg 2s linear infinite;
-      -o-animation: scene3MoveBg 2s linear infinite;
-      animation: scene3MoveBg 2s linear infinite; }
   .grc-section-3-panel-right-bg {
+    height: 100%;
+    width: 100%; }
+  .grc-section-3-panel-right-char {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     width: 100%; }
   .grc-section-3-panel-right-text {
@@ -758,9 +782,10 @@ body {
         width: 300px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-3-panel-right {
-      position: relative;
-      top: 200px;
-      margin: inherit;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
       display: inline-block;
       position: absolute;
       width: 400px;
@@ -769,6 +794,18 @@ body {
         display: block; }
       .grc-section-3-panel-right-bg {
         position: relative; }
+      .grc-section-3-panel-right-char {
+        top: 15%;
+        width: 234px;
+        height: 320px;
+        margin: 0 auto; }
+      .grc-section-3-panel-right-char-container {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        height: 100%;
+        width: 100%;
+        overflow: hidden; }
       .grc-section-3-panel-right-bubble {
         width: 320px;
         top: -120px;
@@ -809,6 +846,9 @@ body {
       top: 10%;
       left: 0;
       right: 0; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-4-char {
+      top: 25%; } }
 
 .grc-section-4-text {
   position: relative;
@@ -826,7 +866,9 @@ body {
       font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-4-text {
-      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+      font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
+      max-width: 900px;
+      margin: 5% auto 0; } }
 
 .grc-section-4-bubble {
   width: 200px;
@@ -839,6 +881,7 @@ body {
   .grc-section-4-bubble-content {
     padding: 20px 40px;
     padding-left: 60px;
+    padding-right: 30px;
     font: normal 0.75em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; }
   @media only screen and (min-width: 768px) {
     .grc-section-4-bubble {
@@ -871,8 +914,8 @@ body {
       height: 154px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-building-1 {
-      width: 477.33333px;
-      height: 205.33333px; } }
+      width: 716px;
+      height: 308px; } }
 
 .grc-section-5-building-2 {
   position: absolute;
@@ -886,8 +929,8 @@ body {
       height: 240.5px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-building-2 {
-      width: 168px;
-      height: 320.66667px; } }
+      width: 252px;
+      height: 481px; } }
 
 .grc-section-5-text-1,
 .grc-section-5-text-2,
@@ -981,12 +1024,14 @@ body {
 
 .grc-section-5-char {
   position: absolute;
-  bottom: 0;
+  top: auto;
+  bottom: 0%;
   left: 0;
   right: 0;
   width: 165.33333px;
   height: 234px;
-  margin: auto; }
+  margin: auto;
+  margin-bottom: 0; }
   @media only screen and (min-width: 768px) {
     .grc-section-5-char {
       width: 396.8px;
@@ -1017,12 +1062,22 @@ body {
   @media only screen and (min-width: 992px) {
     .grc-section-5-text {
       top: auto;
-      bottom: 20px; }
+      bottom: 50px; }
       .grc-section-5-text-content {
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-5-text {
+      bottom: 80px; } }
 
 .ie .grc-section-5-text {
   display: block; }
+
+.grc-section-5-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
 
 /* Section 6 | @s6
    ========================================================================== */
@@ -1116,11 +1171,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(550%);
-    -ms-transform: translateX(550%);
-    -moz-transform: translateX(550%);
-    -o-transform: translateX(550%);
-    transform: translateX(550%); } }
+    -webkit-transform: translateX(575%);
+    -ms-transform: translateX(575%);
+    -moz-transform: translateX(575%);
+    -o-transform: translateX(575%);
+    transform: translateX(575%); } }
 @-moz-keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1135,11 +1190,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(550%);
-    -ms-transform: translateX(550%);
-    -moz-transform: translateX(550%);
-    -o-transform: translateX(550%);
-    transform: translateX(550%); } }
+    -webkit-transform: translateX(575%);
+    -ms-transform: translateX(575%);
+    -moz-transform: translateX(575%);
+    -o-transform: translateX(575%);
+    transform: translateX(575%); } }
 @-ms-keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1154,11 +1209,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(550%);
-    -ms-transform: translateX(550%);
-    -moz-transform: translateX(550%);
-    -o-transform: translateX(550%);
-    transform: translateX(550%); } }
+    -webkit-transform: translateX(575%);
+    -ms-transform: translateX(575%);
+    -moz-transform: translateX(575%);
+    -o-transform: translateX(575%);
+    transform: translateX(575%); } }
 @keyframes scene6MoveCharDesktop {
   0% {
     opacity: 0;
@@ -1173,11 +1228,11 @@ body {
     opacity: 1; }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(550%);
-    -ms-transform: translateX(550%);
-    -moz-transform: translateX(550%);
-    -o-transform: translateX(550%);
-    transform: translateX(550%); } }
+    -webkit-transform: translateX(575%);
+    -ms-transform: translateX(575%);
+    -moz-transform: translateX(575%);
+    -o-transform: translateX(575%);
+    transform: translateX(575%); } }
 .grc-section-6-roof-line-container {
   position: relative;
   top: 258px;
@@ -1261,7 +1316,7 @@ body {
 .grc-section-6-character-desktop {
   position: absolute;
   top: 20%;
-  left: 5%;
+  left: 0;
   display: none;
   width: 77.5px;
   height: 115px;
@@ -1314,6 +1369,9 @@ body {
       right: auto;
       width: 400px;
       padding-top: 0; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-6-text-2 {
+      left: 15%; } }
 
 .grc-section-6-text-3 {
   padding-bottom: 80px; }
@@ -1614,19 +1672,23 @@ body {
         position: absolute;
         bottom: 0;
         left: 15%;
+        width: 329.6px;
+        height: 349.6px;
         margin: 0; }
       .grc-section-7-equation-container, .grc-section-7-cosmos-container {
         min-height: auto;
         padding-top: 0; }
       .grc-section-7-cosmos-container {
         position: relative;
-        left: 120%; }
+        left: 120%;
+        min-height: 100%; }
       .grc-section-7-equation-container {
         position: absolute;
         left: 40%;
         width: 80%;
         max-width: 800px;
-        min-height: 100%; }
+        min-height: 100%;
+        z-index: 10; }
       .grc-section-7-equation-1 {
         top: auto;
         bottom: 45%;
@@ -1675,13 +1737,19 @@ body {
         width: 129.33333px;
         height: 116px; }
       .grc-section-7-comet {
-        bottom: 25%;
+        position: fixed;
+        top: 45%;
+        bottom: auto;
         left: auto;
         width: 350.66667px;
         height: 267.33333px; }
       .grc-section-7-stars {
         width: 1238.66667px;
         height: 722px; } }
+  @media only screen and (min-width: 992px) and (min-width: 1600px) {
+    .grc-section-7-stars {
+      width: 1858px;
+      height: 1083px; } }
 
 /* Text */
 .grc-section-7-text-1 {
@@ -1751,11 +1819,16 @@ body {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-3 {
-      top: auto;
-      left: auto;
-      right: 1%;
-      bottom: 20px; }
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      .grc-section-7-text-3-box {
+        z-index: -1; }
       .grc-section-7-text-3-content {
+        position: relative;
+        z-index: 20;
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 /* SVG Animations */
@@ -1815,10 +1888,7 @@ body {
       width: 80px; }
     @media only screen and (min-width: 768px) {
       .grc-section-end-social-icon {
-        padding: 40px; }
-        .grc-section-end-social-icon img {
-          height: 120px;
-          width: 120px; } }
+        padding: 40px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-end {
       position: absolute;

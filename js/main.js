@@ -59,9 +59,10 @@ var scene1_trigger      = false,
     sceneend_trigger    = false;
 
 // scroll
+var windowScrollable = false;
 var $window = $(window);
 var scrollTime = 0.6;
-var scrollDistance = 150;
+var scrollDistance = 200;
 
 
 /* Platform Detection | @detect
@@ -139,24 +140,26 @@ $('#grc-tw-share').on('click', function() {
 /* GSAP Scroll | @scroll
    ========================================================================== */
 
-// $(function(){
+$(function(){
 
-//   $window.on("mousewheel DOMMouseScroll", function(event){
+  if (windowScrollable) {
+    $window.on("mousewheel DOMMouseScroll", function(event){
 
-//     event.preventDefault();
+      event.preventDefault();
 
-//     var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
-//     var scrollTop = $window.scrollTop();
-//     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+      var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+      var scrollTop = $window.scrollTop();
+      var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
-//     TweenMax.to($window, scrollTime, {
-//       scrollTo : { y: finalScroll, autoKill:true },
-//         ease: Power1.easeOut,
-//         overwrite: 5
-//       });
+      TweenMax.to($window, scrollTime, {
+        scrollTo : { y: finalScroll, autoKill:true },
+          ease: Power1.easeOut,
+          overwrite: 5
+        });
 
-//   });
-// });
+    });
+  }
+});
 
 /* Init ScrollMagic | @sm-init
    ========================================================================== */
@@ -182,7 +185,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = false;
+var buzzPlaying = true;
 
 $('#grc-toggle-sound').on('click', function() {
 
@@ -219,7 +222,7 @@ if (buzzPlaying) { s1Sound.play().loop(); }
 
 /* Scene 1 Variables */
 
-var s1SpriteWidth = 833 * 25;
+var s1SpriteWidth = 825 * 25;
 var s1SteppedEase = new SteppedEase(25);
 
 // scene 2 is under scene 1 so set up some initial properties
@@ -254,7 +257,7 @@ var scene1_bgAnimation = new TimelineMax()
 
 var scene1_animation = new TimelineMax({ delay: 4 })
   .add([
-    TweenMax.to('.grc-section-1-book-cover-2', 1, {
+    TweenMax.to('.grc-section-1-book-cover-2', 1.5, {
       backgroundPosition: "-" + s1SpriteWidth + "px 0px",
       ease: s1SteppedEase
     })
@@ -296,7 +299,20 @@ var scene1_animation = new TimelineMax({ delay: 4 })
       y: '0%',
       onStart: function() {
         $('.grc-section-2-character').addClass("animated");
+
+        if (!scene2_trigger) {
+          $(document).trigger('setScene', {
+            scene: 'Scene 2: Floating',
+          });
+          scene2_trigger = true;
+          console.log("s2 trigger");
+        }
       }
+    })
+  ])
+  // extend time on scene
+  .add([
+    TweenMax.to('.grc-section-2-text', 5, {
     })
   ]);
 
@@ -314,6 +330,7 @@ scene1.on('enter', function() {
       scene: 'Scene 1: Cover',
     });
     scene1_trigger = true;
+    console.log("s1 trigger");
   }
 });
 
@@ -335,15 +352,6 @@ var scene2 = new ScrollScene({
   duration: 1000,
   triggerElement: '.grc-section-2',
   triggerHook: '0'
-});
-
-scene2.on('enter', function(ev) {
-  if (!scene2_trigger) {
-    $(document).trigger('setScene', {
-      scene: 'Scene 2: Floating',
-    });
-    scene2_trigger = true;
-  }
 });
 
 scene1.on('progress', function(ev) {
@@ -368,7 +376,7 @@ var s3Sound = new buzz.sound('sounds/traffic-loop');
  */
 
 $('.grc-section-3-panel-left-bg').attr("src", 'img/s3-panel-left-bg.png');
-$('.grc-section-3-panel-left-vehicles-container, .grc-section-3-panel-left-char').show();
+$('.grc-section-3-panel-left-vehicles-container, .grc-section-3-panel-left-char, .grc-section-3-panel-right-char').show();
 
 $('.grc-section-3-panel-right-bg').attr("src", 'img/s3-panel-right-bg.png');
 
@@ -395,19 +403,24 @@ TweenMax.set('.grc-section-3-panel-right-bubble', {
   opacity: 0
 });
 
+TweenMax.set('.grc-section-3-panel-right-char', {
+  y: '-150%'
+});
+
 // manually set height of s3 because of floated elements
 $('.grc-section-3').css({
-  height: windowHeight
+  'min-height': windowHeight
 });
 
 var _veh1 = $('.grc-section-3-panel-left-vehicles');
 var _panelRight = $('.grc-section-3-panel-right-bg-repeat');
 var _s3Char = $('.grc-section-3-panel-left-char');
+var _s3CharRight = $('.grc-section-3-panel-right-char');
 var _s3LeftBubble = $('.grc-section-3-panel-left-bubble');
 var _s3RightBubble = $('.grc-section-3-panel-right-bubble');
 
 var scene3_animation = TweenMax.to(_veh1, 6, {
-  x: '900',
+  x: '1000',
   repeat: -1,
   ease: Linear.easeNone
 });
@@ -423,14 +436,19 @@ var scene3_timeline = new TimelineMax()
       opacity: 1
     }),
     TweenMax.to(_s3Char, 3, {
-      top: '40%',
-      left: '20%'
+      top: '49%',
+      left: '23%'
     })
   ])
   .add([
     TweenMax.to('.grc-section-3-panel-right', 3, {
       x: '0%',
       opacity: 1
+    })
+  ])
+  .add([
+    TweenMax.to(_s3CharRight, 3, {
+      y: '0%'
     })
   ])
   .add([
@@ -452,7 +470,7 @@ scene3.on('enter', function(ev) {
   scene3_animation.play();
   $(_panelRight).addClass("animated");
   if (ev.scrollDirection == "FORWARD") {
-    s1Sound.pause();
+    s1Sound.fadeOut(2000);
     if (buzzPlaying) { s3Sound.fadeIn().loop(); }
   }
 
@@ -461,6 +479,7 @@ scene3.on('enter', function(ev) {
       scene: 'Scene 3: City',
     });
     scene3_trigger = true;
+    console.log("s3 trigger");
   }
 
 });
@@ -549,6 +568,7 @@ scene4.on('enter', function(ev) {
       scene: 'Scene 4: Paradox',
     });
     scene4_trigger = true;
+    console.log("s4 trigger");
   }
 });
 
@@ -586,7 +606,6 @@ TweenMax.set('.grc-section-5-text', {
   y: '20%'
 });
 
-
 var s5GraphWidth = 400 * 6;
 var s5SteppedEase = new SteppedEase(6);
 var s5Building1 = $('.grc-section-5-building-1');
@@ -596,9 +615,13 @@ var s5Char = $('.grc-section-5-char');
 var scene5_animation_bg = new TimelineMax()
   .add([
     TweenMax.to(s5Building1, 3, {
+      scale: 1.15,
+      x: '5%',
       y: '0%'
     }),
     TweenMax.to(s5Building2, 3, {
+      scale: 1.15,
+      x: '-5%',
       y: '0%'
     }),
     TweenMax.to(s5Char, 3, {
@@ -608,7 +631,7 @@ var scene5_animation_bg = new TimelineMax()
 
 var scene5_animation = new TimelineMax()
   .add([
-    TweenMax.to('.grc-section-5-text-warp-animation', 1, {
+    TweenMax.to('.grc-section-5-text-warp-animation', 1.5, {
       backgroundPosition: "-" + s5GraphWidth + "px 0px",
       ease: s5SteppedEase
     })
@@ -634,6 +657,7 @@ scene5.on('enter', function() {
       scene: 'Scene 5: Warped',
     });
     scene5_trigger = true;
+    console.log("s5 trigger");
   }
 });
 
@@ -663,7 +687,7 @@ TweenMax.set('.grc-section-6-bubble', {
 
 TweenMax.set('.grc-section-6-char', {
   opacity: 0,
-  x: '200px',
+  x: '340px',
 });
 
 var _roofLine = $('.grc-section-6-roof-line');
@@ -702,7 +726,7 @@ var scene6_animation = new TimelineMax({ delay: 2 })
     })
   ])
   .add([
-    TweenMax.to('.grc-section-6-graph-animation', 1, {
+    TweenMax.to('.grc-section-6-graph-animation', 1.5, {
       backgroundPosition: "-" + s6GraphWidth + "px 0px",
       ease: s6SteppedEase
     })
@@ -719,8 +743,7 @@ var scene6_animation = new TimelineMax({ delay: 2 })
     })
   ])
   .add([
-    TweenMax.to(_s6Bubble, 3, {
-      opacity: 1
+    TweenMax.to(_s6Bubble, 6, {
     })
   ]);
 
@@ -743,6 +766,7 @@ scene6.on('enter', function(ev) {
       scene: 'Scene 6: Graph',
     });
     scene6_trigger = true;
+    console.log("s6 trigger");
   }
 });
 
@@ -759,11 +783,12 @@ scene6.on('leave', function(ev) {
 /* Buzz */
 
 var s7Sound = new buzz.sound('sounds/chalk-loop');
+var s8Sound = new buzz.sound('sounds/equationscosmos');
 
 $('.grc-section-7-main-equation').hide();
 $('#s7-svg').show();
 $('.grc-section-7-equation-1, .grc-section-7-equation-2, .grc-section-7-equation-3, .grc-section-7-equation-4, .grc-section-7-equation-5').css({
-  width: '100%',
+  width: '0%',
   overflow: 'hidden'
 });
 
@@ -959,10 +984,6 @@ var scene7_animation = new TimelineMax()
       opacity: 0,
       x: '-100%'
     }),
-    TweenMax.to(_s7Chair, 2.5, {
-      opacity: 0,
-      x: '-100%'
-    }),
     TweenMax.to(_s7Text2, 2.5, {
       opacity: 1
     })
@@ -975,11 +996,22 @@ var scene7_animation = new TimelineMax()
     }),
     TweenMax.to(_s7EquationContainer, 5, {
       x: '-10%'
-    })
+    }),
+    TweenMax.to(_s7Chair, 2.5, {
+      x: '-10%'
+    }),
   ])
   .add([
     TweenMax.to(_s7Svg, 5, {
-      x: '-200%'
+      x: '-200%',
+      onStart: function() {
+        if (buzzPlaying) s8Sound.play();
+        console.log("playing s8Sound");
+      }
+    }),
+    TweenMax.to(_s7Chair, 2.5, {
+      opacity: 0,
+      x: '-100%'
     }),
     TweenMax.to(_s7EquationContainer, 5, {
       x: '-200%'
@@ -993,6 +1025,7 @@ var scene7_animation = new TimelineMax()
             scene: 'Scene 8: Cosmos',
           });
           scene8_trigger = true;
+          console.log("s8 trigger");
         }
       }
     })
@@ -1024,6 +1057,11 @@ var scene7_animation = new TimelineMax()
     TweenMax.to(_s7Text3, 5, {
       x: '-10%',
       opacity: 1
+    })
+  ])
+  // hold scene for a few more seconds
+  .add([
+    TweenMax.to(_s7Text3, 5, {
     })
   ])
 
@@ -1064,6 +1102,7 @@ scene7.on('enter', function() {
       scene: 'Scene 7: Equations',
     });
     scene7_trigger = true;
+    console.log("s7 trigger");
   }
 });
 
@@ -1072,7 +1111,7 @@ scene7.on('enter', function() {
 
 /* Buzz */
 
-var s8Sound = new buzz.sound('sounds/equationscosmos');
+// var s8Sound = new buzz.sound('sounds/equationscosmos');
 
 /* Animation Defaults */
 
@@ -1095,9 +1134,10 @@ var s8Sound = new buzz.sound('sounds/equationscosmos');
 //   buzz.all().pause();
 // });
 
-// s8Sound.bind('ended', function() {
-//   s1Sound.play().loop();
-// });
+s8Sound.bind('ended', function() {
+  s1Sound.fadeIn(300).stop().play().loop();
+  console.log("s1Sound ended");
+});
 
 /* Controller | @controller
    ========================================================================== */
