@@ -185,7 +185,7 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = false;
+var buzzPlaying = true;
 
 $('#grc-toggle-sound').show();
 $('#grc-toggle-sound').on('click', function() {
