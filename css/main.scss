@@ -182,14 +182,17 @@ $font-wild-bold: 'CCWildWordsBoldItalic', 'Helvetica Neue', Helvetica, Arial;
 $text-mobile: normal 0.75em/120% $font-wild;
 $text-tablet: normal 1em/120% $font-wild;
 $text-desktop: normal 0.85em/180% $font-wild;
+$text-desktop-xl: normal 1em/180% $font-wild;
 
 $text-italic-mobile: normal 0.75em/120% $font-wild-italic;
 $text-italic-tablet: normal 1em/120% $font-wild-italic;
 $text-italic-desktop: normal 0.85em/180% $font-wild-italic;
+$text-italic-desktop-xl: normal 1em/180% $font-wild-italic;
 
 $text-bold-mobile: normal 0.75em/120% $font-wild-bold;
 $text-bold-tablet: normal 1em/120% $font-wild-bold;
 $text-bold-desktop: normal 0.85em/180% $font-wild-bold;
+$text-bold-desktop-xl: normal 1em/180% $font-wild-bold;
 
 /* Helpers | @helpers
    ========================================================================== */
@@ -268,6 +271,7 @@ body {
     overflow: hidden;
     @include desktop {
       min-height: 100%;
+      width: 100%;
     }
   }
   &-4 {
@@ -479,16 +483,16 @@ $ein-height: 388px;
   display: none;
 }
 
+#grc-toggle-sound {
+  display: none;
+}
+
 .grc-section-loader-sound-toggle {
   position: absolute;
   top: 5%;
   right: 5%;
   font-family: 'Helvetica Neue', Helvetica, Arial;
   color: white;
-  display: none;
-  @include desktop {
-    display: block;
-  }
   a {
     text-decoration: none;
     font-weight: bold;
@@ -606,6 +610,9 @@ $ein-height: 388px;
     text-shadow: 2px 2px #000000;
     z-index: 20;
   }
+  @include desktop-xl {
+    font: $text-italic-desktop-xl;
+  }
 }
 
 /* Section 2 | @s2
@@ -695,6 +702,11 @@ $ein-height: 388px;
     bottom: 60px;
     &-content {
       font: $text-italic-desktop;
+    }
+  }
+  @include desktop-xl {
+    &-content {
+      font: $text-italic-desktop-xl;
     }
   }
 }
@@ -797,12 +809,17 @@ $s3-panel-left-width: 800px;
         font: $text-italic-desktop;
       }
     }
+    @include desktop-xl {
+      &-content {
+        font: $text-italic-desktop-xl;
+      }
+    }
   }
   &-bubble {
     width: 160px;
-    top: 70%;
+    top: 80%;
     left: auto;
-    right: 0;
+    right: 20%;
     &-box {
 
     }
@@ -823,6 +840,11 @@ $s3-panel-left-width: 800px;
         font: $text-desktop;
       }
     }
+    @include desktop {
+      &-content {
+        font: $text-desktop-xl;
+      }
+    }
   }
   @include tablet {
     width: $s3-panel-left-width/1.5;
@@ -832,12 +854,19 @@ $s3-panel-left-width: 800px;
     position: absolute;
     top: 0;
     bottom: 0;
-    margin: auto 0;
-    margin-left: -30%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-left: 10%;
     display: inline-block;
     overflow: hidden;
+
+  }
+  @include desktop-lg {
+    margin-left: 20%;
   }
   @include desktop-xl {
+    margin-left: 28%;
   }
 }
 
@@ -892,6 +921,9 @@ $s3-panel-right-char-height: 640px;
     @include desktop {
       font: $text-desktop;
     }
+    @include desktop-xl {
+      font: $text-desktop-xl;
+    }
   }
   &-bubble {
     width: 240px;
@@ -914,6 +946,11 @@ $s3-panel-right-char-height: 640px;
         font: $text-desktop;
       }
     }
+    @include desktop-xl {
+      &-content {
+        font: $text-desktop-xl;
+      }
+    }
   }
   @include tablet {
     width: $s3-panel-right-width/1.5;
@@ -930,9 +967,11 @@ $s3-panel-right-char-height: 640px;
     position: absolute;
     top: 0;
     bottom: 0;
-    margin: auto 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-right: 10%;
     display: inline-block;
-    position: absolute;
     width: $s3-panel-right-width/2;
     height: $s3-panel-right-height/2;
     &-bg-repeat {
@@ -960,6 +999,12 @@ $s3-panel-right-char-height: 640px;
       top: -120px;
       right: -15%;
     }
+  }
+  @include desktop-lg {
+    margin-right: 20%;
+  }
+  @include desktop-xl {
+    margin-right: 28%;
   }
 }
 
@@ -1026,6 +1071,9 @@ $s4-char-height: 420px;
     max-width: 900px;
     margin: 5% auto 0;
   }
+  @include desktop-xl {
+    font: $text-italic-desktop-xl;
+  }
 }
 
 .grc-section-4-bubble {
@@ -1053,8 +1101,14 @@ $s4-char-height: 420px;
   }
   @include desktop {
     left: 55%;
+    bottom: 40%;
     &-content {
       font: $text-desktop;
+    }
+  }
+  @include desktop-xl {
+    &-content {
+      font: $text-desktop-xl;
     }
   }
 }
@@ -1114,6 +1168,9 @@ $b2-width: 252px;
   @include desktop {
     font-size: 2em;
   }
+  @include desktop-xl {
+    font-size: 3em;
+  }
 }
 
 .grc-section-5-text-1 {
@@ -1128,6 +1185,7 @@ $b2-width: 252px;
     top: 34%;
   }
   @include desktop {
+    width: 400px;
     top: 22%;
     @include vendor-prefix(transform, translateX(30%));
   }
@@ -1244,6 +1302,12 @@ $s5-char-height: 702px;
   }
   @include desktop-xl {
     bottom: 80px;
+    &-content {
+      font: $text-italic-desktop-xl;
+      b {
+        font: $text-bold-desktop-xl;
+      }
+    }
   }
 }
 
@@ -1389,6 +1453,9 @@ $s6-char-height: 460px;
     margin: auto;
     font: $text-desktop;
   }
+  @include desktop-xl {
+    font: $text-desktop-xl;
+  }
 }
 
 .grc-section-6-text-1 {
@@ -1512,6 +1579,11 @@ $s6-char-height: 460px;
 
       font: $text-desktop;
       color: black;
+    }
+  }
+  @include desktop-xl {
+    &-content {
+      font: $text-desktop-xl;
     }
   }
 }
@@ -1652,6 +1724,7 @@ $s6-char-height: 600px;
   }
   &-jupiter {
     top: 15%;
+    left: auto;
     width: (145px/4);
     height: (228px/4);
   }
@@ -1846,6 +1919,8 @@ $s6-char-height: 600px;
     }
     &-jupiter {
       top: 25%;
+      left: 30%;
+      right: auto;
       width: (145px/1.5);
       height: (228px/1.5);
     }
@@ -1910,6 +1985,11 @@ $s6-char-height: 600px;
       font: $text-italic-desktop;
     }
   }
+  @include desktop-xl {
+    &-content {
+      font: $text-italic-desktop-xl;
+    }
+  }
 }
 
 .grc-section-7-text-2 {
@@ -1938,6 +2018,11 @@ $s6-char-height: 600px;
       font: $text-italic-desktop;
     }
   }
+  @include desktop-xl {
+    &-content {
+      font: $text-italic-desktop-xl;
+    }
+  }
 }
 
 .grc-section-7-text-3 {
@@ -1959,11 +2044,12 @@ $s6-char-height: 600px;
     }
   }
   @include desktop {
-    position: fixed;
-    top: 0;
+    // position: fixed;
+    top: auto;
+    bottom: 30%;
     left: 0;
     right: 0;
-    bottom: 0;
+    margin: 0 auto;
     &-box {
       z-index: -1;
     }
@@ -1972,6 +2058,17 @@ $s6-char-height: 600px;
       z-index: 20;
       font: $text-italic-desktop;
     }
+  }
+  @include desktop-xl {
+    &-content {
+      font: $text-italic-desktop-xl;
+    }
+  }
+}
+
+.ie .grc-section-7-text-3 {
+  @include desktop {
+    display: block;
   }
 }
 
@@ -2064,7 +2161,7 @@ $s6-char-height: 600px;
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: -1;
+    pointer-events: none;
   }
 }
 
@@ -2087,10 +2184,10 @@ $s6-char-height: 600px;
     height: $logo-height * 2;
   }
   @include desktop {
-    margin-top: 5%;
+    margin-top: 0;
     width: $logo-width * 2;
     height: $logo-height * 2;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
 }
 

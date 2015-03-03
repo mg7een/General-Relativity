@@ -118,7 +118,8 @@ body {
     overflow: hidden; }
     @media only screen and (min-width: 992px) {
       .grc-section-3 {
-        min-height: 100%; } }
+        min-height: 100%;
+        width: 100%; } }
   .grc-section-4 {
     overflow: hidden;
     z-index: 20; }
@@ -284,16 +285,15 @@ body {
 .grc-section-loader-scrolldown {
   display: none; }
 
+#grc-toggle-sound {
+  display: none; }
+
 .grc-section-loader-sound-toggle {
   position: absolute;
   top: 5%;
   right: 5%;
   font-family: 'Helvetica Neue', Helvetica, Arial;
-  color: white;
-  display: none; }
-  @media only screen and (min-width: 992px) {
-    .grc-section-loader-sound-toggle {
-      display: block; } }
+  color: white; }
   .grc-section-loader-sound-toggle a {
     text-decoration: none;
     font-weight: bold;
@@ -421,6 +421,9 @@ body {
       font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
       text-shadow: 2px 2px #000000;
       z-index: 20; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-1-text {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 /* Section 2 | @s2
    ========================================================================== */
@@ -592,6 +595,9 @@ body {
       bottom: 60px; }
       .grc-section-2-text-content {
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-2-text-content {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .ie .grc-section-2-text {
   display: block; }
@@ -696,11 +702,14 @@ body {
         left: 0; }
         .grc-section-3-panel-left-text-content {
           font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+    @media only screen and (min-width: 1600px) {
+      .grc-section-3-panel-left-text-content {
+        font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   .grc-section-3-panel-left-bubble {
     width: 160px;
-    top: 70%;
+    top: 80%;
     left: auto;
-    right: 0; }
+    right: 20%; }
     .grc-section-3-panel-left-bubble-content {
       padding: 20px;
       margin-left: 220px;
@@ -714,6 +723,9 @@ body {
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-left-bubble-content {
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+    @media only screen and (min-width: 992px) {
+      .grc-section-3-panel-left-bubble-content {
+        font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 768px) {
     .grc-section-3-panel-left {
       width: 533.33333px;
@@ -723,10 +735,18 @@ body {
       position: absolute;
       top: 0;
       bottom: 0;
-      margin: auto 0;
-      margin-left: -30%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-left: 10%;
       display: inline-block;
       overflow: hidden; } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-3-panel-left {
+      margin-left: 20%; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-3-panel-left {
+      margin-left: 28%; } }
 
 .grc-section-3-panel-right {
   position: relative;
@@ -771,6 +791,9 @@ body {
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-right-text {
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+    @media only screen and (min-width: 1600px) {
+      .grc-section-3-panel-right-text {
+        font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   .grc-section-3-panel-right-bubble {
     width: 240px;
     top: -160px;
@@ -784,6 +807,9 @@ body {
     @media only screen and (min-width: 992px) {
       .grc-section-3-panel-right-bubble-content {
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+    @media only screen and (min-width: 1600px) {
+      .grc-section-3-panel-right-bubble-content {
+        font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 768px) {
     .grc-section-3-panel-right {
       width: 533.33333px;
@@ -796,9 +822,11 @@ body {
       position: absolute;
       top: 0;
       bottom: 0;
-      margin: auto 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-right: 10%;
       display: inline-block;
-      position: absolute;
       width: 400px;
       height: 478px; }
       .grc-section-3-panel-right-bg-repeat {
@@ -821,6 +849,12 @@ body {
         width: 320px;
         top: -120px;
         right: -15%; } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-3-panel-right {
+      margin-right: 20%; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-3-panel-right {
+      margin-right: 28%; } }
 
 /* Section 4 | @s4
    ========================================================================== */
@@ -880,6 +914,9 @@ body {
       font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
       max-width: 900px;
       margin: 5% auto 0; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-4-text {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-4-bubble {
   width: 200px;
@@ -904,9 +941,13 @@ body {
         font: normal 1em/120% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-4-bubble {
-      left: 55%; }
+      left: 55%;
+      bottom: 40%; }
       .grc-section-4-bubble-content {
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-4-bubble-content {
+      font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 .ie .grc-section-4-bubble {
   display: block; }
@@ -957,6 +998,11 @@ body {
     .grc-section-5-text-2,
     .grc-section-5-text-3 {
       font-size: 2em; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-5-text-1,
+    .grc-section-5-text-2,
+    .grc-section-5-text-3 {
+      font-size: 3em; } }
 
 .grc-section-5-text-1 {
   position: absolute;
@@ -971,6 +1017,7 @@ body {
       top: 34%; } }
   @media only screen and (min-width: 992px) {
     .grc-section-5-text-1 {
+      width: 400px;
       top: 22%;
       -webkit-transform: translateX(30%);
       -ms-transform: translateX(30%);
@@ -1084,7 +1131,11 @@ body {
           font: normal 0.85em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 1600px) {
     .grc-section-5-text {
-      bottom: 80px; } }
+      bottom: 80px; }
+      .grc-section-5-text-content {
+        font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; }
+        .grc-section-5-text-content b {
+          font: normal 1em/180% "CCWildWordsBoldItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .ie .grc-section-5-text {
   display: block; }
@@ -1365,6 +1416,11 @@ body {
       top: 5%;
       margin: auto;
       font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-6-text-1,
+    .grc-section-6-text-2,
+    .grc-section-6-text-3 {
+      font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-6-text-1 {
   padding-top: 80px; }
@@ -1480,6 +1536,9 @@ body {
         height: 100%;
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial;
         color: black; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-6-bubble-content {
+      font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-6-char {
   position: absolute;
@@ -1588,6 +1647,7 @@ body {
     height: 233.5px; }
   .grc-section-7-jupiter {
     top: 15%;
+    left: auto;
     width: 36.25px;
     height: 57px; }
   .grc-section-7-planet {
@@ -1746,6 +1806,8 @@ body {
         height: 622.66667px; }
       .grc-section-7-jupiter {
         top: 25%;
+        left: 30%;
+        right: auto;
         width: 96.66667px;
         height: 152px; }
       .grc-section-7-planet {
@@ -1797,6 +1859,9 @@ body {
       width: 300px; }
       .grc-section-7-text-1-content {
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-7-text-1-content {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-7-text-2 {
   width: 300px;
@@ -1821,6 +1886,9 @@ body {
       z-index: 21; }
       .grc-section-7-text-2-content {
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-7-text-2-content {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
 
 .grc-section-7-text-3 {
   position: absolute;
@@ -1840,17 +1908,24 @@ body {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
   @media only screen and (min-width: 992px) {
     .grc-section-7-text-3 {
-      position: fixed;
-      top: 0;
+      top: auto;
+      bottom: 30%;
       left: 0;
       right: 0;
-      bottom: 0; }
+      margin: 0 auto; }
       .grc-section-7-text-3-box {
         z-index: -1; }
       .grc-section-7-text-3-content {
         position: relative;
         z-index: 20;
         font: normal 0.85em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+  @media only screen and (min-width: 1600px) {
+    .grc-section-7-text-3-content {
+      font: normal 1em/180% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
+
+@media only screen and (min-width: 992px) {
+  .ie .grc-section-7-text-3 {
+    display: block; } }
 
 /* SVG Animations */
 #s7-svg {
@@ -1917,7 +1992,7 @@ body {
       right: 0;
       bottom: 0;
       top: 0;
-      z-index: -1; } }
+      pointer-events: none; } }
 
 .grc-section-end-logo-link {
   position: relative;
@@ -1939,10 +2014,10 @@ body {
       height: 78px; } }
   @media only screen and (min-width: 992px) {
     .grc-section-end-logo-link {
-      margin-top: 5%;
+      margin-top: 0;
       width: 200px;
       height: 78px;
-      margin-bottom: 5%; } }
+      margin-bottom: 10%; } }
 
 .grc-section-end-logo {
   width: 100px;

@@ -185,8 +185,9 @@ var controller = new ScrollMagic();
  * global toggle sound
  */
 
-var buzzPlaying = true;
+var buzzPlaying = false;
 
+$('#grc-toggle-sound').show();
 $('#grc-toggle-sound').on('click', function() {
 
   // toggle sound and play or stop corresponding to value
@@ -195,10 +196,10 @@ $('#grc-toggle-sound').on('click', function() {
   else { s1Sound.play().loop(); }
 
   // swap text
-  if ($(this).html() == "On") {
-    $(this).html("Off");
+  if ($(this).find('span').html() == "On") {
+    $(this).find('span').html("Off");
   } else {
-    $(this).html("On");
+    $(this).find('span').html("On");
   }
 });
 
@@ -470,7 +471,8 @@ scene3.on('enter', function(ev) {
   scene3_animation.play();
   $(_panelRight).addClass("animated");
   if (ev.scrollDirection == "FORWARD") {
-    s1Sound.fadeOut(2000);
+    // s1Sound.fadeOut(2000);
+    s1Sound.pause();
     if (buzzPlaying) { s3Sound.fadeIn().loop(); }
   }
 
@@ -947,7 +949,16 @@ var scene7_animation = new TimelineMax()
       width: '100%'
     })
   ])
-  .add(TweenMax.to($s7Path1, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(
+    TweenMax.to($s7Path1, 0.5, {
+      strokeDashoffset: 0,
+      ease:Linear.easeNone,
+      onStart: function() {
+        if (buzzPlaying) s8Sound.play();
+        console.log("playing s8Sound");
+      }
+    })
+  )
   .add(TweenMax.to($s7Path2, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path3, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path4, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
@@ -1003,11 +1014,7 @@ var scene7_animation = new TimelineMax()
   ])
   .add([
     TweenMax.to(_s7Svg, 5, {
-      x: '-200%',
-      onStart: function() {
-        if (buzzPlaying) s8Sound.play();
-        console.log("playing s8Sound");
-      }
+      x: '-200%'
     }),
     TweenMax.to(_s7Chair, 2.5, {
       opacity: 0,
@@ -1077,7 +1084,7 @@ var scene7_animation = new TimelineMax()
   .add([
     TweenMax.to('.grc-section-end', 3, {
       opacity: 1,
-      'z-index': 10
+      'pointer-events': 'auto'
     })
   ]);
 
@@ -1097,7 +1104,10 @@ scene7.on('progress', function(ev) {
   s7Direction = ev.scrollDirection;
 });
 
-scene7.on('enter', function() {
+scene7.on('enter', function(ev) {
+  if (ev.scrollDirection == "REVERSE") {
+    s8Sound.pause();
+  }
   if (!scene7_trigger) {
     $(document).trigger('setScene', {
       scene: 'Scene 7: Equations',
