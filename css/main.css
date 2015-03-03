@@ -1515,8 +1515,8 @@ body {
   .grc-section-7-chair {
     display: block;
     margin: 80px auto;
-    width: 206px;
-    height: 218.5px; }
+    width: 200px;
+    height: 237px; }
   .grc-section-7-equation-container, .grc-section-7-cosmos-container {
     position: relative;
     padding-top: 140px; }
@@ -1605,8 +1605,8 @@ body {
     height: 270.75px; }
   @media only screen and (min-width: 768px) {
     .grc-section-7-chair {
-      width: 235.42857px;
-      height: 249.71429px; }
+      width: 228.57143px;
+      height: 270.85714px; }
     .grc-section-7-equation-container {
       min-height: 1580px; }
     .grc-section-7-cosmos-container {
@@ -1689,8 +1689,8 @@ body {
         position: absolute;
         bottom: 0;
         left: 15%;
-        width: 329.6px;
-        height: 349.6px;
+        width: 320px;
+        height: 379.2px;
         margin: 0; }
       .grc-section-7-equation-container, .grc-section-7-cosmos-container {
         min-height: auto;

@@ -1549,8 +1549,8 @@ $s6-char-height: 600px;
   &-chair {
     display: block;
     margin: 80px auto;
-    width: (412px/2);
-    height: (437px/2);
+    width: (400px/2);
+    height: (474px/2);
   }
   &-equation-container,
   &-cosmos-container {
@@ -1673,8 +1673,8 @@ $s6-char-height: 600px;
   }
   @include tablet {
     &-chair {
-      width: (412px/1.75);
-      height: (437px/1.75);
+      width: (400px/1.75);
+      height: (474px/1.75);
     }
     &-equation-container {
       min-height: 1580px;
@@ -1777,8 +1777,8 @@ $s6-char-height: 600px;
       position: absolute;
       bottom: 0;
       left: 15%;
-      width: (412px/1.25);
-      height: (437px/1.25);
+      width: (400px/1.25);
+      height: (474px/1.25);
       margin: 0;
     }
     &-equation-container,
