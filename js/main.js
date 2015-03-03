@@ -187,6 +187,7 @@ var controller = new ScrollMagic();
 
 var buzzPlaying = true;
 
+$('#grc-toggle-sound').show();
 $('#grc-toggle-sound').on('click', function() {
 
   // toggle sound and play or stop corresponding to value
@@ -195,10 +196,10 @@ $('#grc-toggle-sound').on('click', function() {
   else { s1Sound.play().loop(); }
 
   // swap text
-  if ($(this).html() == "On") {
-    $(this).html("Off");
+  if ($(this).find('span').html() == "On") {
+    $(this).find('span').html("Off");
   } else {
-    $(this).html("On");
+    $(this).find('span').html("On");
   }
 });
 
@@ -226,6 +227,8 @@ var s1SpriteWidth = 825 * 25;
 var s1SteppedEase = new SteppedEase(25);
 
 // scene 2 is under scene 1 so set up some initial properties
+
+$('.grc-section-2-character').removeClass("animated");
 
 TweenMax.set('.grc-section-1', {
   backgroundColor: 'transparent'
@@ -470,7 +473,8 @@ scene3.on('enter', function(ev) {
   scene3_animation.play();
   $(_panelRight).addClass("animated");
   if (ev.scrollDirection == "FORWARD") {
-    s1Sound.fadeOut(2000);
+    // s1Sound.fadeOut(2000);
+    s1Sound.pause();
     if (buzzPlaying) { s3Sound.fadeIn().loop(); }
   }
 
@@ -947,7 +951,16 @@ var scene7_animation = new TimelineMax()
       width: '100%'
     })
   ])
-  .add(TweenMax.to($s7Path1, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
+  .add(
+    TweenMax.to($s7Path1, 0.5, {
+      strokeDashoffset: 0,
+      ease:Linear.easeNone,
+      onStart: function() {
+        if (buzzPlaying) s8Sound.play();
+        console.log("playing s8Sound");
+      }
+    })
+  )
   .add(TweenMax.to($s7Path2, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path3, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
   .add(TweenMax.to($s7Path4, 0.5, {strokeDashoffset: 0, ease:Linear.easeNone}))
@@ -982,7 +995,7 @@ var scene7_animation = new TimelineMax()
   .add([
     TweenMax.to(_s7Text1, 2.5, {
       opacity: 0,
-      x: '-100%'
+      x: '-150%'
     }),
     TweenMax.to(_s7Text2, 2.5, {
       opacity: 1
@@ -1003,11 +1016,7 @@ var scene7_animation = new TimelineMax()
   ])
   .add([
     TweenMax.to(_s7Svg, 5, {
-      x: '-200%',
-      onStart: function() {
-        if (buzzPlaying) s8Sound.play();
-        console.log("playing s8Sound");
-      }
+      x: '-200%'
     }),
     TweenMax.to(_s7Chair, 2.5, {
       opacity: 0,
@@ -1076,7 +1085,8 @@ var scene7_animation = new TimelineMax()
   // fade in section end
   .add([
     TweenMax.to('.grc-section-end', 3, {
-      opacity: 1
+      opacity: 1,
+      'pointer-events': 'auto'
     })
   ]);
 
@@ -1096,7 +1106,10 @@ scene7.on('progress', function(ev) {
   s7Direction = ev.scrollDirection;
 });
 
-scene7.on('enter', function() {
+scene7.on('enter', function(ev) {
+  if (ev.scrollDirection == "REVERSE") {
+    s8Sound.pause();
+  }
   if (!scene7_trigger) {
     $(document).trigger('setScene', {
       scene: 'Scene 7: Equations',
