@@ -137,7 +137,7 @@ body {
     background-color: #091525;
     height: auto;
     z-index: 20; }
-    @media only screen and (min-width: 992px) {
+    @media only screen and (min-width: 1200px) {
       .grc-section-7 {
         height: 100%; } }
   .grc-section-end {
@@ -1366,6 +1366,9 @@ body {
   @media only screen and (min-width: 768px) {
     .grc-section-6-character-container {
       top: 140px; } }
+  @media only screen and (min-width: 992px) {
+    .grc-section-6-character-container {
+      top: 220px; } }
 
 .grc-section-6-character {
   position: relative;
@@ -1428,8 +1431,12 @@ body {
     color: black; }
   @media only screen and (min-width: 992px) {
     .grc-section-6-text-1 {
+      top: 0;
       width: 60%;
       max-width: 800px; } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-6-text-1 {
+      top: 5%; } }
 
 .grc-section-6-text-2 {
   padding-top: 40px; }
@@ -1437,11 +1444,14 @@ body {
     color: #ffeb40; }
   @media only screen and (min-width: 992px) {
     .grc-section-6-text-2 {
-      top: 15%;
+      top: 10%;
       left: 5%;
       right: auto;
       width: 400px;
       padding-top: 0; } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-6-text-2 {
+      top: 15%; } }
   @media only screen and (min-width: 1600px) {
     .grc-section-6-text-2 {
       left: 15%; } }
@@ -1514,11 +1524,11 @@ body {
       margin: auto;
       width: 320px;
       height: 320px;
-      -webkit-transform: translateX(400px);
-      -ms-transform: translateX(400px);
-      -moz-transform: translateX(400px);
-      -o-transform: translateX(400px);
-      transform: translateX(400px); }
+      -webkit-transform: translateX(400px) translateY(-240px);
+      -ms-transform: translateX(400px) translateY(-240px);
+      -moz-transform: translateX(400px) translateY(-240px);
+      -o-transform: translateX(400px) translateY(-240px);
+      transform: translateX(400px) translateY(-240px); }
       .grc-section-6-bubble-box {
         position: absolute;
         top: 0;
@@ -1536,6 +1546,13 @@ body {
         height: 100%;
         font: normal 0.85em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial;
         color: black; } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-6-bubble {
+      -webkit-transform: translateX(400px);
+      -ms-transform: translateX(400px);
+      -moz-transform: translateX(400px);
+      -o-transform: translateX(400px);
+      transform: translateX(400px); } }
   @media only screen and (min-width: 1600px) {
     .grc-section-6-bubble-content {
       font: normal 1em/180% "CCWildWordsRegular", "Helvetica Neue", Helvetica, Arial; } }
@@ -1561,6 +1578,13 @@ body {
     .grc-section-6-char {
       top: 0;
       bottom: 0;
+      -webkit-transform: translateX(270px) translateY(-40px);
+      -ms-transform: translateX(270px) translateY(-40px);
+      -moz-transform: translateX(270px) translateY(-40px);
+      -o-transform: translateX(270px) translateY(-40px);
+      transform: translateX(270px) translateY(-40px); } }
+  @media only screen and (min-width: 1200px) {
+    .grc-section-6-char {
       -webkit-transform: translateX(270px) translateY(240px);
       -ms-transform: translateX(270px) translateY(240px);
       -moz-transform: translateX(270px) translateY(240px);
@@ -1742,7 +1766,7 @@ body {
     .grc-section-7-stars {
       width: 619.33333px;
       height: 361px; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-7 {
       padding-top: 0; }
       .grc-section-7-chair {
@@ -1826,7 +1850,7 @@ body {
       .grc-section-7-stars {
         width: 1238.66667px;
         height: 722px; } }
-  @media only screen and (min-width: 992px) and (min-width: 1600px) {
+  @media only screen and (min-width: 1200px) and (min-width: 1600px) {
     .grc-section-7-stars {
       width: 1858px;
       height: 1083px; }
@@ -1850,7 +1874,7 @@ body {
       margin-top: 5%; }
       .grc-section-7-text-1-content {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-7-text-1 {
       top: 0%;
       left: 5%;
@@ -1876,7 +1900,7 @@ body {
       margin-top: 0; }
       .grc-section-7-text-2-content {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-7-text-2 {
       top: auto;
       left: auto;
@@ -1906,7 +1930,7 @@ body {
       margin-top: 20%; }
       .grc-section-7-text-3-content {
         font: normal 1em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-7-text-3 {
       top: auto;
       bottom: 30%;
@@ -1953,7 +1977,7 @@ body {
       .grc-section-end-stars-mobile, .grc-section-end-stars-desktop {
         min-width: 100%;
         min-height: 90%; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-end-stars-mobile {
       display: none; } }
   .grc-section-end-stars-desktop {
@@ -1985,7 +2009,7 @@ body {
     @media only screen and (min-width: 768px) {
       .grc-section-end-social-icon {
         padding: 40px; } }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     .grc-section-end {
       position: absolute;
       left: 0;

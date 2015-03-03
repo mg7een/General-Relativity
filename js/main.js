@@ -228,6 +228,8 @@ var s1SteppedEase = new SteppedEase(25);
 
 // scene 2 is under scene 1 so set up some initial properties
 
+$('.grc-section-2-character').removeClass("animated");
+
 TweenMax.set('.grc-section-1', {
   backgroundColor: 'transparent'
 });
@@ -993,7 +995,7 @@ var scene7_animation = new TimelineMax()
   .add([
     TweenMax.to(_s7Text1, 2.5, {
       opacity: 0,
-      x: '-100%'
+      x: '-150%'
     }),
     TweenMax.to(_s7Text2, 2.5, {
       opacity: 1

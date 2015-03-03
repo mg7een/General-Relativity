@@ -298,7 +298,7 @@ body {
     background-color: #091525;
     height: auto;
     z-index: 20;
-    @include desktop {
+    @include desktop-lg {
       height: 100%;
     }
   }
@@ -1412,6 +1412,9 @@ $s6-char-height: 460px;
   @include tablet {
     top: 140px;
   }
+  @include desktop {
+    top: 220px;
+  }
 }
 
 .grc-section-6-character {
@@ -1464,23 +1467,29 @@ $s6-char-height: 460px;
     color: black;
   }
   @include desktop {
+    top: 0;
     width: 60%;
     max-width: 800px;
+  }
+  @include desktop-lg {
+    top: 5%;
   }
 }
 
 .grc-section-6-text-2 {
   padding-top: 40px;
-  // padding-bottom: 60px;
   span {
     color: #ffeb40;
   }
   @include desktop {
-    top: 15%;
+    top: 10%;
     left: 5%;
     right: auto;
     width: 400px;
     padding-top: 0;
+  }
+  @include desktop-lg {
+    top: 15%;
   }
   @include desktop-xl {
     left: 15%;
@@ -1554,7 +1563,7 @@ $s6-char-height: 460px;
     margin: auto;
     width: 320px;
     height: 320px;
-    @include vendor-prefix(transform, translateX(400px));
+    @include vendor-prefix(transform, translateX(400px) translateY(-240px) );
     // END IMAGE BUBBLE CSS
 
     &-box {
@@ -1581,6 +1590,9 @@ $s6-char-height: 460px;
       color: black;
     }
   }
+  @include desktop-lg {
+    @include vendor-prefix(transform, translateX(400px) );
+  }
   @include desktop-xl {
     &-content {
       font: $text-desktop-xl;
@@ -1605,10 +1617,11 @@ $s6-char-height: 600px;
     height: $s6-char-height / 2;
   }
   @include desktop {
-    // width: $s6-char-width / 2;
-    // height: $s6-char-height / 2;
     top: 0;
     bottom: 0;
+    @include vendor-prefix( transform, translateX(270px) translateY(-40px) );
+  }
+  @include desktop-lg {
     @include vendor-prefix( transform, translateX(270px) translateY(240px) );
   }
 }
@@ -1844,7 +1857,7 @@ $s6-char-height: 600px;
       height: (1083px/3);
     }
   }
-  @include desktop {
+  @include desktop-lg {
     padding-top: 0;
     &-chair {
       position: absolute;
@@ -1975,7 +1988,7 @@ $s6-char-height: 600px;
       font: $text-italic-tablet;
     }
   }
-  @include desktop {
+  @include desktop-lg {
     top: 0%;
     left: 5%;
     right: auto;
@@ -2007,7 +2020,7 @@ $s6-char-height: 600px;
       font: $text-italic-tablet;
     }
   }
-  @include desktop {
+  @include desktop-lg {
     top: auto;
     left: auto;
     right: 0;
@@ -2043,7 +2056,7 @@ $s6-char-height: 600px;
       font: $text-italic-tablet;
     }
   }
-  @include desktop {
+  @include desktop-lg {
     // position: fixed;
     top: auto;
     bottom: 30%;
@@ -2104,7 +2117,7 @@ $s6-char-height: 600px;
     }
   }
   &-stars-mobile {
-    @include desktop {
+    @include desktop-lg {
       display: none;
     }
   }
@@ -2143,19 +2156,9 @@ $s6-char-height: 600px;
     }
     @include tablet {
       padding: 40px;
-      img {
-        // height: 120px;
-        // width: 120px;
-      }
     }
-    // @include desktop {
-    //   img {
-    //     height: 80px;
-    //     width: 80px;
-    //   }
-    // }
   }
-  @include desktop {
+  @include desktop-lg {
     position: absolute;
     left: 0;
     right: 0;
