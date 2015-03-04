@@ -476,7 +476,7 @@ scene3.on('enter', function(ev) {
   if (ev.scrollDirection == "FORWARD") {
     // s1Sound.fadeOut(2000);
     s1Sound.pause();
-    if (buzzPlaying) { s3Sound.fadeIn().loop(); }
+    if (buzzPlaying) { s3Sound.fadeIn(); }
   }
 
   if (!scene3_trigger) {
