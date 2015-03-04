@@ -102,14 +102,14 @@ function shareFb() {
       "app_id=355911134593287" +
       "&display=page" +
       "&action_type=og.likes" +
-      "&action_properties=%7B%22object%22%3A%22http%3A%2F%2Fwww.sciencemag.org%2Fsite%2Fspecial%2Fgeneralrelativity%22%7D" +
-      "&redirect_uri=http%3A%2F%2Fwww.sciencemag.org%2Fsite%2Fspecial%2Fgeneralrelativity";
+      "&action_properties=%7B%22object%22%3A%22http%3A%2F%2Fspark.sciencemag.org%2Fgeneralrelativity%2F%22%7D" +
+      "&redirect_uri=http%3A%2F%2Fspark.sciencemag.org%2Fgeneralrelativity%2F";
     window.open(shareUrl);
   } else {
     FB.ui({
       method: 'share',
-      name: 'General Relativity 100th Anniversary',
-      href: 'http://www.sciencemag.org/site/special/generalrelativity'
+      name: 'General Relativity explained like you\'ve never seen before',
+      href: 'http://spark.sciencemag.org/generalrelativity/'
     });
   }
 
