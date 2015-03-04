@@ -309,7 +309,7 @@ var scene1_animation = new TimelineMax({ delay: 4 })
             scene: 'Scene 2: Floating',
           });
           scene2_trigger = true;
-          console.log("s2 trigger");
+          // console.log("s2 trigger");
         }
       }
     })
@@ -334,7 +334,7 @@ scene1.on('enter', function() {
       scene: 'Scene 1: Cover',
     });
     scene1_trigger = true;
-    console.log("s1 trigger");
+    // console.log("s1 trigger");
   }
 });
 
@@ -484,7 +484,7 @@ scene3.on('enter', function(ev) {
       scene: 'Scene 3: City',
     });
     scene3_trigger = true;
-    console.log("s3 trigger");
+    // console.log("s3 trigger");
   }
 
 });
@@ -573,7 +573,7 @@ scene4.on('enter', function(ev) {
       scene: 'Scene 4: Paradox',
     });
     scene4_trigger = true;
-    console.log("s4 trigger");
+    // console.log("s4 trigger");
   }
 });
 
@@ -662,7 +662,7 @@ scene5.on('enter', function() {
       scene: 'Scene 5: Warped',
     });
     scene5_trigger = true;
-    console.log("s5 trigger");
+    // console.log("s5 trigger");
   }
 });
 
@@ -771,7 +771,7 @@ scene6.on('enter', function(ev) {
       scene: 'Scene 6: Graph',
     });
     scene6_trigger = true;
-    console.log("s6 trigger");
+    // console.log("s6 trigger");
   }
 });
 
@@ -958,7 +958,7 @@ var scene7_animation = new TimelineMax()
       ease:Linear.easeNone,
       onStart: function() {
         if (buzzPlaying) s8Sound.play();
-        console.log("playing s8Sound");
+        // console.log("playing s8Sound");
       }
     })
   )
@@ -1029,13 +1029,13 @@ var scene7_animation = new TimelineMax()
     TweenMax.to(_s7CosmosContainer, 5, {
       left: '0%',
       onComplete: function() {
-        console.log("entered cosmos");
+        // console.log("entered cosmos");
         if (!scene8_trigger) {
           $(document).trigger('setScene', {
             scene: 'Scene 8: Cosmos',
           });
           scene8_trigger = true;
-          console.log("s8 trigger");
+          // console.log("s8 trigger");
         }
       }
     })
@@ -1116,7 +1116,7 @@ scene7.on('enter', function(ev) {
       scene: 'Scene 7: Equations',
     });
     scene7_trigger = true;
-    console.log("s7 trigger");
+    // console.log("s7 trigger");
   }
 });
 
@@ -1150,7 +1150,7 @@ scene7.on('enter', function(ev) {
 
 s8Sound.bind('ended', function() {
   s1Sound.fadeIn(300).stop().play().loop();
-  console.log("s1Sound ended");
+  // console.log("s1Sound ended");
 });
 
 /* Controller | @controller
