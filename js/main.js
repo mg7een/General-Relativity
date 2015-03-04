@@ -87,9 +87,10 @@ if (!window.location.origin) { window.location.origin = window.location.protocol
 var siteUrl = window.location.host;
 
 var shareAccount = "sciencemagazine";
-var shareUrl = window.location.origin + window.location.pathname;
-var shareString = "Text. Via @" + shareAccount;
-var shareStringWithHash = "Text. #Hash Via @" + shareAccount;
+// var shareUrl = window.location.origin + window.location.pathname;
+var shareUrl = 'http://scim.ag/2theRESCUE';
+var shareString = "General Relativity explains general relativity in a new comic from @" + shareAccount;
+var shareStringWithHash = "General Relativity explains general relativity in a new comic from @" + shareAccount;
 
 /* Functions
    ========================================================================== */
@@ -124,7 +125,7 @@ function shareTwitter() {
 /* Mail */
 function shareMail() {
   // mail share prompt
-  document.location.href = "mailto:?subject=" + shareStringWithHash + "&body=" + shareUrl;
+  document.location.href = "mailto:?subject=" + shareStringWithHash + "&body=Einstein’s theory of general relativity turns 100 this year! Want to know how it works? Here’s an interactive comic that you don’t need superpowers to understand. " + shareUrl;
 }
 
 /* Share Buttons */
