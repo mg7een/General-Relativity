@@ -1,6 +1,5 @@
 <html>
 <head>
-<!-- metadata here -->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -24,9 +23,7 @@
     <meta name="twitter:description" content="An interactive comic you don’t need superpowers to understand" />
     <meta name="twitter:url" content="http://spark.sciencemag.org/generalrelativity/" />
     <meta name="twitter:image:src" content="http://spark.sciencemag.org/generalrelativity/img/GeneralRelativityMetadata.jpg" />
-
-    <!-- PRODUCTION DTM SCRIPT-->
-    <script src="//assets.adobedtm.com/926659a1689cc9fca96760b67cca714ae48f0584/satelliteLib-a9d46808a35b7b8034adfab1d8207407222304d5-staging.js"></script>    
+ 
 
 </head>
 <body style="background-color:#163758; margin: 0; padding: 0;">

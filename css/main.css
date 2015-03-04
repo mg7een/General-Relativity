@@ -250,8 +250,8 @@ body {
     font-weight: bold; }
     @media only screen and (min-width: 768px) {
       .grc-section-loader-scrolldown-text {
-        margin-bottom: 20px;
-        font-size: 1.5em; } }
+        margin-bottom: 12px;
+        font-size: 0.9em; } }
   .grc-section-loader-scrolldown-arrow {
     width: 9.66667px;
     height: 27.125px; }
@@ -410,7 +410,10 @@ body {
   right: 0;
   margin: auto 10%;
   font: normal 0.75em/120% "CCWildWordsItalic", "Helvetica Neue", Helvetica, Arial;
-  color: white; }
+  color: white; 
+  background-color: rgba(0,0,0,0.6); 
+  padding: 12px;
+  z-index: 20; }
   @media only screen and (min-width: 768px) {
     .grc-section-1-text {
       top: 10%;

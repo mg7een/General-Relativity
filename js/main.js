@@ -119,7 +119,7 @@ function shareFb() {
 /* Twitter */
 function shareTwitter() {
   // twitter share prompt
-  window.open('https://twitter.com/intent/tweet?url='+shareUrl+'&text='+shareString+'&hashtags=GeneralRelativity','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420');
+  window.open('https://twitter.com/intent/tweet?url='+shareUrl+'&text='+shareString+'&hashtags=100yrsofgeneralrelativity','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420');
 }
 
 /* Mail */
